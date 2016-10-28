@@ -44,3 +44,4 @@ public class CameraFragment extends Fragment {
         super.onPause();
     }
 }
+

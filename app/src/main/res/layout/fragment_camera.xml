@@ -92,6 +92,31 @@
             android:layout_alignLeft="@+id/imageButton5"
             android:layout_alignStart="@+id/imageButton5" />
 
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="24dp"
+            android:id="@+id/textView2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/imageButton4"
+            android:layout_alignStart="@+id/imageButton4" />
+
     </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|left">
+
+        <ImageView
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/sinwaku"
+            android:id="@+id/imageView4" />
+    </LinearLayout>
 
 </FrameLayout>
