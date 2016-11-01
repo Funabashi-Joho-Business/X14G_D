@@ -43,5 +43,6 @@ public class CameraFragment extends Fragment {
         mCamera.close();
         super.onPause();
     }
+
 }
 
