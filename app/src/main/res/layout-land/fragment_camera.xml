@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        />
+        tools:ignore="RtlHardcoded" />
     <TextureView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/a"
-        android:id="@+id/imageView" />
+        android:id="@+id/imageView"
+        tools:ignore="ContentDescription" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,21 +38,23 @@
             app:srcCompat="@drawable/mainasuu"
             android:layout_marginRight="15dp"
             android:layout_marginEnd="15dp"
-            android:id="@+id/imageButton5"
+            android:id="@+id/imageZoomOut"
             android:layout_alignBottom="@+id/imageButton4"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:background="@null" />
+            android:background="@null"
+            tools:ignore="ContentDescription,UnknownId" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/modoru"
-            android:id="@+id/imageButton"
+            android:id="@+id/imageBack"
             android:background="@null"
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/imageButton3"
-            android:layout_alignStart="@+id/imageButton3" />
+            android:layout_alignStart="@+id/imageButton3"
+            tools:ignore="ContentDescription" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -61,9 +64,10 @@
             android:layout_marginStart="21dp"
             android:id="@+id/imageButton3"
             android:background="@null"
-            android:layout_below="@+id/imageButton"
+            android:layout_below="@+id/imageBack"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            tools:ignore="ContentDescription" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -73,7 +77,9 @@
             android:background="@null"
             android:layout_below="@+id/imageButton3"
             android:layout_alignLeft="@+id/imageButton3"
-            android:layout_alignStart="@+id/imageButton3" />
+            android:layout_alignStart="@+id/imageButton3"
+            android:contentDescription=""
+            tools:ignore="ContentDescription" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -82,18 +88,20 @@
             android:id="@+id/imageButton8"
             android:background="@null"
             android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageButton6"
-            android:layout_alignStart="@+id/imageButton6" />
+            android:layout_alignLeft="@+id/imageZoomIn"
+            android:layout_alignStart="@+id/imageZoomIn"
+            tools:ignore="ContentDescription" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/purasusu"
-            android:id="@+id/imageButton6"
+            android:id="@+id/imageZoomIn"
             android:background="@null"
             android:layout_below="@+id/imageButton8"
-            android:layout_alignLeft="@+id/imageButton5"
-            android:layout_alignStart="@+id/imageButton5" />
+            android:layout_alignLeft="@+id/imageZoomOut"
+            android:layout_alignStart="@+id/imageZoomOut"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:text="TextView"
@@ -105,7 +113,8 @@
             android:id="@+id/textView2"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/imageButton4"
-            android:layout_alignStart="@+id/imageButton4" />
+            android:layout_alignStart="@+id/imageButton4"
+            tools:ignore="HardcodedText" />
 
     </RelativeLayout>
 
@@ -113,13 +122,15 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom|left">
+        android:gravity="bottom|left"
+        tools:ignore="RtlHardcoded">
 
         <ImageView
             android:layout_width="228dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sinwaku"
-            android:id="@+id/imageView4" />
+            android:id="@+id/imageView4"
+            tools:ignore="ContentDescription" />
 
     </LinearLayout>
 

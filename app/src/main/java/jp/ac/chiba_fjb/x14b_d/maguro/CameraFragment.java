@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment {
+public class CameraFragment extends Fragment implements View.OnClickListener {
     private CameraPreview mCamera;
 
     public CameraFragment() {
@@ -24,7 +24,12 @@ public class CameraFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_camera, container, false);
+        View view =  inflater.inflate(R.layout.fragment_camera, container, false);
+
+        view.findViewById(R.id.imageZoomIn).setOnClickListener(this);
+        view.findViewById(R.id.imageZoomOut).setOnClickListener(this);
+        view.findViewById(R.id.imageBack).setOnClickListener(this);
+        return view;
     }
 
     @Override
@@ -39,10 +44,34 @@ public class CameraFragment extends Fragment {
     }
 
     @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
     public void onPause() {
         mCamera.close();
         super.onPause();
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.imageZoomIn:
+                mCamera.zoom(1);
+                break;
+            case R.id.imageZoomOut:
+                mCamera.zoom(-1);
+                break;
+            case R.id.imageBack:
+                getActivity().onBackPressed();
+                break;
+        }
+    }
 }
 

@@ -96,15 +96,13 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         mTextureWidth = width;
         mTextureHeight = height;
 
-        if(mPreview)
-            startPreview();
+        //if(mPreview)
+         //   startPreview();
     }
 
     @Override
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-        //カメラデバイスの解放
-        mCamera.release();
-        mCamera = null;
+        stopPreview();
         return false;
     }
 
@@ -174,6 +172,7 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         if(mCamera == null)
             return false;
         mCamera.release();
+        mCamera = null;
         return true;
     }
     public List<Camera.Size> getPreviewSizes(){
@@ -235,6 +234,20 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
             return false;
         Camera.Parameters params = mCamera.getParameters();
         params.setFlashMode(flag?Camera.Parameters.FLASH_MODE_TORCH:Camera.Parameters.FLASH_MODE_OFF);
+        mCamera.setParameters(params);
+        return true;
+    }
+    public boolean zoom(int value){
+        if(mCamera == null)
+            return false;
+        Camera.Parameters params = mCamera.getParameters();
+        int zoom = params.getZoom();
+        zoom += value;
+        if(zoom < 0)
+            zoom = 0;
+        else if(zoom > params.getMaxZoom())
+            zoom = params.getMaxZoom();
+        params.setZoom(zoom);
         mCamera.setParameters(params);
         return true;
     }
