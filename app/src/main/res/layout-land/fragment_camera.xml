@@ -39,7 +39,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginEnd="15dp"
             android:id="@+id/imageZoomOut"
-            android:layout_alignBottom="@+id/imageButton4"
+            android:layout_alignBottom="@+id/imageTimer"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:background="@null"
@@ -52,8 +52,8 @@
             android:id="@+id/imageBack"
             android:background="@null"
             android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageButton3"
-            android:layout_alignStart="@+id/imageButton3"
+            android:layout_alignLeft="@+id/imageREC"
+            android:layout_alignStart="@+id/imageREC"
             tools:ignore="ContentDescription" />
 
         <ImageButton
@@ -62,7 +62,7 @@
             app:srcCompat="@drawable/rc"
             android:layout_marginLeft="21dp"
             android:layout_marginStart="21dp"
-            android:id="@+id/imageButton3"
+            android:id="@+id/imageREC"
             android:background="@null"
             android:layout_below="@+id/imageBack"
             android:layout_alignParentLeft="true"
@@ -73,11 +73,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/t"
-            android:id="@+id/imageButton4"
+            android:id="@+id/imageTimer"
             android:background="@null"
-            android:layout_below="@+id/imageButton3"
-            android:layout_alignLeft="@+id/imageButton3"
-            android:layout_alignStart="@+id/imageButton3"
+            android:layout_below="@+id/imageREC"
+            android:layout_alignLeft="@+id/imageREC"
+            android:layout_alignStart="@+id/imageREC"
             android:contentDescription=""
             tools:ignore="ContentDescription" />
 
@@ -112,8 +112,8 @@
             android:layout_marginBottom="24dp"
             android:id="@+id/textView2"
             android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/imageButton4"
-            android:layout_alignStart="@+id/imageButton4"
+            android:layout_alignLeft="@+id/imageTimer"
+            android:layout_alignStart="@+id/imageTimer"
             tools:ignore="HardcodedText" />
 
     </RelativeLayout>

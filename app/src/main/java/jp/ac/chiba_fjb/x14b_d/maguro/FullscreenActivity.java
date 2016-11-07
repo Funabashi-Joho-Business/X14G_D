@@ -27,12 +27,24 @@ public class FullscreenActivity extends AppCompatActivity {
                 );
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
         ft.add(R.id.fullscreen_content,new CameraFragment());
         ft.commit();
 
         view.requestFocus();
 
     }
-
-
+//
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        if (event.getAction() == KeyEvent.KEYCODE_VOLUME_UP) {
+//            mCamera.zoom(4);
+//
+//        }
+//        if (event.getAction() == KeyEvent.KEYCODE_VOLUME_DOWN){
+//            mCamera.zoom(-4);
+//        }
+//        return super.dispatchKeyEvent(e);
+//
+//    }
 }

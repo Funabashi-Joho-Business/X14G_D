@@ -24,11 +24,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_camera, container, false);
+        View view = inflater.inflate(R.layout.fragment_camera, container, false);
 
         view.findViewById(R.id.imageZoomIn).setOnClickListener(this);
         view.findViewById(R.id.imageZoomOut).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
+        view.findViewById(R.id.imageREC).setOnClickListener(this);
+        view.findViewById(R.id.imageTimer).setOnClickListener(this);
         return view;
     }
 
@@ -36,7 +38,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         mCamera = new CameraPreview();
-        TextureView textureView = (TextureView)getView().findViewById(R.id.textureView);
+        TextureView textureView = (TextureView) getView().findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
         mCamera.open(0);
         mCamera.startPreview();
@@ -61,14 +63,20 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.imageZoomIn:
-                mCamera.zoom(1);
+                mCamera.zoom(4);
                 break;
             case R.id.imageZoomOut:
-                mCamera.zoom(-1);
+                mCamera.zoom(-4);
                 break;
             case R.id.imageBack:
+                getActivity().onBackPressed();
+                break;
+            case R.id.imageREC:
+                
+                break;
+            case R.id.imageTimer:
                 getActivity().onBackPressed();
                 break;
         }
