@@ -77,7 +77,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 
                 break;
             case R.id.imageTimer:
-                getActivity().onBackPressed();
+            
                 break;
         }
     }
