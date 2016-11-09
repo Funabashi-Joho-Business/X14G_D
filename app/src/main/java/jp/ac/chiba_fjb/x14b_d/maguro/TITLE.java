@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class TITLE extends AppCompatActivity implements View.OnClickListener {
+public  TITLE(){
+
+    }
 
 
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.activity_title, container, false);
