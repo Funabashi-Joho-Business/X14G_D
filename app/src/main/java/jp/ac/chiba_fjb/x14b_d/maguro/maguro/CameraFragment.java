@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.x14b_d.maguro;
+package jp.ac.chiba_fjb.x14b_d.maguro.maguro;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import jp.ac.chiba_fjb.x14b_d.maguro.R;
 
 
 /**
