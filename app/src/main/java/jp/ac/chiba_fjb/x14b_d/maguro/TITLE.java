@@ -11,13 +11,10 @@ public class TITLE extends AppCompatActivity implements View.OnClickListener {
 
 
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_title, container, false);
-
-        view.findViewById(R.id.imageS).setOnClickListener(this);
-
+        View view =  inflater.inflate(R.layout.activity_title, container, false);
         return view;
     }
 
@@ -26,8 +23,13 @@ public class TITLE extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.imageS:
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.add(R.id.activity_title, new CameraFragment());
+                ft.add(R.id.fullscreen_content, new CameraFragment());
                 ft.commit();
+                break;
+            case R.id.imageTim:
+                FragmentTransaction tt = getSupportFragmentManager().beginTransaction();
+                tt.add(R.id.fullscreen_content,new team());
+                break;
         }
     }
 }

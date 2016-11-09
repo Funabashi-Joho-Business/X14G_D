@@ -84,7 +84,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
      //           ft.commit();
                 break;
             case  R.id.imageR:
-  //              FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+  //             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
        //         ft.add(R.id.layout,new GPS());
     //            ft.commit();
                 break;
