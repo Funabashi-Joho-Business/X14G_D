@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GPS extends Fragment {
+public class REC extends Fragment {
 
 
-    public GPS() {
+    public REC() {
         // Required empty public constructor
     }
 
@@ -22,8 +22,8 @@ public class GPS extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_g, container, false);
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_rce, container, false);
     }
 
 }

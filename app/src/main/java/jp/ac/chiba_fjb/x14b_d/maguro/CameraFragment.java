@@ -3,6 +3,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
@@ -74,11 +75,21 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 getActivity().onBackPressed();
                 break;
             case R.id.imageREC:
-                
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.add(R.id.layout,new REC());
+                ft.commit();
                 break;
             case R.id.imageTimer:
-            
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.add(R.id.layout,new ALARM());
+                ft.commit();
                 break;
+            case  R.id.imageR:
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.add(R.id.layout,new GPS());
+                ft.commit();
+                break;
+
         }
     }
 }
