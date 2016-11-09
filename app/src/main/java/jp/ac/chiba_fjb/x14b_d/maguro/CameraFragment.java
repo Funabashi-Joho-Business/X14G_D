@@ -74,9 +74,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 getActivity().onBackPressed();
                 break;
             case R.id.imageREC:
-       //         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-     //           ft.add(R.id.layout,new REC());
-      //          ft.commit();
+              // FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+               // ft.add(R.id.,new REC());
+               // ft.commit();
                 break;
             case R.id.imageTimer:
      //           FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

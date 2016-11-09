@@ -1,28 +1,49 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
-import android.os.Bundle;
+import android.content.Context;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.UUID;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UID extends Fragment {
+public class UID {
+    private static String sID = null;
+    private static final String INSTALLATION = "INSTALLATION";
 
-
-    public UID() {
-        // Required empty public constructor
+    public synchronized static String id(Context context) {
+        if (sID == null) {
+            File installation = new File(context.getFilesDir(), INSTALLATION);
+            try {
+                if (!installation.exists())
+                    writeInstallationFile(installation);
+                sID = readInstallationFile(installation);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return sID;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_uid, container, false);
-        return view;
+    private static String readInstallationFile(File installation) throws IOException {
+        RandomAccessFile f = new RandomAccessFile(installation, "r");
+        byte[] bytes = new byte[(int) f.length()];
+        f.readFully(bytes);
+        f.close();
+        return new String(bytes);
     }
 
+    private static void writeInstallationFile(File installation) throws IOException {
+        FileOutputStream out = new FileOutputStream(installation);
+        String id = UUID.randomUUID().toString();
+        out.write(id.getBytes());
+        out.close();
+    }
 }
