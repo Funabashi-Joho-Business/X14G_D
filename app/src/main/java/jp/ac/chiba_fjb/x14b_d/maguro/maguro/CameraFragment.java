@@ -67,10 +67,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageZoomIn:
-                mCamera.zoom(4);
+                mCamera.zoom(90);
                 break;
             case R.id.imageZoomOut:
-                mCamera.zoom(-4);
+                mCamera.zoom(-90);
                 break;
             case R.id.imageBack:
                 getActivity().onBackPressed();

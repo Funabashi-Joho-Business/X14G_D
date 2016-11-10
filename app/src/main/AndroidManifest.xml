@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
         <activity
-            android:name=".TITLE"
+            android:name=".FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
