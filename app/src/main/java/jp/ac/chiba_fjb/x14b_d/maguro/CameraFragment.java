@@ -79,9 +79,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                // ft.commit();
                 break;
             case R.id.imageTimer:
-     //           FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-     //           ft.add(R.id.layout,new ALARM());
-     //           ft.commit();
+                AlermFragment newFragment = new AlermFragment();
+                newFragment.show(getActivity().getSupportFragmentManager(),null);
+
                 break;
             case  R.id.imageR:
   //             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
