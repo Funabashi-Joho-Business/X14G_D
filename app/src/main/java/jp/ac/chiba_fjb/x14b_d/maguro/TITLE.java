@@ -29,7 +29,7 @@ public  TITLE(){
                 break;
             case R.id.imageTim:
                 FragmentTransaction tt = getSupportFragmentManager().beginTransaction();
-                tt.add(R.id.fullscreen_content,new team());
+                tt.add(R.id.fullscreen_content,new TeamFragment());
                 break;
         }
     }

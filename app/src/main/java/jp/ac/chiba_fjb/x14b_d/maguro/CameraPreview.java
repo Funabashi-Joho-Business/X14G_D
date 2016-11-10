@@ -49,7 +49,8 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
             //回転状況の設定
             int rot = setCameraDisplayOrientation();
             //アスペクト比から最適なプレビューサイズを設定
-            setPreviewSize(mTextureWidth,mTextureHeight,rot);
+            //setPreviewSize(mTextureWidth,mTextureHeight,rot);
+            setPreviewSize();
             //サイズから幅と高さの調整
             double video_width;
             double video_height;
@@ -128,6 +129,24 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void setPreviewSize() {
+
+        int index = 0;
+        int max = 0;
+        Camera.Parameters p = mCamera.getParameters();
+        List<Camera.Size> previewSizes = p.getSupportedPreviewSizes();
+        Camera.Size s;
+        for (int i = 0; i < previewSizes.size(); i++) {
+            s = previewSizes.get(i);
+            if(s.width*s.height > max) {
+                max = s.width * s.height;
+                index = i;
+            }
+        }
+        s = previewSizes.get(index);
+        p.setPreviewSize(s.width, s.height);
+        mCamera.setParameters(p);
     }
     public void setPreviewSize(int width,int height,int rot) {
         double aspect;

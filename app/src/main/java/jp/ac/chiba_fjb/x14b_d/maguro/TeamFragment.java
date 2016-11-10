@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.x14b_d.maguro.maguro;
+package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
 import android.os.Bundle;
@@ -7,16 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import jp.ac.chiba_fjb.x14b_d.maguro.R;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ALARM extends Fragment {
+public class TeamFragment extends Fragment {
 
 
-    public ALARM() {
+    public TeamFragment() {
         // Required empty public constructor
     }
 
@@ -24,9 +22,8 @@ public class ALARM extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_alarm, container, false);
+        View view =  inflater.inflate(R.layout.fragment_team, container, false);
         return view;
     }
-
 
 }

@@ -1,9 +1,11 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -11,10 +13,14 @@ import android.view.View;
  */
 public class FullscreenActivity extends AppCompatActivity {
 
+    private Permission mPermission;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fullscreen);
+
+
 
         View view = this.getWindow().getDecorView();
         view.setSystemUiVisibility(
@@ -26,12 +32,20 @@ public class FullscreenActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 );
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        ft.add(R.id.fullscreen_content,new CameraFragment());
-        ft.commit();
 
         view.requestFocus();
+
+        mPermission = new Permission();
+        mPermission.setOnResultListener(new Permission.ResultListener() {
+            @Override
+            public void onResult() {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.fullscreen_content,new CameraFragment());
+                ft.commitAllowingStateLoss();
+            }
+        });
+        mPermission.addPermission( Manifest.permission.CAMERA);
+        mPermission.requestPermissions(this);
 
     }
 //
@@ -47,4 +61,8 @@ public class FullscreenActivity extends AppCompatActivity {
 //        return super.dispatchKeyEvent(e);
 //
 //    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        mPermission.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
 }

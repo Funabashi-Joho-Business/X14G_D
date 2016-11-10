@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.x14b_d.maguro.maguro;
+package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
 import android.os.Bundle;
@@ -7,16 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import jp.ac.chiba_fjb.x14b_d.maguro.R;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GPS extends Fragment {
+public class RecFragment extends Fragment {
 
 
-    public GPS() {
+    public RecFragment() {
         // Required empty public constructor
     }
 
@@ -24,8 +22,8 @@ public class GPS extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_g, container, false);
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_rce, container, false);
     }
 
 }

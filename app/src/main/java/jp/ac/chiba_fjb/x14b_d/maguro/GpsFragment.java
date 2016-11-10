@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GPS extends Fragment {
+public class GpsFragment extends Fragment {
 
 
-    public GPS() {
+    public GpsFragment() {
         // Required empty public constructor
     }
 
