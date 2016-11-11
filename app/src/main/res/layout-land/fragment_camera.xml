@@ -5,17 +5,6 @@
     android:layout_height="match_parent"
     tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment">
 
-    <FrameLayout
-        android:id="@+id/cameraPreview"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        />
-    <ZoomControls
-        android:id="@+id/zoomControls1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        tools:ignore="RtlHardcoded" />
     <TextureView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

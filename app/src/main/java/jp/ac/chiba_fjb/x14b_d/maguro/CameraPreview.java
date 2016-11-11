@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
+import android.media.CamcorderProfile;
+import android.media.MediaRecorder;
 import android.view.TextureView;
 import android.view.WindowManager;
 
@@ -24,6 +26,8 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
     private int mTextureHeight;
     private boolean mPreview = false;
     private SaveListener mSaveListener;
+    private MediaRecorder mRec;
+
     static interface SaveListener{
         public void onSave(Bitmap bitmap);
     }
@@ -45,11 +49,15 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
                 return false;
 
             SurfaceTexture texture = mTextureView.getSurfaceTexture();
-            mCamera.setPreviewTexture(mTextureView.getSurfaceTexture());
+            mCamera.setPreviewTexture(texture);
+
+            if(mTextureWidth == 0 || mTextureHeight==0){
+
+                mTextureWidth = mTextureView.getWidth();
+                mTextureHeight = mTextureView.getHeight();
+            }
             //回転状況の設定
             int rot = setCameraDisplayOrientation();
-            //アスペクト比から最適なプレビューサイズを設定
-            //setPreviewSize(mTextureWidth,mTextureHeight,rot);
             setPreviewSize();
             //サイズから幅と高さの調整
             double video_width;
@@ -85,6 +93,7 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+
         mTextureWidth = width;
         mTextureHeight = height;
 
@@ -97,8 +106,8 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         mTextureWidth = width;
         mTextureHeight = height;
 
-        //if(mPreview)
-         //   startPreview();
+        if(mPreview)
+            startPreview();
     }
 
     @Override
@@ -190,8 +199,10 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
     public boolean close(){
         if(mCamera == null)
             return false;
+        stopRecording();
         mCamera.release();
         mCamera = null;
+        mCameraId = -1;
         return true;
     }
     public List<Camera.Size> getPreviewSizes(){
@@ -270,4 +281,44 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         mCamera.setParameters(params);
         return true;
     }
+    public boolean isRecording(){
+        return mRec != null;
+    }
+    protected void startRecording(String fileName)
+    {
+        if(mRec!=null)
+            stopRecording();
+
+        mRec = new MediaRecorder();  // Works well
+        mCamera.unlock();
+
+        mRec.setCamera(mCamera);
+
+        //mRec.setPreviewDisplay(mTextureView.getSurfaceTexture());
+        mRec.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+        mRec.setAudioSource(MediaRecorder.AudioSource.MIC);
+
+        //mRec.setOrientationHint(displayRotation);
+        mRec.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH));
+//        mRec.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+//        mRec.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+//        mRec.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+
+        mRec.setOutputFile(fileName);
+        try {
+            mRec.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mRec.start();
+    }
+
+    protected void stopRecording() {
+        if(mRec!=null) {
+            mRec.stop();
+            mRec.release();
+            mRec = null;
+        }
+    }
+
 }

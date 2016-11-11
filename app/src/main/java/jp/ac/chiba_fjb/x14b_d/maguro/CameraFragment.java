@@ -2,11 +2,16 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -16,7 +21,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     private CameraPreview mCamera;
 
     public CameraFragment() {
-        // Required empty public constructor
+        mCamera = new CameraPreview();
     }
 
 
@@ -25,6 +30,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_camera, container, false);
+
+        TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
+        mCamera.setTextureView(textureView);
 
         view.findViewById(R.id.imageZoomIn).setOnClickListener(this);
         view.findViewById(R.id.imageZoomOut).setOnClickListener(this);
@@ -35,17 +43,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        mCamera = new CameraPreview();
-        TextureView textureView = (TextureView) getView().findViewById(R.id.textureView);
-        mCamera.setTextureView(textureView);
-        mCamera.open(0);
-        mCamera.startPreview();
-        //mCamera.setSaveListener(this);
-    }
-
-    @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
     }
@@ -53,6 +50,15 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mCamera.open(0);
+        mCamera.startPreview();
     }
 
     @Override
@@ -74,9 +80,17 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 getActivity().onBackPressed();
                 break;
             case R.id.imageREC:
-              // FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-               // ft.add(R.id.,new REC());
-               // ft.commit();
+                if(!mCamera.isRecording()) {
+                    Toast.makeText(getContext(), "録画開始", Toast.LENGTH_SHORT).show();
+                    Date date = new Date();
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String fileName = String.format("%s/%s.mp4",Environment.getExternalStorageDirectory().toString(),sdf1.format(date));
+                    mCamera.startRecording(fileName);
+                }
+                else {
+                    Toast.makeText(getContext(), "録画停止", Toast.LENGTH_SHORT).show();
+                    mCamera.stopRecording();
+                }
                 break;
             case R.id.imageTimer:
                 AlermFragment newFragment = new AlermFragment();
