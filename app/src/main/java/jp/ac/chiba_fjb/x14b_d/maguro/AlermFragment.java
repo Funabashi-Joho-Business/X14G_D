@@ -1,6 +1,7 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -27,5 +28,11 @@ public class AlermFragment extends DialogFragment {
         return view;
     }
 
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        Dialog dialog = super.onCreateDialog(savedInstanceState);
+        dialog.setTitle("時間を設定してください");
+        return dialog;
+
+    }
 
 }

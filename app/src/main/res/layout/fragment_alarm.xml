@@ -11,36 +11,37 @@
         android:layout_height="match_parent"
         android:background="@color/bac">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="時間設定をしてください"
-            android:textColor="@color/gts"
-            android:textSize="36sp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="47dp" />
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sinwaku"
-            android:id="@+id/imageView7"
-            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/wakusan"
+            android:id="@+id/imageView9"
+            android:layout_marginTop="12dp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/settimg"
+            android:id="@+id/imageButton3"
+            android:background="@null"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
             android:ems="10"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/imageView7"
-            android:layout_alignStart="@+id/imageView7"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:id="@+id/editText2" />
+            android:id="@+id/editText2"
+            android:layout_alignBottom="@+id/imageView9"
+            android:layout_alignLeft="@+id/imageView9"
+            android:layout_alignStart="@+id/imageView9"
+            android:layout_alignRight="@+id/imageView9"
+            android:layout_alignEnd="@+id/imageView9" />
+
     </RelativeLayout>
 
 </FrameLayout>

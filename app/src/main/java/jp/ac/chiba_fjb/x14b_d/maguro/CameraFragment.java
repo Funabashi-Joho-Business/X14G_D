@@ -3,6 +3,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.TextureView;
@@ -93,8 +94,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.imageTimer:
-                AlermFragment newFragment = new AlermFragment();
-                newFragment.show(getActivity().getSupportFragmentManager(),null);
+
+                DialogFragment newFragment = new AlermFragment();
+                newFragment.show(getFragmentManager(),null);
 
                 break;
             case  R.id.imageR:
