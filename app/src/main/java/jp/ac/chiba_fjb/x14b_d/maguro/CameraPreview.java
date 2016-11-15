@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
-import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.view.TextureView;
 import android.view.WindowManager;
@@ -294,28 +293,26 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
 
         mRec.setCamera(mCamera);
 
-        //mRec.setPreviewDisplay(mTextureView.getSurfaceTexture());
-        mRec.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-        mRec.setAudioSource(MediaRecorder.AudioSource.MIC);
-
-        //mRec.setOrientationHint(displayRotation);
-        mRec.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH));
-//        mRec.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-//        mRec.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-//        mRec.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        mRec.setVideoSource(MediaRecorder.VideoSource.DEFAULT);
+        mRec.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+        mRec.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mRec.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
+        mRec.setVideoFrameRate(30);
 
         mRec.setOutputFile(fileName);
         try {
             mRec.prepare();
+            mRec.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mRec.start();
+
     }
 
     protected void stopRecording() {
         if(mRec!=null) {
             mRec.stop();
+            mCamera.lock();
             mRec.release();
             mRec = null;
         }
