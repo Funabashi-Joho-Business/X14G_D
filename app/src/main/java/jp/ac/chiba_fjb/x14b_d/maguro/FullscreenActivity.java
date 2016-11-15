@@ -47,6 +47,7 @@ public class FullscreenActivity extends AppCompatActivity {
             }
         });
         mPermission.addPermission( Manifest.permission.CAMERA);
+        mPermission.addPermission( Manifest.permission.WRITE_EXTERNAL_STORAGE);
         mPermission.requestPermissions(this);
 
     }
