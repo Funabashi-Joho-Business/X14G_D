@@ -294,17 +294,30 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         mRec.setCamera(mCamera);
 
         mRec.setVideoSource(MediaRecorder.VideoSource.DEFAULT);
-        mRec.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
         mRec.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mRec.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
         mRec.setVideoFrameRate(30);
 
         mRec.setOutputFile(fileName);
-        try {
-            mRec.prepare();
-            mRec.start();
-        } catch (IOException e) {
-            e.printStackTrace();
+        int i;
+        for(i=0;i<10;i++) {
+            try {
+                mRec.setAudioSource(MediaRecorder.AudioSource.DEFAULT+i);
+                mRec.prepare();
+                mRec.start();
+
+                break;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(i==10){
+            try {
+                mRec.prepare();
+                mRec.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -312,7 +325,7 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
     protected void stopRecording() {
         if(mRec!=null) {
             mRec.stop();
-            mCamera.lock();
+            //mCamera.lock();
             mRec.release();
             mRec = null;
         }
