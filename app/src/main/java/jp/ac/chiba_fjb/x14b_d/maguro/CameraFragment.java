@@ -99,11 +99,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 newFragment.show(getFragmentManager(),null);
 
                 break;
-            case  R.id.imageR:
+ //           case  R.id.imageR:
   //             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
        //         ft.add(R.id.layout,new GPS());
     //            ft.commit();
-                break;
+     //           break;
 
         }
     }
