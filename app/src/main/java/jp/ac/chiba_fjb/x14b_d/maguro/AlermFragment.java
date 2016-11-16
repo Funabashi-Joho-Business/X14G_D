@@ -5,31 +5,19 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class AlermFragment extends DialogFragment {
-    TextView timer;
-    Button start,stop;
+    TextView mTextView;
+
 
     public AlermFragment() {
         // Required empty public constructor
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_alarm, container, false);
-        return view;
-
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -38,5 +26,31 @@ public class AlermFragment extends DialogFragment {
         return dialog;
 
     }
+
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.activity_fullscreen, container, false);
+//        return view;
+//        //インスタンスの取得
+//        mTextView = (TextView)findViewById(R.id.Timer);
+//        //カウンタのクリア
+//        mCount = 600;
+//        //タイマー処理の作成
+//        TimerTask timerTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                mCount--;
+//                //UI関係の処理をサブスレッドで処理するとエラー
+//                mTextView.setText(String.valueOf(mCount));
+//                //mTextView.setText(""+mCount);
+//            }
+//        };
+//        //タイマー開始処理
+//        Timer timer = new Timer();
+//        timer.schedule(timerTask,600); //1000ms後にイベントを発生させる
+//
+//    }
+//
 
 }
