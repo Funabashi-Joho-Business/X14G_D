@@ -8,13 +8,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AlermFragment extends DialogFragment {
-
+    TextView timer;
+    Button start,stop;
 
     public AlermFragment() {
         // Required empty public constructor
@@ -26,6 +29,7 @@ public class AlermFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_alarm, container, false);
         return view;
+
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
