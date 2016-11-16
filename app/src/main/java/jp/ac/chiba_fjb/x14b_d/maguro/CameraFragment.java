@@ -14,17 +14,19 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CameraFragment extends Fragment implements View.OnClickListener {
     private CameraPreview mCamera;
-
     public CameraFragment() {
         mCamera = new CameraPreview();
     }
-
+    public boolean mRotation = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,6 +74,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageZoomIn:
+                if(mRotation)
+                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                else
+                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
+                mRotation = !mRotation;
                 mCamera.zoom(4);
                 break;
             case R.id.imageZoomOut:
