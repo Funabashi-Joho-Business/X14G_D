@@ -112,6 +112,16 @@
             android:layout_toEndOf="@+id/imageTimer"
             android:layout_marginTop="25dp" />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/guru"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/imageZoomOut"
+            android:layout_alignEnd="@+id/imageZoomOut"
+            android:id="@+id/imageButton"
+            android:background="@null" />
+
     </RelativeLayout>
 
 </FrameLayout>

@@ -3,16 +3,11 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 
 /**
