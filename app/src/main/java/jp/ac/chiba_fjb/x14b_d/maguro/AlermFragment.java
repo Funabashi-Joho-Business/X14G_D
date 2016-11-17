@@ -5,31 +5,22 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Timer;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class AlermFragment extends DialogFragment {
-    TextView timer;
-    Button start,stop;
+    Timer mTimer;
+    public int mCount;
+    TextView mTextView;
 
     public AlermFragment() {
         // Required empty public constructor
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_alarm, container, false);
-        return view;
-
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -37,6 +28,33 @@ public class AlermFragment extends DialogFragment {
         dialog.setTitle("時間を設定してください");
         return dialog;
 
-    }
+    }}
 
-}
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.activity_fullscreen, container, false);
+//        return view;
+//        Handler  mHandler;
+//
+//        if(mTimer == null){
+//            TimerTask timerTask = new TimerTask() {
+//                @Override
+//                public void run() {
+//                    mCount--;
+//                    //UI関係の処理をサブスレッドで処理するとエラー
+//                    mHandler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            mTextView.setText(String.valueOf(mCount));
+//                        }
+//                    });
+//                }
+//            };
+//            //タイマーの起動
+//            mTimer = new Timer();
+//            mTimer.schedule(timerTask,0,0);
+//        }
+//
+//
+//}}

@@ -70,5 +70,5 @@ public class FullscreenActivity extends AppCompatActivity {
     }
     TextView timer;
     Button start;
-  
+
 }
