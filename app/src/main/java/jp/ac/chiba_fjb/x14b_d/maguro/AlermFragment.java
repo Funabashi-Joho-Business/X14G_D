@@ -3,9 +3,16 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -13,8 +20,9 @@ import android.widget.TextView;
  */
 
 public class AlermFragment extends DialogFragment {
+    Timer mTimer;
+    public int mCount;
     TextView mTextView;
-
 
     public AlermFragment() {
         // Required empty public constructor
@@ -25,32 +33,33 @@ public class AlermFragment extends DialogFragment {
         dialog.setTitle("時間を設定してください");
         return dialog;
 
-    }
+    }}
 
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        View view = inflater.inflate(R.layout.activity_fullscreen, container, false);
 //        return view;
-//        //インスタンスの取得
-//        mTextView = (TextView)findViewById(R.id.Timer);
-//        //カウンタのクリア
-//        mCount = 600;
-//        //タイマー処理の作成
-//        TimerTask timerTask = new TimerTask() {
-//            @Override
-//            public void run() {
-//                mCount--;
-//                //UI関係の処理をサブスレッドで処理するとエラー
-//                mTextView.setText(String.valueOf(mCount));
-//                //mTextView.setText(""+mCount);
-//            }
-//        };
-//        //タイマー開始処理
-//        Timer timer = new Timer();
-//        timer.schedule(timerTask,600); //1000ms後にイベントを発生させる
+//        Handler  mHandler;
 //
-//    }
+//        if(mTimer == null){
+//            TimerTask timerTask = new TimerTask() {
+//                @Override
+//                public void run() {
+//                    mCount--;
+//                    //UI関係の処理をサブスレッドで処理するとエラー
+//                    mHandler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            mTextView.setText(String.valueOf(mCount));
+//                        }
+//                    });
+//                }
+//            };
+//            //タイマーの起動
+//            mTimer = new Timer();
+//            mTimer.schedule(timerTask,0,0);
+//        }
 //
-
-}
+//
+//}}
