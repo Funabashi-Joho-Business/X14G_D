@@ -42,6 +42,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
+        view.findViewById(R.id.imageriv).setOnClickListener(this);
         return view;
     }
 
@@ -74,12 +75,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageZoomIn:
-                if(mRotation)
-                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                else
-                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
-                mRotation = !mRotation;
-                mCamera.setRotation(180.0f);
                 mCamera.zoom(4);
                 break;
             case R.id.imageZoomOut:
@@ -106,6 +101,14 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 DialogFragment newFragment = new AlermFragment();
                 newFragment.show(getFragmentManager(),null);
 
+                break;
+            case R.id.imageriv:
+                if(mRotation)
+                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                else
+                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
+                mRotation = !mRotation;
+                mCamera.setRotation(180.0f);
                 break;
  //           case  R.id.imageR:
   //             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

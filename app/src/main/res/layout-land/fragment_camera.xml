@@ -119,7 +119,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/imageZoomOut"
             android:layout_alignEnd="@+id/imageZoomOut"
-            android:id="@+id/imageButton"
+            android:id="@+id/imageriv"
             android:background="@null" />
 
     </RelativeLayout>
