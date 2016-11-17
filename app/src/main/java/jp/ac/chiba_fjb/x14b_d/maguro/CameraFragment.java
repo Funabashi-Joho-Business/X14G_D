@@ -1,6 +1,5 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
-
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.DialogFragment;
@@ -13,6 +12,8 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import jp.ac.chiba_fjb.x14b_d.maguro.CameraPreview;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
@@ -110,11 +111,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                     getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
                 mRotation = !mRotation;
                 break;
- //           case  R.id.imageR:
-  //             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-       //         ft.add(R.id.layout,new GPS());
-    //            ft.commit();
-     //           break;
+//            case  R.id.imageR:
+//               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                ft.add(R.id.layout,);
+//                ft.commit();
+//                break;
 
         }
     }
