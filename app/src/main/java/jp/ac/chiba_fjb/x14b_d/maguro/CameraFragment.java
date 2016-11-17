@@ -76,7 +76,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageZoomIn:
-
                 mCamera.zoom(4);
                 break;
             case R.id.imageZoomOut:
@@ -110,6 +109,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 else
                     getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
                 mRotation = !mRotation;
+                mCamera.setRotation(180.0f);
                 break;
 //            case  R.id.imageR:
 //               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
