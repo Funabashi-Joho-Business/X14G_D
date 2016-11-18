@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team4"
+    android:background="@color/bac">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="チームに参加しました"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView14"
+            android:textSize="36sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="82dp"
+            android:layout_marginEnd="82dp"
+            android:layout_marginTop="95dp"
+            android:textColor="@color/gts" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/modoru"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/imageB"
+            android:background="@null" />
+
+        <TextView
+            android:text="レーダーに同じチームが表示されます"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView15"
+            android:textSize="30sp"
+            android:layout_below="@+id/textView14"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:textColor="@color/gts" />
+    </RelativeLayout>
+
+</FrameLayout>
