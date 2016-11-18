@@ -122,6 +122,18 @@
             android:id="@+id/imageriv"
             android:background="@null" />
 
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="18dp"
+            android:id="@+id/textGPS"/>
+
     </RelativeLayout>
 
 </FrameLayout>
