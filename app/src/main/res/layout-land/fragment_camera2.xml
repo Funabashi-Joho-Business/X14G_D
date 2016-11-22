@@ -100,64 +100,32 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mikata3"
-            android:id="@+id/imageView21"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_toRightOf="@+id/textGPS"
-            android:layout_toEndOf="@+id/textGPS"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mikata1"
-            android:id="@+id/imageView22"
+            app:srcCompat="@drawable/mita"
+            android:id="@+id/imageView25"
             android:layout_alignTop="@+id/textGPS"
-            android:layout_toRightOf="@+id/imageView19"
-            android:layout_toEndOf="@+id/imageView19" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mikata"
-            android:id="@+id/imageView19"
-            android:layout_alignTop="@+id/imageView21"
-            android:layout_toRightOf="@+id/imageView21"
-            android:layout_toEndOf="@+id/imageView21" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mika"
-            android:layout_below="@+id/imageView21"
-            android:layout_toRightOf="@+id/imageView22"
-            android:layout_toEndOf="@+id/imageView22"
-            android:layout_marginLeft="49dp"
-            android:layout_marginStart="49dp"
-            android:id="@+id/imageView23" />
+            android:layout_toLeftOf="@+id/imageR"
+            android:layout_toStartOf="@+id/imageR"
+            android:layout_marginRight="81dp"
+            android:layout_marginEnd="81dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/mik2"
-            android:layout_marginLeft="31dp"
-            android:layout_marginStart="31dp"
             android:id="@+id/imageView24"
-            android:layout_alignTop="@+id/imageView23"
-            android:layout_toRightOf="@+id/imageView23"
-            android:layout_toEndOf="@+id/imageView23" />
+            android:layout_alignTop="@+id/textView2"
+            android:layout_centerHorizontal="true" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mita"
-            android:layout_marginLeft="57dp"
-            android:layout_marginStart="57dp"
-            android:id="@+id/imageView25"
-            android:layout_above="@+id/imageZoomIn"
-            android:layout_toRightOf="@+id/imageView24"
-            android:layout_toEndOf="@+id/imageView24" />
+            app:srcCompat="@drawable/mika"
+            android:id="@+id/imageView23"
+            android:layout_alignBottom="@+id/imageBack"
+            android:layout_toLeftOf="@+id/imageView24"
+            android:layout_toStartOf="@+id/imageView24"
+            android:layout_marginRight="42dp"
+            android:layout_marginEnd="42dp" />
 
     </RelativeLayout>
 
