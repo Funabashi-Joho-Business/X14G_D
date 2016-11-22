@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.GPS">
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.GpsFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -22,13 +22,5 @@
             android:id="@+id/imageButton"
             android:background="@null" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mikata"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/imageView8"
-            android:background="@null" />
     </RelativeLayout>
 </FrameLayout>
