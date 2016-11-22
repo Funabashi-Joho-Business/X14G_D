@@ -20,7 +20,7 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fullscreen);
+        setContentView(R.layout.fragment_camera);
 
 
 

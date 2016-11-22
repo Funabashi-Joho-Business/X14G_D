@@ -16,6 +16,7 @@ import java.util.Date;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+import static java.security.AccessController.getContext;
 
 
 /**
