@@ -30,13 +30,13 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imageS:
-//                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//            case R.id.imageS:
+//                FragmentTransaction ft = getActivity().beginTransaction();
 //                ft.replace(R.id.fullscreen_content,new CameraFragment());
 //                ft.commitAllowingStateLoss();
-                break;
-            case R.id.imageTim:
-                break;
+//                break;
+//            case R.id.imageTim:
+//                break;
 
         }
     }
