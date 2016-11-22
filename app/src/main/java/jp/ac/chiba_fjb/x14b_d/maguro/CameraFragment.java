@@ -1,14 +1,16 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
-
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -22,7 +24,9 @@ import static java.security.AccessController.getContext;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener {
+public class CameraFragment extends Fragment implements View.OnClickListener, MyLocationSource.OnLocationListener {
+
+    private MyLocationSource mLocation;
     private CameraPreview mCamera;
     public CameraFragment() {
         mCamera = new CameraPreview();
@@ -48,6 +52,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mLocation = new MyLocationSource(getContext());
+    }
+
+    @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
     }
@@ -64,10 +74,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
         super.onResume();
         mCamera.open(0);
         mCamera.startPreview();
+
+        mLocation.setOnLocationListener(this);
     }
 
     @Override
     public void onPause() {
+        mLocation.setOnLocationListener(null);
         mCamera.close();
         super.onPause();
     }
@@ -76,7 +89,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageZoomIn:
-
                 mCamera.zoom(4);
                 break;
             case R.id.imageZoomOut:
@@ -110,14 +122,21 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 else
                     getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
                 mRotation = !mRotation;
+                mCamera.setRotation(180.0f);
                 break;
- //           case  R.id.imageR:
-  //             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-       //         ft.add(R.id.layout,new GPS());
-    //            ft.commit();
-     //           break;
+//            case  R.id.imageR:
+//               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                ft.add(R.id.layout,);
+//                ft.commit();
+//                break;
 
         }
+    }
+
+    @Override
+    public void onLocation(Location location) {
+        TextView textView = (TextView)getView().findViewById(R.id.textGPS);
+        textView.setText(String.format("東経%.2f 北緯%.2f",location.getLongitude(),location.getLatitude()));
     }
 }
 

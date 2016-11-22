@@ -89,7 +89,15 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         }
         return true;
     }
+    void setRotation(float rot){
+        Matrix mat = new Matrix();
+        mTextureView.getTransform(mat);
 
+        mat.postTranslate(-mTextureView.getWidth()*0.5f,-mTextureView.getHeight()*0.5f);
+        mat.postRotate(180.0f);
+        mat.postTranslate(mTextureView.getWidth()*0.5f,mTextureView.getHeight()*0.5f);
+        mTextureView.setTransform(mat);
+    }
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
 

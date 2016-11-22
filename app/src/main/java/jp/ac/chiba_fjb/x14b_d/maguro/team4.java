@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecFragment extends Fragment {
+public class team4 extends Fragment implements View.OnClickListener {
 
 
-    public RecFragment() {
+    public team4() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,13 @@ public class RecFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rce, container, false);
+        View view =  inflater.inflate(R.layout.fragment_team4, container, false);
+        view.findViewById(R.id.imageB).setOnClickListener(this);
+    return view;
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }
