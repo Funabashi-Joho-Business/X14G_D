@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/r"
-            android:id="@+id/imageR"
+            android:id="@+id/imagescop"
             android:background="@null"
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/imageZoomIn"
@@ -87,7 +87,7 @@
             app:srcCompat="@drawable/purasusu"
             android:id="@+id/imageZoomIn"
             android:background="@null"
-            android:layout_below="@+id/imageR"
+            android:layout_below="@+id/imagescop"
             android:layout_alignLeft="@+id/imageZoomOut"
             android:layout_alignStart="@+id/imageZoomOut"
             tools:ignore="ContentDescription" />

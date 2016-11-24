@@ -23,11 +23,11 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener, MyLocationSource.OnLocationListener {
+public class CameraFragment2 extends Fragment implements View.OnClickListener, MyLocationSource.OnLocationListener {
 
     private MyLocationSource mLocation;
     private CameraPreview mCamera;
-    public CameraFragment() {
+    public CameraFragment2() {
         mCamera = new CameraPreview();
     }
     public boolean mRotation = true;
@@ -41,11 +41,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
 
-        view.findViewById(R.id.imageZoomIn).setOnClickListener(this);
-        view.findViewById(R.id.imageZoomOut).setOnClickListener(this);
+
         view.findViewById(R.id.imageBack).setOnClickListener(this);
-        view.findViewById(R.id.imageREC).setOnClickListener(this);
-        view.findViewById(R.id.imageTimer).setOnClickListener(this);
+      view.findViewById(R.id.imagescop).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
         return view;
     }
@@ -87,34 +85,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imageZoomIn:
-                mCamera.zoom(4);
-                break;
-            case R.id.imageZoomOut:
-                mCamera.zoom(-4);
-                break;
             case R.id.imageBack:
                 getActivity().onBackPressed();
                 break;
-            case R.id.imageREC:
-                if(!mCamera.isRecording()) {
-                    Toast.makeText(getContext(), "録画開始", Toast.LENGTH_SHORT).show();
-                    Date date = new Date();
-                    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    String fileName = String.format("%s/%s.mp4",Environment.getExternalStorageDirectory().toString(),sdf1.format(date));
-                    mCamera.startRecording(fileName);
-                }
-                else {
-                    Toast.makeText(getContext(), "録画停止", Toast.LENGTH_SHORT).show();
-                    mCamera.stopRecording();
-                }
-                break;
-            case R.id.imageTimer:
 
-                DialogFragment newFragment = new AlermFragment();
-                newFragment.show(getFragmentManager(),null);
 
-                break;
             case R.id.imageriv:
                 if(mRotation)
                     getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
@@ -123,7 +98,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mRotation = !mRotation;
                 mCamera.setRotation(180.0f);
                 break;
-//            case  R.id.imageR:
+//            case  R.id.imagescoop:
 //               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                ft.add(R.id.layout,);
 //                ft.commit();

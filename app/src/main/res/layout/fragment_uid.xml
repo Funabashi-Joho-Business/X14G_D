@@ -40,7 +40,8 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/textView8"
-            android:textColor="@color/gts" />
+            android:textColor="@color/gts"
+            android:textSize="24sp" />
     </RelativeLayout>
 
 </FrameLayout>
