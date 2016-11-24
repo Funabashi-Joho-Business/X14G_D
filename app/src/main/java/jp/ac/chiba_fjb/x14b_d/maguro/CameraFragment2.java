@@ -2,19 +2,14 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.location.Location;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
@@ -36,14 +31,14 @@ public class CameraFragment2 extends Fragment implements View.OnClickListener, M
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_fullscreen, container, false);
+        View view = inflater.inflate(R.layout.fragment_camera2, container, false);
 
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
 
 
         view.findViewById(R.id.imageBack).setOnClickListener(this);
-      view.findViewById(R.id.imagescop).setOnClickListener(this);
+      view.findViewById(R.id.imageScope).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
         return view;
     }
@@ -86,9 +81,16 @@ public class CameraFragment2 extends Fragment implements View.OnClickListener, M
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageBack:
-                getActivity().onBackPressed();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.add(R.id.fullscreen_content,new TitleFragment());
+                ft.commit();
                 break;
 
+            case  R.id.imageScope:
+                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                ft2.add(R.id.fullscreen_content,new CameraFragment());
+                ft2.commit();
+                break;
 
             case R.id.imageriv:
                 if(mRotation)
@@ -98,11 +100,6 @@ public class CameraFragment2 extends Fragment implements View.OnClickListener, M
                 mRotation = !mRotation;
                 mCamera.setRotation(180.0f);
                 break;
-//            case  R.id.imagescoop:
-//               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//                ft.add(R.id.layout,);
-//                ft.commit();
-//                break;
 
         }
     }

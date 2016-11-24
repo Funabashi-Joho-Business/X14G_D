@@ -23,12 +23,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
-            android:text="作成または検索したいチーム名を入力"
+            android:text="作成または検索したいチーム名を入力してください"
             android:textColor="@color/gts"
             android:textSize="24sp"
-            android:layout_alignBottom="@+id/imageBack"
-            android:layout_toRightOf="@+id/imageBack"
-            android:layout_toEndOf="@+id/imageBack" />
+            android:layout_below="@+id/imageBack"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView6"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/imageSetuzoku"
+            android:layout_alignEnd="@+id/imageSetuzoku"
+            android:layout_alignLeft="@+id/imageSakusei"
+            android:layout_alignStart="@+id/imageSakusei"
+            android:background="@drawable/wakusan" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/setu"
+            android:id="@+id/imageSetuzoku"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_alignTop="@+id/imageSakusei"
+            android:layout_toRightOf="@+id/imageSakusei"
+            android:layout_toEndOf="@+id/imageSakusei" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -36,41 +57,22 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editText"
-            android:layout_alignBottom="@+id/imageView6"
-            android:layout_alignLeft="@+id/imageView6"
-            android:layout_alignStart="@+id/imageView6"
-            android:layout_alignRight="@+id/imageView6"
-            android:layout_alignEnd="@+id/imageView6" />
+            android:background="@drawable/edittext"
+            android:text="aaaa"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sei"
             android:id="@+id/imageSakusei"
-            android:layout_marginRight="21dp"
-            android:layout_marginEnd="21dp"
-            android:layout_alignTop="@+id/imageSetuzoku"
-            android:layout_toLeftOf="@+id/imageSetuzoku"
-            android:layout_toStartOf="@+id/imageSetuzoku" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/wakusan"
-            android:id="@+id/imageView6"
-            android:layout_marginTop="33dp"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/setu"
-            android:id="@+id/imageSetuzoku"
-            android:layout_marginTop="27dp"
-            android:layout_below="@+id/editText"
-            android:layout_alignRight="@+id/textView3"
-            android:layout_alignEnd="@+id/textView3" />
+            android:layout_marginLeft="38dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/imageView6"
+            android:layout_toRightOf="@+id/imageBack"
+            android:layout_toEndOf="@+id/imageBack" />
 
     </RelativeLayout>
 </FrameLayout>

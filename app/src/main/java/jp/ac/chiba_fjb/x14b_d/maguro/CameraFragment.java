@@ -37,7 +37,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_fullscreen, container, false);
+        View view = inflater.inflate(R.layout.fragment_camera, container, false);
 
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
@@ -48,6 +48,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
+        view.findViewById(R.id.imageR).setOnClickListener(this);
         return view;
     }
 
@@ -129,7 +130,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 break;
             case  R.id.imageR:
                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.add(R.id.fullscreen_content,new GpsFragment());
+                ft2.add(R.id.fullscreen_content,new CameraFragment2());
                 ft2.commit();
                 break;
 

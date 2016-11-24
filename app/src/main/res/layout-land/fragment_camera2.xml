@@ -49,21 +49,20 @@
             android:layout_width="74dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sp"
-            android:id="@+id/imagescop"
+            android:id="@+id/imageR"
             android:background="@null"
             tools:ignore="ContentDescription"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-<<<<<<< HEAD
-=======
+
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/a"
-            android:id="@+id/imageView"
+            android:id="@+id/imageScope"
             tools:ignore="ContentDescription"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -72,8 +71,6 @@
 
 
 
-
->>>>>>> af334bbca5bcec73277a17fe2c724b2f0c05fcf1
     </RelativeLayout>
 
 </FrameLayout>
