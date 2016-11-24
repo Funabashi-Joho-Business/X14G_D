@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.TextureView;
@@ -19,7 +18,6 @@ import java.util.Date;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-import static java.security.AccessController.getContext;
 
 
 /**
@@ -29,6 +27,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
 
     private MyLocationSource mLocation;
     private CameraPreview mCamera;
+    private int mVisibilty;
+
     public CameraFragment() {
         mCamera = new CameraPreview();
     }
@@ -59,12 +59,27 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     }
 
     @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mVisibilty = view.getSystemUiVisibility();
+        view.setSystemUiVisibility(
+            View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        );
+
+
+        view.requestFocus();
     }
+
 
     @Override
     public void onDestroyView() {
+        getView().setSystemUiVisibility(mVisibilty);
         super.onDestroyView();
     }
 

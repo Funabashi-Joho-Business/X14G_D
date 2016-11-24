@@ -22,30 +22,6 @@
             android:id="@+id/imageSetuzoku"
             android:background="@null" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sinwaku"
-            android:layout_above="@+id/imageSetuzoku"
-            android:layout_alignLeft="@+id/imageSetuzoku"
-            android:layout_alignStart="@+id/imageSetuzoku"
-            android:id="@+id/imageView7" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:layout_marginTop="57dp"
-            android:id="@+id/editText2"
-            android:layout_marginLeft="17dp"
-            android:layout_marginStart="17dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageView7"
-            android:layout_alignStart="@+id/imageView7"
-            android:layout_alignRight="@+id/imageView7"
-            android:layout_alignEnd="@+id/imageView7" />
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,5 +31,18 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:background="@null" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="60dp"
+            android:id="@+id/editText2"
+            android:background="@drawable/sinwaku"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"/>
     </RelativeLayout>
 </FrameLayout>
