@@ -15,7 +15,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ok"
+            app:srcCompat="@drawable/setu"
             android:layout_below="@+id/editText2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="61dp"
@@ -45,5 +45,15 @@
             android:layout_alignStart="@+id/imageView7"
             android:layout_alignRight="@+id/imageView7"
             android:layout_alignEnd="@+id/imageView7" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/modoru"
+            android:id="@+id/imageBack"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@null" />
     </RelativeLayout>
 </FrameLayout>

@@ -10,55 +10,25 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:background="@color/bac">
+        tools:background="@color/bac"
+        android:background="@color/bac">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/modoru"
-            android:id="@+id/imageView3" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sinwaku"
-            android:id="@+id/imageView6"
-            android:layout_marginTop="12dp"
-            android:layout_below="@+id/imageView3"
-            android:layout_centerHorizontal="true" />
+            android:id="@+id/imageBack" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
-            android:text="作成したい名前かチーム名を入力してください"
+            android:text="作成または検索したいチーム名を入力"
             android:textColor="@color/gts"
             android:textSize="24sp"
-            android:layout_alignBottom="@+id/imageView3"
-            android:layout_toRightOf="@+id/imageView3"
-            android:layout_toEndOf="@+id/imageView3" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/saku"
-            android:id="@+id/imageView5"
-            android:layout_marginLeft="46dp"
-            android:layout_marginStart="46dp"
-            android:layout_alignTop="@+id/imageView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ok"
-            android:id="@+id/imageView2"
-            android:layout_marginLeft="36dp"
-            android:layout_marginStart="36dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/imageView5"
-            android:layout_toEndOf="@+id/imageView5" />
+            android:layout_alignBottom="@+id/imageBack"
+            android:layout_toRightOf="@+id/imageBack"
+            android:layout_toEndOf="@+id/imageBack" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -66,11 +36,41 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editText"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp"
-            android:layout_alignTop="@+id/imageView5"
+            android:layout_alignBottom="@+id/imageView6"
             android:layout_alignLeft="@+id/imageView6"
-            android:layout_alignStart="@+id/imageView6" />
+            android:layout_alignStart="@+id/imageView6"
+            android:layout_alignRight="@+id/imageView6"
+            android:layout_alignEnd="@+id/imageView6" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/sei"
+            android:id="@+id/imageSakusei"
+            android:layout_marginRight="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_alignTop="@+id/imageSetuzoku"
+            android:layout_toLeftOf="@+id/imageSetuzoku"
+            android:layout_toStartOf="@+id/imageSetuzoku" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/wakusan"
+            android:id="@+id/imageView6"
+            android:layout_marginTop="33dp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/setu"
+            android:id="@+id/imageSetuzoku"
+            android:layout_marginTop="27dp"
+            android:layout_below="@+id/editText"
+            android:layout_alignRight="@+id/textView3"
+            android:layout_alignEnd="@+id/textView3" />
 
     </RelativeLayout>
 </FrameLayout>

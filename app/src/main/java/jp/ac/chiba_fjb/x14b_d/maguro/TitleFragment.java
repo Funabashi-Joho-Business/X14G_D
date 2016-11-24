@@ -26,16 +26,18 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
 
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.imageS:
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new CameraFragment());
-                ft.commitAllowingStateLoss();
-                break;
-            case R.id.imageTim:
-                break;
-
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.imageS:
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.fullscreen_content,new CameraFragment());
+                        ft.commitAllowingStateLoss();
+                        break;
+                    case R.id.imageTim:
+                        FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                        ft2.replace(R.id.fullscreen_content,new TeamFragment());
+                        ft2.commitAllowingStateLoss();
+                        break;
         }
     }
 }

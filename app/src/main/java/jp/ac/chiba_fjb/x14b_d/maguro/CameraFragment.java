@@ -128,11 +128,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mRotation = !mRotation;
                 mCamera.setRotation(180.0f);
                 break;
-//            case  R.id.imageR:
-//               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//                ft.add(R.id.layout,);
-//                ft.commit();
-//                break;
+            case  R.id.imageR:
+               FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                ft2.add(R.id.fullscreen_content,new GpsFragment());
+                ft2.commit();
+                break;
 
         }
     }
