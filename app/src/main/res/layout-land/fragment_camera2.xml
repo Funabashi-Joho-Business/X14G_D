@@ -3,23 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment">
-
-    <TextureView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/textureView" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/a"
-        android:id="@+id/imageView"
-        tools:ignore="ContentDescription" />
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment2">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            tools:ignore="HardcodedText"
+            android:layout_alignTop="@+id/imageView4"
+            android:layout_toRightOf="@+id/imageTimer"
+            android:layout_toEndOf="@+id/imageTimer"
+            android:layout_marginTop="25dp" />
+
+        <TextureView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textureView" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/guru"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/imageZoomOut"
+            android:layout_alignEnd="@+id/imageZoomOut"
+            android:id="@+id/imageriv"
+            android:background="@null" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -32,71 +45,35 @@
             android:layout_alignStart="@+id/imageREC"
             tools:ignore="ContentDescription" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            tools:ignore="HardcodedText"
-            android:layout_alignTop="@+id/imageView4"
-            android:layout_toRightOf="@+id/imageTimer"
-            android:layout_toEndOf="@+id/imageTimer"
-            android:layout_marginTop="25dp" />
-
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="74dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/guru"
+            app:srcCompat="@drawable/sp"
+            android:id="@+id/imagescop"
+            android:background="@null"
+            tools:ignore="ContentDescription"
             android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/imageZoomOut"
-            android:layout_alignEnd="@+id/imageZoomOut"
-            android:id="@+id/imageriv"
-            android:background="@null" />
-
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"
-            android:layout_marginLeft="28dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/textGPS"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mainasuu"
-            android:id="@+id/imageZoomOut"
-            android:background="@null"
-            tools:ignore="ContentDescription,UnknownId"
-            android:layout_above="@+id/imageriv"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/purasusu"
-            android:id="@+id/imageZoomIn"
-            android:background="@null"
-            tools:ignore="ContentDescription"
-            android:layout_below="@+id/imageBack"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+<<<<<<< HEAD
+=======
 
-        <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/r"
-            android:id="@+id/imageR"
-            android:background="@null"
+            app:srcCompat="@drawable/a"
+            android:id="@+id/imageView"
             tools:ignore="ContentDescription"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
+
+
+
+
+>>>>>>> af334bbca5bcec73277a17fe2c724b2f0c05fcf1
     </RelativeLayout>
 
 </FrameLayout>
