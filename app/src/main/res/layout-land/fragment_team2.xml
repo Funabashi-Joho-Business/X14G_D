@@ -79,6 +79,20 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
+        <TextView
+            android:text="接続したいチーム名とＩＤを選択してください"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            android:textSize="18sp"
+            android:textColor="@color/gts"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="83dp"
+            android:layout_marginEnd="83dp"
+            android:layout_marginTop="28dp" />
+
     </RelativeLayout>
 
 </FrameLayout>

@@ -49,6 +49,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
+        view.findViewById(R.id.imageScope).setOnClickListener(this);
         return view;
     }
 
@@ -143,9 +144,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mRotation = !mRotation;
                 mCamera.setRotation(180.0f);
                 break;
-            case  R.id.imageR:
+            case  R.id.imageScope:
                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.add(R.id.fullscreen_content,new GpsFragment());
+                ft2.add(R.id.fullscreen_content,new CameraFragment2());
                 ft2.commit();
                 break;
 

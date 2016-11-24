@@ -1,0 +1,78 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/bac"
+        android:background="@color/bac">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/modoru"
+            android:id="@+id/imageBack" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:text="作成または検索したいチーム名を入力してください"
+            android:textColor="@color/gts"
+            android:textSize="24sp"
+            android:layout_below="@+id/imageBack"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView6"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/imageSetuzoku"
+            android:layout_alignEnd="@+id/imageSetuzoku"
+            android:layout_alignLeft="@+id/imageSakusei"
+            android:layout_alignStart="@+id/imageSakusei"
+            android:background="@drawable/wakusan" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/setu"
+            android:id="@+id/imageSetuzoku"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_alignTop="@+id/imageSakusei"
+            android:layout_toRightOf="@+id/imageSakusei"
+            android:layout_toEndOf="@+id/imageSakusei" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:background="@drawable/edittext"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/background_dark" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/sei"
+            android:id="@+id/imageSakusei"
+            android:layout_marginLeft="38dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/imageView6"
+            android:layout_toRightOf="@+id/imageBack"
+            android:layout_toEndOf="@+id/imageBack" />
+
+    </RelativeLayout>
+</FrameLayout>

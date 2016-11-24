@@ -35,7 +35,7 @@ public class team2 extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.imageSetuzoku:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new team3());
+                ft.replace(R.id.fullscreen_content,new team3b());
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:
