@@ -56,6 +56,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
+<<<<<<< HEAD
 
         <ImageView
             android:layout_width="wrap_content"
@@ -71,6 +72,8 @@
 
 
 
+=======
+>>>>>>> c4a9a93f0b3c626b6122bcb7e278a61c4df47789
     </RelativeLayout>
 
 </FrameLayout>

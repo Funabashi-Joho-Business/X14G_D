@@ -12,6 +12,7 @@ import android.view.ViewGroup;
  */
 public class TitleFragment extends Fragment implements View.OnClickListener {
 
+<<<<<<< HEAD
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,30 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
 //                break;
 //            case R.id.imageTim:
 //                break;
+=======
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view =  inflater.inflate(R.layout.fragment_title, container, false);
 
+        view.findViewById(R.id.imageTim).setOnClickListener(this);
+        view.findViewById(R.id.imageS).setOnClickListener(this);
+        return view;
+    }
+
+>>>>>>> c4a9a93f0b3c626b6122bcb7e278a61c4df47789
+
+    @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.imageS:
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.fullscreen_content,new CameraFragment());
+                        ft.commitAllowingStateLoss();
+                        break;
+                    case R.id.imageTim:
+                        FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                        ft2.replace(R.id.fullscreen_content,new TeamFragment());
+                        ft2.commitAllowingStateLoss();
+                        break;
         }
     }
 }

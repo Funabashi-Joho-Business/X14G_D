@@ -1,11 +1,12 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
-
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
@@ -94,7 +95,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mCamera.zoom(-4);
                 break;
             case R.id.imageBack:
-                getActivity().onBackPressed();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fullscreen_content,new TitleFragment());
+                ft.commit();
+//                getActivity().onBackPressed();
                 break;
             case R.id.imageREC:
                 if(!mCamera.isRecording()) {
@@ -123,11 +127,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mRotation = !mRotation;
                 mCamera.setRotation(180.0f);
                 break;
-//            case  R.id.imageR:
-//               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//                ft.add(R.id.layout,);
-//                ft.commit();
-//                break;
+            case  R.id.imageR:
+               FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                ft2.add(R.id.fullscreen_content,new GpsFragment());
+                ft2.commit();
+                break;
 
         }
     }
