@@ -1,11 +1,12 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
-
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
@@ -95,7 +96,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mCamera.zoom(-4);
                 break;
             case R.id.imageBack:
-                getActivity().onBackPressed();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fullscreen_content,new TitleFragment());
+                ft.commit();
+//                getActivity().onBackPressed();
                 break;
             case R.id.imageREC:
                 if(!mCamera.isRecording()) {

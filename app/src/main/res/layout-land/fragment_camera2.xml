@@ -97,36 +97,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mita"
-            android:id="@+id/imageView25"
-            android:layout_alignTop="@+id/textGPS"
-            android:layout_toLeftOf="@+id/imageR"
-            android:layout_toStartOf="@+id/imageR"
-            android:layout_marginRight="81dp"
-            android:layout_marginEnd="81dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mik2"
-            android:id="@+id/imageView24"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_centerHorizontal="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mika"
-            android:id="@+id/imageView23"
-            android:layout_alignBottom="@+id/imageBack"
-            android:layout_toLeftOf="@+id/imageView24"
-            android:layout_toStartOf="@+id/imageView24"
-            android:layout_marginRight="42dp"
-            android:layout_marginEnd="42dp" />
-
     </RelativeLayout>
 
 </FrameLayout>

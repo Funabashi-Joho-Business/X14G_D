@@ -21,7 +21,7 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_camera);
+        setContentView(R.layout.activity_fullscreen);
 
 
 
@@ -43,7 +43,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onResult() {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new CameraFragment());
+                ft.replace(R.id.fullscreen_content,new TitleFragment());
                 ft.commitAllowingStateLoss();
             }
         });
