@@ -73,7 +73,8 @@
             android:background="@drawable/edittext"
             android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/editText2"
-            android:layout_alignStart="@+id/editText2" />
+            android:layout_alignStart="@+id/editText2"
+            android:textColor="@android:color/background_dark" />
 
     </RelativeLayout>
 </FrameLayout>

@@ -7,68 +7,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            tools:ignore="HardcodedText"
-            android:layout_alignTop="@+id/imageView4"
-            android:layout_toRightOf="@+id/imageTimer"
-            android:layout_toEndOf="@+id/imageTimer"
-            android:layout_marginTop="25dp" />
-
-        <TextureView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textureView" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/guru"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/imageZoomOut"
-            android:layout_alignEnd="@+id/imageZoomOut"
-            android:id="@+id/imageriv"
-            android:background="@null" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/modoru"
-            android:id="@+id/imageBack"
-            android:background="@null"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageREC"
-            android:layout_alignStart="@+id/imageREC"
-            tools:ignore="ContentDescription" />
+        android:layout_height="match_parent"
+        android:background="@color/bac">
 
         <ImageButton
             android:layout_width="74dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sp"
-            android:id="@+id/imageR"
+            android:id="@+id/imageScope"
             android:background="@null"
             tools:ignore="ContentDescription"
-            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-
-
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/a"
-            android:id="@+id/imageScope"
-            tools:ignore="ContentDescription"
+            app:srcCompat="@drawable/guru"
+            android:id="@+id/imageriv"
+            android:background="@null"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-
-
 
 
     </RelativeLayout>
