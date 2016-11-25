@@ -3,6 +3,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
  */
 public class TitleFragment extends Fragment implements View.OnClickListener {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +37,9 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
 //            case R.id.imageTim:
 //                break;
 =======
+=======
+
+>>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_title, container, false);
 
@@ -43,7 +48,11 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+<<<<<<< HEAD
 >>>>>>> c4a9a93f0b3c626b6122bcb7e278a61c4df47789
+=======
+
+>>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
 
     @Override
             public void onClick(View v) {
@@ -61,3 +70,4 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
         }
     }
 }
+

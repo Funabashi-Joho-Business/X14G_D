@@ -33,7 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/imageB"
+            android:id="@+id/imageBack"
             android:background="@null" />
 
         <TextView

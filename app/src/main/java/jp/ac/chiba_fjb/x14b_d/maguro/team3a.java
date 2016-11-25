@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class team3 extends Fragment implements View.OnClickListener {
+public class team3a extends Fragment implements View.OnClickListener {
 
 
-    public team3() {
+    public team3a() {
         // Required empty public constructor
     }
 
@@ -36,7 +36,7 @@ public class team3 extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.imageSetuzoku:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new team3());
+                ft.replace(R.id.fullscreen_content,new team5());
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:
