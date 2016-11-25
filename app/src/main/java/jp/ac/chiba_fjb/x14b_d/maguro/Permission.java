@@ -1,14 +1,13 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.app.Activity;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by oikawa on 2016/11/10.
@@ -20,38 +19,35 @@ public class Permission{
     private ResultListener mListener;
     private Activity mActivity;
 
-
-    private Set<String> mPermissionList = new HashSet<String>();
     public void setOnResultListener(ResultListener listener){
         mListener = listener;
     }
-    public void addPermission(String permission){
-        mPermissionList.add(permission);
-    }
-    boolean isPermissions(Activity context){
-        for (String permission : mPermissionList) {
-            if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED)
-                return false;
-        }
-
-        return true;
-    }
     boolean requestPermissions(Activity context){
         mActivity = context;
-        List<String> list = new ArrayList<String>();
-        for (String permission : mPermissionList) {
-            if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED)
-                list.add(permission);
+
+        try {
+            List<String > list = new ArrayList<String>();
+            PackageManager pm = context.getPackageManager();
+
+            PackageInfo info = pm.getPackageInfo(context.getPackageName(),PackageManager.GET_PERMISSIONS);
+
+            String[] permissions = info.requestedPermissions;
+            for(String permission : permissions) {
+                if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED)
+                    list.add(permission);
+            }
+
+            if(list.size() > 0) {
+                ActivityCompat.requestPermissions(context,list.toArray(new String[list.size()]) , 123);
+                return false;
+            }
+            mListener.onResult();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if(list.size() > 0) {
-            ActivityCompat.requestPermissions(context,list.toArray(new String[list.size()]) , 123);
-            return false;
-        }
-        mListener.onResult();
         return true;
     }
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
-        //if(!isPermissions(mActivity))
         requestPermissions(mActivity);
 
     }

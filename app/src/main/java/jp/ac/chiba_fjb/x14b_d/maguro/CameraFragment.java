@@ -27,6 +27,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
 
     private MyLocationSource mLocation;
     private CameraPreview mCamera;
+    private int mVisibilty;
+
     public CameraFragment() {
         mCamera = new CameraPreview();
     }
@@ -58,12 +60,27 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     }
 
     @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mVisibilty = view.getSystemUiVisibility();
+        view.setSystemUiVisibility(
+            View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        );
+
+
+        view.requestFocus();
     }
+
 
     @Override
     public void onDestroyView() {
+        getView().setSystemUiVisibility(mVisibilty);
         super.onDestroyView();
     }
 
