@@ -19,6 +19,7 @@
             app:srcCompat="@drawable/modoru"
             android:id="@+id/imageBack" />
 
+<<<<<<< HEAD
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,6 +34,26 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+=======
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:text="作成したいチーム名を入力"
+            android:textColor="@color/gts"
+            android:textSize="24sp"
+            android:layout_below="@+id/imageBack"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:background="@drawable/edittext"
+            android:layout_centerVertical="true"
+>>>>>>> 177545820dd53e4ae79c4dcdfef7854ec07c095f
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/imageSetuzoku"
             android:layout_below="@+id/imageBack">
@@ -54,11 +75,17 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sei"
             android:id="@+id/imageSakusei"
+<<<<<<< HEAD
             android:layout_marginLeft="30dp"
             android:layout_marginStart="30dp"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/imageBack"
             android:layout_toEndOf="@+id/imageBack" />
+=======
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp" />
+>>>>>>> 177545820dd53e4ae79c4dcdfef7854ec07c095f
 
         <TextView
             android:layout_width="wrap_content"
