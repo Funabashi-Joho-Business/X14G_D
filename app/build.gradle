@@ -25,24 +25,17 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:support-v4:25.0.1'
-=======
->>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
 
-
-<<<<<<< HEAD
-=======
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:support-v4:25.0.0'
 
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:support-v4:25.0.1'
 
->>>>>>> c4a9a93f0b3c626b6122bcb7e278a61c4df47789
-=======
+
 
 
 
@@ -52,6 +45,6 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.1'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:support-v4:25.0.1'
->>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
+
     testCompile 'junit:junit:4.12'
 }
