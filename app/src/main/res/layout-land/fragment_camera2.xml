@@ -21,10 +21,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 710d6b618e684e88f966aa7f7aee564648dd8912
+
+
     </RelativeLayout>
 
 </FrameLayout>
