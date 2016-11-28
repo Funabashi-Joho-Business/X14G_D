@@ -20,43 +20,56 @@
             android:weightSum="1"
             android:layout_below="@+id/imageBack"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp">
 
-            <TextView
-                android:text="TextView"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView12" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView13" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView10" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView11" />
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView9" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView5" />
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView5" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView9" />
 
-            <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView11" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView10" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView13" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView12" />
+                </LinearLayout>
+            </ScrollView>
 
         </LinearLayout>
 
@@ -73,17 +86,6 @@
             android:layout_alignParentEnd="true" />
 
         <ImageButton
-            android:layout_width="217dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/setu"
-            android:id="@+id/imageSetuzoku"
-            android:background="@null"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/textView16"
-            android:layout_alignEnd="@+id/textView16"
-            android:layout_marginBottom="26dp" />
-
-        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sei"
@@ -91,17 +93,35 @@
             android:background="@null"
             android:layout_alignTop="@+id/imageSetuzoku"
             android:layout_toLeftOf="@+id/imageSetuzoku"
-            android:layout_toStartOf="@+id/imageSetuzoku" />
+            android:layout_toStartOf="@+id/imageSetuzoku"
+            android:layout_marginRight="66dp"
+            android:layout_marginEnd="66dp" />
+
+        <ImageButton
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/setu"
+            android:id="@+id/imageSetuzoku"
+            android:background="@null"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="52dp"
+            android:layout_marginEnd="52dp" />
 
         <TextView
             android:text="作成するか接続したいチーム名とＩＤを選択してください"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView16"
             android:textSize="18sp"
             android:textColor="@color/gts"
-            android:layout_above="@+id/linearLayout"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:padding="10dp"
+            android:gravity="center" />
 
     </RelativeLayout>
 

@@ -21,15 +21,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-        <ImageView
-=======
         <ImageButton
->>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/guru"
@@ -39,16 +32,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
->>>>>>> daa2feddbd4489abf2f99977dd3556b62eab63d5
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> c4a9a93f0b3c626b6122bcb7e278a61c4df47789
-=======
->>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
     </RelativeLayout>
 
 </FrameLayout>
