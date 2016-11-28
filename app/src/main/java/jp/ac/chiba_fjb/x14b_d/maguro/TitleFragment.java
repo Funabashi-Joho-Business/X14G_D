@@ -34,7 +34,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
                         break;
                     case R.id.imageTim:
                         FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                        ft2.replace(R.id.fullscreen_content,new TeamFragment());
+                        ft2.replace(R.id.fullscreen_content,new TeamListFragment());
                         ft2.commitAllowingStateLoss();
                         break;
         }
