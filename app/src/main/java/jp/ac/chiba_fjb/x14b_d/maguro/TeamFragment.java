@@ -37,12 +37,12 @@ public class TeamFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.imageSakusei:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new team3a());
+                ft.replace(R.id.fullscreen_content,new team2());
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.imageSetuzoku:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content,new team2());
+                ft2.replace(R.id.fullscreen_content,new team3());
                 ft2.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:

@@ -20,9 +20,6 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
  */
 public class CameraFragment2 extends Fragment implements View.OnClickListener{
 
-    private MyLocationSource mLocation;
-    public boolean mRotation = true;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,7 +27,7 @@ public class CameraFragment2 extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_camera2, container, false);
 
         view.findViewById(R.id.imageScope).setOnClickListener(this);
-        view.findViewById(R.id.imageriv).setOnClickListener(this);
+
         return view;
     }
 
@@ -41,22 +38,10 @@ public class CameraFragment2 extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case  R.id.imageScope:
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.add(R.id.fullscreen_content,new CameraFragment());
-                ft.commit();
-                break;
-
-            case R.id.imageriv:
-                if(mRotation)
-                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                else
-                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
-                break;
-
-        }
+    public void onClick(View view) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fullscreen_content,new CameraFragment());
+        ft.commitAllowingStateLoss();
     }
 
 }

@@ -3,51 +3,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team">
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team"
+    tools:background="@color/bac">
 
     <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:background="@color/bac"
         android:background="@color/bac">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_below="@+id/imageBack"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="147dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView11"
+                        android:textColor="@color/gts"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView5"
+                        android:textColor="@color/gts"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView9"
+                        android:textColor="@color/gts"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView10"
+                        android:textColor="@color/gts"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView13"
+                        android:textColor="@color/gts"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView12"
+                        android:textColor="@color/gts"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/modoru"
-            android:id="@+id/imageBack" />
+            android:id="@+id/imageBack"
+            android:background="@null"
+            android:layout_marginRight="518dp"
+            android:layout_marginEnd="518dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            android:text="作成したいチーム名を入力"
-            android:textColor="@color/gts"
-            android:textSize="24sp"
-            android:layout_below="@+id/imageBack"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:background="@drawable/edittext"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="@android:color/background_dark" />
-
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sei"
             android:id="@+id/imageSakusei"
+            android:background="@null"
+            android:layout_alignTop="@+id/imageSetuzoku"
+            android:layout_toLeftOf="@+id/imageSetuzoku"
+            android:layout_toStartOf="@+id/imageSetuzoku"
+            android:layout_marginRight="66dp"
+            android:layout_marginEnd="66dp" />
+
+        <ImageButton
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/setu"
+            android:id="@+id/imageSetuzoku"
+            android:background="@null"
+            android:layout_marginBottom="20dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="30dp" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="52dp"
+            android:layout_marginEnd="52dp" />
+
+        <TextView
+            android:text="作成するか接続するチームを選択してください"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            android:textSize="24sp"
+            android:textColor="@color/gts"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingTop="20dp" />
 
     </RelativeLayout>
+
 </FrameLayout>
