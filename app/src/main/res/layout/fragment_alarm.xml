@@ -11,22 +11,17 @@
         android:layout_height="match_parent"
         android:background="@color/bac">
 
-        <ImageView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/wakusan"
-            android:id="@+id/imageView9"
-            android:layout_marginTop="16dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Timer"
-            android:text="0:00"
-            android:textSize="36sp"
-            android:layout_alignBottom="@+id/imageView9"
+            android:inputType="number"
+            android:ems="10"
+            android:layout_marginBottom="24dp"
+            android:id="@+id/editTimer"
+            android:padding="15dp"
+            android:background="@drawable/wakusan"
+            android:textColor="@android:color/background_dark"
+            android:layout_above="@+id/start"
             android:layout_centerHorizontal="true" />
 
         <ImageButton
@@ -35,9 +30,30 @@
             app:srcCompat="@drawable/sette"
             android:id="@+id/start"
             android:background="@null"
-            android:layout_centerVertical="true"
-            android:layout_alignRight="@+id/imageView9"
-            android:layout_alignEnd="@+id/imageView9" />
+            android:layout_marginBottom="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:text="時間を設定してください"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editTimer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="41dp"
+            android:id="@+id/textView22"
+            android:textColor="@color/gts"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/modoru"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/imageBack"
+            android:background="@null" />
 
     </RelativeLayout>
 
