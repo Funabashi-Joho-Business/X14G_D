@@ -23,7 +23,8 @@ public class team2 extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_team2, container, false);
 
-
+        view.findViewById(R.id.editName);
+        view.findViewById(R.id.editPass);
         view.findViewById(R.id.imageSetuzoku).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
 
@@ -35,7 +36,7 @@ public class team2 extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.imageSetuzoku:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new team3b());
+                ft.replace(R.id.fullscreen_content,new team5());
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:

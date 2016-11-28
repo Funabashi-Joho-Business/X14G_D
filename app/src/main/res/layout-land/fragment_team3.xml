@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team3a"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team3"
     android:background="@color/bac">
 
     <!-- TODO: Update blank fragment layout -->
@@ -23,6 +23,16 @@
             android:background="@null" />
 
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/setu"
+            android:id="@+id/imageSetuzoku"
+            android:background="@null"
+            android:layout_below="@+id/editPass"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="42dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,53 +40,22 @@
             android:text="パスワードを入力してください"
             android:textColor="@color/gts"
             android:textSize="24sp"
-            android:layout_marginBottom="31dp"
-            android:layout_above="@+id/imageView7"
-            android:layout_centerHorizontal="true" />
-
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText2"
-            android:layout_alignBottom="@+id/imageView7"
-            android:layout_centerHorizontal="true" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/setu"
-            android:id="@+id/imageSetuzoku"
-            android:background="@null"
-            android:layout_marginTop="21dp"
-            android:layout_below="@+id/editText2"
-            android:layout_centerHorizontal="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView7"
-            android:accessibilityLiveRegion="none"
+            android:id="@+id/editPass"
             android:background="@drawable/wakusan"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/textView19"
-            android:layout_alignStart="@+id/textView19"
-            android:layout_alignRight="@+id/textView19"
-            android:layout_alignEnd="@+id/textView19" />
+            android:textColor="@android:color/background_dark"
+            android:padding="15dp"
+            android:layout_below="@+id/imageBack"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="31dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText5"
-            android:background="@drawable/edittext"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/editText2"
-            android:layout_alignStart="@+id/editText2"
-            android:textColor="@android:color/background_dark" />
-        
     </RelativeLayout>
 </FrameLayout>

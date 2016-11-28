@@ -13,46 +13,16 @@ import android.view.ViewGroup;
  */
 public class TitleFragment extends Fragment implements View.OnClickListener {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view =  inflater.inflate(R.layout.activity_fullscreen, container, false);
-
-        view.findViewById(R.id.imageTim).setOnClickListener(this);
-        view.findViewById(R.id.imageS).setOnClickListener(this);
-        view.findViewById(R.id.imagescop).setOnClickListener(this);
-        return view;
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-//            case R.id.imageS:
-//                FragmentTransaction ft = getActivity().beginTransaction();
-//                ft.replace(R.id.fullscreen_content,new CameraFragment());
-//                ft.commitAllowingStateLoss();
-//                break;
-//            case R.id.imageTim:
-//                break;
-=======
-=======
-
->>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_title, container, false);
 
         view.findViewById(R.id.imageTim).setOnClickListener(this);
         view.findViewById(R.id.imageS).setOnClickListener(this);
         return view;
     }
-
-<<<<<<< HEAD
->>>>>>> c4a9a93f0b3c626b6122bcb7e278a61c4df47789
-=======
-
->>>>>>> d46f62acdb0a26848cc2566e11275908bfac3663
 
     @Override
             public void onClick(View v) {
