@@ -41,7 +41,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
                         break;
                     case R.id.imageRename:
                         FragmentTransaction ft3 = getFragmentManager().beginTransaction();
-                        ft3.replace(R.id.fullscreen_content,new TitleFragment());
+                        ft3.replace(R.id.fullscreen_content,new top());
                         ft3.commitAllowingStateLoss();
                         break;
                     case R.id.imageKaisan:

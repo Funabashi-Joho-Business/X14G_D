@@ -33,7 +33,8 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/wakusan"
-            android:padding="15dp" />
+            android:padding="15dp"
+            android:textColor="@android:color/background_dark" />
 
         <ImageButton
             android:layout_width="wrap_content"

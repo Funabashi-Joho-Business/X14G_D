@@ -55,6 +55,19 @@
             android:id="@+id/imageBack"
             android:background="@null" />
 
+        <TextView
+            android:text="分"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
+            android:textSize="24sp"
+            android:textColor="@color/gts"
+            android:layout_alignBottom="@+id/editTimer"
+            android:layout_toRightOf="@+id/editTimer"
+            android:layout_toEndOf="@+id/editTimer"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp" />
+
     </RelativeLayout>
 
 </FrameLayout>
