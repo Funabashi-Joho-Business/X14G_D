@@ -23,8 +23,13 @@
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
+<<<<<<< HEAD
 //
 //        view view= inflater.inflate(R.layout.fragment_top, container, false);
+=======
+//        // Inflate the layout for this fragment
+//       view view= inflater.inflate(R.layout.fragment_top, container, false);
+>>>>>>> 85828e21f44ec8a3dd5b7873f9a99c919a435b63
 //        view.findViewById(R.id.editname);
 //        view.findViewById(R.id.imagesettei).setOnClickListener(this);
 //
