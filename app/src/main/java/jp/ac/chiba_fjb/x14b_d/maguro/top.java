@@ -23,8 +23,12 @@ public class top extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the ayout for this fragment
-       View view= inflater.inflate(R.layout.fragment_top, container, false);
+
+
+        View view =inflater.inflate(R.layout.fragment_top, container, false);
+
+// Inflate the ayout for this fragment
+
         view.findViewById(R.id.editname);
         view.findViewById(R.id.imagesettei).setOnClickListener(this);
 

@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.TITLE"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.FullscreenActivity"
     android:background="@color/bac">
 
     <ImageView
@@ -73,28 +73,22 @@
             android:layout_alignStart="@+id/imageS"
             android:layout_marginBottom="12dp" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/rename2"
-            android:id="@+id/imageRename"
-            android:background="@null"
-            android:layout_below="@+id/textView5"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
 
         <TextView
             android:text="名前"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView5"
+            app:srcCompat="@drawable/rename2"
+            android:id="@+id/textname"
+            android:background="@null"
             android:textSize="24sp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
             android:textColor="@color/gts"
             android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageRename"
-            android:layout_alignStart="@+id/imageRename" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="44dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginTop="17dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -102,9 +96,24 @@
             app:srcCompat="@drawable/kaisan"
             android:id="@+id/imageKaisan"
             android:background="@null"
-            android:layout_below="@+id/imageRename"
+            android:textSize="24sp"
+            android:textColor="@color/gts"
+            android:layout_marginRight="13dp"
+            android:layout_marginEnd="13dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/rename2"
+            android:id="@+id/imageRena"
+            android:background="@null"
+            android:layout_above="@+id/imageKaisan"
+            android:layout_alignLeft="@+id/imageKaisan"
+            android:layout_alignStart="@+id/imageKaisan" />
+
 
     </RelativeLayout>
 
