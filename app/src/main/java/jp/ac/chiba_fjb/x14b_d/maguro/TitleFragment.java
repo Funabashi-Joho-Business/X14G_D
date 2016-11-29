@@ -21,7 +21,8 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
 
         view.findViewById(R.id.imageTim).setOnClickListener(this);
         view.findViewById(R.id.imageS).setOnClickListener(this);
-            view.findViewById(R.id.imageRename).setOnClickListener(this);
+        view.findViewById(R.id.imageRename).setOnClickListener(this);
+        view.findViewById(R.id.imageKaisan).setOnClickListener(this);
         return view;
     }
 
@@ -42,6 +43,11 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
                         FragmentTransaction ft3 = getFragmentManager().beginTransaction();
                         ft3.replace(R.id.fullscreen_content,new top());
                         ft3.commitAllowingStateLoss();
+                        break;
+                    case R.id.imageKaisan:
+                        FragmentTransaction ft4 = getFragmentManager().beginTransaction();
+                        ft4.replace(R.id.fullscreen_content,new TitleFragment());
+                        ft4.commitAllowingStateLoss();
                         break;
         }
     }
