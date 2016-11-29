@@ -30,7 +30,7 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onResult() {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new TitleFragment());
+                ft.replace(R.id.fullscreen_content,new top());
                 ft.commitAllowingStateLoss();
             }
         });
