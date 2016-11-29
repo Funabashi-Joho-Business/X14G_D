@@ -3,7 +3,6 @@ import android.location.Location;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -147,7 +146,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 break;
             case  R.id.imageScope:
                FragmentTransaction ft3 = getFragmentManager().beginTransaction();
-                ft3.add(R.id.fullscreen_content,new CameraFragment2());
+                ft3.add(R.id.fullscreen_content,new RadarFragment());
                 ft3.commit();
                 break;
 
