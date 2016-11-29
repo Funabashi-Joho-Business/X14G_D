@@ -132,8 +132,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 break;
             case R.id.imageTimer:
 
-                DialogFragment newFragment = new AlermFragment();
-                newFragment.show(getFragmentManager(),null);
+                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                ft2.replace(R.id.fullscreen_content,new AlermFragment());
+                ft2.commit();
 
                 break;
             case R.id.imageriv:
@@ -145,9 +146,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mCamera.setRotation(180.0f);
                 break;
             case  R.id.imageScope:
-               FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.add(R.id.fullscreen_content,new CameraFragment2());
-                ft2.commit();
+               FragmentTransaction ft3 = getFragmentManager().beginTransaction();
+                ft3.add(R.id.fullscreen_content,new CameraFragment2());
+                ft3.commit();
                 break;
 
         }

@@ -43,7 +43,7 @@ public class team3 extends Fragment implements View.OnClickListener {
                 break;
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content,new TeamFragment());
+                ft2.replace(R.id.fullscreen_content,new TeamListFragment());
                 ft2.commitAllowingStateLoss();
                 break;
         }

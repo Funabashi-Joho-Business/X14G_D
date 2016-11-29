@@ -1,60 +1,51 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
-import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.widget.TextView;
-
-import java.util.Timer;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
+public class AlermFragment extends Fragment implements View.OnClickListener {
 
-public class AlermFragment extends DialogFragment {
-    Timer mTimer;
-    public int mCount;
-    TextView mTextView;
 
     public AlermFragment() {
         // Required empty public constructor
     }
 
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Dialog dialog = super.onCreateDialog(savedInstanceState);
-        dialog.setTitle("時間を設定してください");
-        return dialog;
 
-    }}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.activity_fullscreen, container, false);
-//        return view;
-//        Handler  mHandler;
-//
-//        if(mTimer == null){
-//            TimerTask timerTask = new TimerTask() {
-//                @Override
-//                public void run() {
-//                    mCount--;
-//                    //UI関係の処理をサブスレッドで処理するとエラー
-//                    mHandler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            mTextView.setText(String.valueOf(mCount));
-//                        }
-//                    });
-//                }
-//            };
-//            //タイマーの起動
-//            mTimer = new Timer();
-//            mTimer.schedule(timerTask,0,0);
-//        }
-//
-//
-//}}
+        View view =  inflater.inflate(R.layout.fragment_alarm, container, false);
+
+        view.findViewById(R.id.editTimer);
+        view.findViewById(R.id.start).setOnClickListener(this);
+        view.findViewById(R.id.imageBack).setOnClickListener(this);
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.start:
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fullscreen_content,new CameraFragment());
+                ft.commitAllowingStateLoss();
+                break;
+            case R.id.imageBack:
+                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                ft2.replace(R.id.fullscreen_content,new CameraFragment());
+                ft2.commitAllowingStateLoss();
+                break;
+        }
+    }
+}

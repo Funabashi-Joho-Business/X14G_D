@@ -3,7 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/D_.iml" filepath="$PROJECT_DIR$/D_.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/X14G_.iml" filepath="$PROJECT_DIR$/X14G_.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Maguro.iml" filepath="$PROJECT_DIR$/Maguro.iml" />
+>>>>>>> 172476767604f89bbbb20cfbb69a67e979a7c487
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
