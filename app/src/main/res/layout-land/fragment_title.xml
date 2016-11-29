@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.TITLE"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.FullscreenActivity"
     android:background="@color/bac">
 
     <ImageView
@@ -48,9 +48,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp">
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
             android:layout_alignStart="@+id/imageS"
             android:layout_marginBottom="12dp" />
 
-<<<<<<< HEAD
+
         <TextView
             android:text="名前"
             android:layout_width="wrap_content"
@@ -87,17 +88,20 @@
             android:id="@+id/textView25"
             android:textSize="24sp"
             android:textColor="@color/gts" />
-=======
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/rename2"
-            android:layout_alignParentTop="true"
+            android:id="@+id/imageRename"
+            android:background="@null"
+            android:layout_above="@+id/imageS"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:id="@+id/imageRename"
-            android:background="@null" />
->>>>>>> ccc8fd1df9f76ca165e49b6f4a51dabf5284e3f3
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="20dp" />
+
 
     </RelativeLayout>
 
