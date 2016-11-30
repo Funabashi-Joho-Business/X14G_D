@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import static android.R.id.edit;
+import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.textView5;
 
 
 /**
@@ -19,6 +21,7 @@ import static android.R.id.edit;
 public class AlermFragment extends Fragment implements View.OnClickListener {
 
     private EditText mEditTimer;
+    private TextView mTextView;
 
     public AlermFragment() {
         // Required empty public constructor
@@ -31,6 +34,7 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
 
         View view =  inflater.inflate(R.layout.fragment_alarm, container, false);
 
+        mTextView = (TextView)getActivity().findViewById(R.id.textView5);
         mEditTimer = (EditText)view.findViewById(R.id.editTimer);
         view.findViewById(R.id.start).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
@@ -42,22 +46,21 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.start:
+//                String s = mEditTimer.getText().toString();
+//                if(s != null) {
+//                    int i = Integer.parseInt(s);
+//                    mTextView.setText(i);
+//                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                    ft.replace(R.id.fullscreen_content, new CameraFragment());
+//                    ft.commitAllowingStateLoss();
+//                    break;
+//                }else{
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.fullscreen_content, new CameraFragment());
+                    ft.commitAllowingStateLoss();
+                    break;
+//                }
 
-                String s = mEditTimer.getText().toString();
-                int i = Integer.parseInt(s);
-                Bundle bundle = new Bundle();
-                bundle.putInt(s,i);
-// Fragmentを生成し、setArgumentsで先ほどのbundleをセットする
-                HogeFragment fragment = new HogeFragment();
-                fragment.setArguments(bundle);
-// FragmentをFragmentManagerにセットする
-                getFragmentManager().beginTransaction()
-                        .add(R.id.container, fragment, HogeFragment.TAG)
-                        .commit();
-//                FragmentTransaction ft = getFragmentManager().beginTransaction();
-//                ft.replace(R.id.fullscreen_content,new CameraFragment());
-//                ft.commitAllowingStateLoss();
-                break;
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
                 ft2.replace(R.id.fullscreen_content,new CameraFragment());

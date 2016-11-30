@@ -92,16 +92,6 @@
             android:layout_alignStart="@+id/imageZoomOut"
             tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:layout_width="228dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sinwaku"
-            android:id="@+id/imageView4"
-            tools:ignore="ContentDescription"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,6 +123,18 @@
             android:layout_marginStart="28dp"
             android:layout_marginTop="18dp"
             android:id="@+id/textGPS"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:background="@drawable/sinwaku"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_below="@+id/imageTimer"
+            android:layout_alignLeft="@+id/imageTimer"
+            android:layout_alignStart="@+id/imageTimer" />
 
     </RelativeLayout>
 
