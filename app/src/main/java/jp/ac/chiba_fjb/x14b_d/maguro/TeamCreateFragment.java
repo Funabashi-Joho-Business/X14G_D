@@ -13,7 +13,7 @@ import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 
 
-public class TeamCreateFragment extends Fragment implements View.OnClickListener, TeamOperation.OnCreateListener {
+public class TeamCreateFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
 
     private EditText mEditName;
     private EditText mEditPass;
@@ -58,19 +58,20 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
 
 
     @Override
-    public void onTeamCreated(final boolean flag, final int teamId, final int userId) {
+    public void onTeam(final TeamOperation.RecvData recvData) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(flag) {
+                if(recvData!= null && recvData.result) {
                     Snackbar.make(getView(), "チーム作成完了", Snackbar.LENGTH_SHORT).show();
                     AppDB db = new AppDB(getContext());
-                    db.setSetting("TEAM_ID",teamId);
-                    db.setSetting("USER_ID",userId);
+                    db.setSetting("TEAM_ID",recvData.teamId);
+                    db.setSetting("USER_ID",recvData.userId);
+                    db.setSetting("TEAM_PASS",mEditPass.getText().toString());
                     db.close();
 
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.fullscreen_content,new TeamListFragment());
+                    ft.replace(R.id.fullscreen_content,new TitleFragment());
                     ft.commitAllowingStateLoss();
                 }
                 else

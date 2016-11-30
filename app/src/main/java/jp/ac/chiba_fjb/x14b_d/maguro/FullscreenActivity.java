@@ -34,7 +34,7 @@ public class FullscreenActivity extends AppCompatActivity {
             public void onResult() {
                 //設定済みの名前を読み出す
                 AppDB db = new AppDB(FullscreenActivity.this);
-                String name = db.getSetting("NAME","");
+                String name = db.getSetting("USER_NAME","");
                 db.close();
 
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
