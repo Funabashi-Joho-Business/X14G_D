@@ -124,6 +124,7 @@
             android:layout_marginTop="18dp"
             android:id="@+id/textGPS"/>
 
+<<<<<<< HEAD
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,6 +136,28 @@
             android:layout_below="@+id/imageTimer"
             android:layout_alignLeft="@+id/imageTimer"
             android:layout_alignStart="@+id/imageTimer" />
+=======
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/member"
+            android:layout_toLeftOf="@+id/imageriv"
+            android:layout_toStartOf="@+id/imageriv"
+            android:layout_marginRight="14dp"
+            android:layout_marginEnd="14dp"
+            android:id="@+id/imageMember"
+            android:background="@null"
+            android:layout_alignTop="@+id/imageriv" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_toLeftOf="@+id/imageMember"
+            android:layout_toStartOf="@+id/imageMember" />
+>>>>>>> 86b14fc3ff7b7db73b0c50ba9cd842c5ea96db76
 
     </RelativeLayout>
 
