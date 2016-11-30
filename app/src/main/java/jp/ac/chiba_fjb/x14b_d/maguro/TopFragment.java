@@ -7,15 +7,20 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class top extends Fragment implements View.OnClickListener {
+public class TopFragment extends Fragment implements View.OnClickListener {
 
 
-    public top() {
+    private EditText mEditName;
+
+    public TopFragment() {
         // Required empty public constructor
     }
 
@@ -24,12 +29,20 @@ public class top extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        //設定済みの名前を読み出す
+        AppDB db = new AppDB(getContext());
+        String name = db.getSetting("NAME","");
+        db.close();
+
+
 
         View view =inflater.inflate(R.layout.fragment_top, container, false);
 
 // Inflate the ayout for this fragment
 
-        view.findViewById(R.id.editname);
+        mEditName = (EditText)view.findViewById(R.id.editName);
+        mEditName.setText(name);
+
         view.findViewById(R.id.imagesettei).setOnClickListener(this);
 
         return view;
@@ -38,6 +51,11 @@ public class top extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imagesettei:
+                //名前の保存
+                AppDB db = new AppDB(getContext());
+                db.setSetting("NAME",mEditName.getText().toString());
+                db.close();
+
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fullscreen_content, new TitleFragment());
                 ft.commitAllowingStateLoss();

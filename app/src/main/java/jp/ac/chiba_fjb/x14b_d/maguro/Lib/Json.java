@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.x14b_d.maguro;
+package jp.ac.chiba_fjb.x14b_d.maguro.Lib;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

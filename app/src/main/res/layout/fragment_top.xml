@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.top"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.TopFragment"
     android:background="@color/bac">
 
     <!-- TODO: Update blank fragment layout -->
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editname"
+            android:id="@+id/editName"
             android:textSize="24sp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"

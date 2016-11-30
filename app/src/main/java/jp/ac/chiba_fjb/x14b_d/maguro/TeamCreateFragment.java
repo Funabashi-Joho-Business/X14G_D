@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
+
 
 public class TeamCreateFragment extends Fragment implements View.OnClickListener, TeamOperation.OnCreateListener {
 
@@ -37,8 +40,13 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageSetuzoku:
+                //設定済みの名前を読み出す
+                AppDB db = new AppDB(getContext());
+                String userName = db.getSetting("NAME","");
+                db.close();
+
                 Snackbar.make(getView(), "チーム作成", Snackbar.LENGTH_SHORT).show();
-                TeamOperation.createTeam(mEditName.getText().toString(),mEditPass.getText().toString(),this);
+                TeamOperation.createTeam(mEditName.getText().toString(),mEditPass.getText().toString(),userName,this);
                 break;
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
@@ -48,13 +56,19 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
         }
     }
 
+
     @Override
-    public void onTeamCreated(final boolean flag) {
+    public void onTeamCreated(final boolean flag, final int teamId, final int userId) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if(flag) {
                     Snackbar.make(getView(), "チーム作成完了", Snackbar.LENGTH_SHORT).show();
+                    AppDB db = new AppDB(getContext());
+                    db.setSetting("TEAM_ID",teamId);
+                    db.setSetting("USER_ID",userId);
+                    db.close();
+
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.fullscreen_content,new TeamListFragment());
                     ft.commitAllowingStateLoss();
@@ -63,8 +77,6 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
                     Snackbar.make(getView(), "チーム作成失敗", Snackbar.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
     //テキストビューに他のＩＤを表示　ＩＤを元に接続する

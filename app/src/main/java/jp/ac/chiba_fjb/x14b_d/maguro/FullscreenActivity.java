@@ -6,6 +6,9 @@ import android.os.PowerManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.Permission;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -29,8 +32,16 @@ public class FullscreenActivity extends AppCompatActivity {
         mPermission.setOnResultListener(new Permission.ResultListener() {
             @Override
             public void onResult() {
+                //設定済みの名前を読み出す
+                AppDB db = new AppDB(FullscreenActivity.this);
+                String name = db.getSetting("NAME","");
+                db.close();
+
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new top());
+                if(name.length() == 0)
+                    ft.replace(R.id.fullscreen_content,new TopFragment());
+                else
+                    ft.replace(R.id.fullscreen_content,new TitleFragment());
                 ft.commitAllowingStateLoss();
             }
         });
