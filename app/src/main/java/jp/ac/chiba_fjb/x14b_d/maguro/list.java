@@ -34,7 +34,7 @@ public class list extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content,new RadarFragment());
+                ft2.replace(R.id.fullscreen_content,new CameraFragment());
                 ft2.commitAllowingStateLoss();
                 break;
         }
