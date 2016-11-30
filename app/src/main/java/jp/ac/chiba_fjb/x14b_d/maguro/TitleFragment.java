@@ -31,7 +31,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener {
             AppDB db = new AppDB(getContext());
             String name = db.getSetting("NAME","");
             db.close();
-            TextView textView = (TextView)view.findViewById(R.id.textname);
+            TextView textView = (TextView)view.findViewById(R.id.textUserName);
             textView.setText(name);
 
             return view;
