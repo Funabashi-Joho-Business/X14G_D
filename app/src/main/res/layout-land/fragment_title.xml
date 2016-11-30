@@ -74,22 +74,6 @@
             android:layout_marginBottom="12dp" />
 
 
-        <TextView
-            android:text="名前"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/rename2"
-            android:id="@+id/textUserName"
-            android:background="@null"
-            android:textSize="24sp"
-            android:textColor="@color/gts"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="44dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginTop="17dp" />
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,9 +107,28 @@
             android:background="@null"
             android:textSize="24sp"
             android:textColor="@color/gts"
-            android:layout_below="@+id/textUserName"
-            android:layout_alignLeft="@+id/textUserName"
-            android:layout_alignStart="@+id/textUserName"/>
+            android:paddingLeft="10dp"
+            android:layout_above="@+id/imageRena"
+            android:layout_alignRight="@+id/imageRena"
+            android:layout_alignEnd="@+id/imageRena"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:text="名前"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/rename2"
+            android:id="@+id/textUserName"
+            android:background="@null"
+            android:textSize="24sp"
+            android:textColor="@color/gts"
+            android:layout_above="@+id/textTeamName"
+            android:layout_alignRight="@+id/textTeamName"
+            android:layout_alignEnd="@+id/textTeamName"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp" />
 
 
     </RelativeLayout>
