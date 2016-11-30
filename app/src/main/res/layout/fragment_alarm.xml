@@ -45,16 +45,6 @@
             android:textColor="@color/gts"
             android:textSize="24sp" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/modoru"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/imageBack"
-            android:background="@null" />
-
         <TextView
             android:text="分"
             android:layout_width="wrap_content"

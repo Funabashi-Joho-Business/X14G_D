@@ -28,7 +28,7 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
 
         view.findViewById(R.id.editTimer);
         view.findViewById(R.id.start).setOnClickListener(this);
-        view.findViewById(R.id.imageBack).setOnClickListener(this);
+
 
         return view;
     }
@@ -41,11 +41,7 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
                 ft.replace(R.id.fullscreen_content,new CameraFragment());
                 ft.commitAllowingStateLoss();
                 break;
-            case R.id.imageBack:
-                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content,new CameraFragment());
-                ft2.commitAllowingStateLoss();
-                break;
+
         }
     }
 }
