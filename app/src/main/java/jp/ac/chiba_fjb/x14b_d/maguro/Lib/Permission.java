@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.x14b_d.maguro;
+package jp.ac.chiba_fjb.x14b_d.maguro.Lib;
 
 import android.app.Activity;
 import android.content.pm.PackageInfo;
@@ -22,7 +22,7 @@ public class Permission{
     public void setOnResultListener(ResultListener listener){
         mListener = listener;
     }
-    boolean requestPermissions(Activity context){
+    public boolean requestPermissions(Activity context){
         mActivity = context;
 
         try {

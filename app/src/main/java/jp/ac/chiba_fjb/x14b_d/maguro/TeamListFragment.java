@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
+
 
 /**
  * A simple {@link Fragment} subclass.
