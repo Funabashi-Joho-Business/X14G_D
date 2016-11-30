@@ -73,38 +73,6 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/r"
-            android:id="@+id/imageScope"
-            android:background="@null"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageZoomIn"
-            android:layout_alignStart="@+id/imageZoomIn"
-            tools:ignore="ContentDescription" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/purasusu"
-            android:id="@+id/imageZoomIn"
-            android:background="@null"
-            android:layout_below="@+id/imageScope"
-            android:layout_alignLeft="@+id/imageZoomOut"
-            android:layout_alignStart="@+id/imageZoomOut"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            tools:ignore="HardcodedText"
-            android:layout_alignTop="@+id/imageView4"
-            android:layout_toRightOf="@+id/imageTimer"
-            android:layout_toEndOf="@+id/imageTimer"
-            android:layout_marginTop="25dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             app:srcCompat="@drawable/guru"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/imageZoomOut"
@@ -112,38 +80,50 @@
             android:id="@+id/imageriv"
             android:background="@null" />
 
-        <TextView
-            android:text="TextView"
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"
-            android:layout_marginLeft="28dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="18dp"
-            android:id="@+id/textGPS"/>
+            app:srcCompat="@drawable/purasusu"
+            android:id="@+id/imageZoomIn"
+            android:background="@null"
+            tools:ignore="ContentDescription"
+            android:layout_above="@+id/imageZoomOut"
+            android:layout_alignLeft="@+id/imageZoomOut"
+            android:layout_alignStart="@+id/imageZoomOut" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/member"
-            android:layout_toLeftOf="@+id/imageriv"
-            android:layout_toStartOf="@+id/imageriv"
-            android:layout_marginRight="14dp"
-            android:layout_marginEnd="14dp"
             android:id="@+id/imageMember"
             android:background="@null"
-            android:layout_alignTop="@+id/imageriv" />
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/imageZoomIn"
+            android:layout_alignStart="@+id/imageZoomIn" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:id="@+id/textGPS"
+            android:layout_below="@+id/textView5"
+            android:layout_toRightOf="@+id/imageBack"
+            android:layout_toEndOf="@+id/imageBack"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView5"
-            android:layout_alignTop="@+id/imageView3"
+            android:layout_above="@+id/imageZoomIn"
             android:layout_toLeftOf="@+id/imageMember"
-            android:layout_toStartOf="@+id/imageMember" />
+            android:layout_toStartOf="@+id/imageMember"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="28dp" />
 
     </RelativeLayout>
 
