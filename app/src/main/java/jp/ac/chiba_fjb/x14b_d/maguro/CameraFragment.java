@@ -51,6 +51,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
         view.findViewById(R.id.imageScope).setOnClickListener(this);
+        view.findViewById(R.id.imageMember).setOnClickListener(this);
         return view;
     }
 
@@ -151,7 +152,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 ft3.add(R.id.fullscreen_content,new RadarFragment());
                 ft3.commit();
                 break;
-
+            case R.id.imageMember:
+                FragmentTransaction ft4 = getFragmentManager().beginTransaction();
+                ft4.replace(R.id.fullscreen_content,new list());
+                ft4.commitAllowingStateLoss();
+                break;
         }
     }
 
