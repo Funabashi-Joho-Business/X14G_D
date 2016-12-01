@@ -21,7 +21,7 @@ import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.textView5;
 public class AlermFragment extends Fragment implements View.OnClickListener {
 
     private EditText mEditTimer;
-    private TextView mTextView;
+
 
     public AlermFragment() {
         // Required empty public constructor
@@ -34,7 +34,7 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
 
         View view =  inflater.inflate(R.layout.fragment_alarm, container, false);
 
-        mTextView = (TextView)getActivity().findViewById(R.id.textView5);
+
         mEditTimer = (EditText)view.findViewById(R.id.editTimer);
         view.findViewById(R.id.start).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
