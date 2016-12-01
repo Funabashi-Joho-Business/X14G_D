@@ -148,7 +148,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 break;
             case R.id.imageMember:
                 FragmentTransaction ft4 = getFragmentManager().beginTransaction();
-                ft4.replace(R.id.fullscreen_content,new list());
+                ft4.replace(R.id.fullscreen_content,new MemberListFragment());
                 ft4.commitAllowingStateLoss();
                 break;
         }

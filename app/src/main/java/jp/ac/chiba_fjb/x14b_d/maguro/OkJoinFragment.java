@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class team4 extends Fragment implements View.OnClickListener {
+public class OkJoinFragment extends Fragment implements View.OnClickListener {
 
 
-    public team4() {
+    public OkJoinFragment() {
         // Required empty public constructor
     }
 

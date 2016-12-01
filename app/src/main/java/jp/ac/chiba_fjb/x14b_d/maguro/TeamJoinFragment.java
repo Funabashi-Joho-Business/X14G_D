@@ -46,7 +46,7 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.imageSetuzoku:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new team4());
+                ft.replace(R.id.fullscreen_content,new OkJoinFragment());
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:

@@ -44,31 +44,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sei"
-            android:id="@+id/imageSakusei"
-            android:background="@null"
-            android:layout_alignTop="@+id/imageSetuzoku"
-            android:layout_toLeftOf="@+id/imageSetuzoku"
-            android:layout_toStartOf="@+id/imageSetuzoku"
-            android:layout_marginRight="66dp"
-            android:layout_marginEnd="66dp" />
-
-        <ImageButton
-            android:layout_width="217dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/setu"
-            android:id="@+id/imageSetuzoku"
-            android:background="@null"
-            android:layout_marginBottom="20dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="52dp"
-            android:layout_marginEnd="52dp" />
-
         <TextView
             android:text="作成するか接続するチームを選択してください"
             android:layout_width="match_parent"
@@ -82,6 +57,16 @@
             android:gravity="center"
             android:paddingLeft="50dp"
             android:paddingTop="20dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/sei"
+            android:id="@+id/imageSakusei"
+            android:background="@null"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp" />
 
     </RelativeLayout>
 

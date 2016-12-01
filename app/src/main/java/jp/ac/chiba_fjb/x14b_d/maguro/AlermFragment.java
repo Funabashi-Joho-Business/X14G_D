@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import static android.R.id.edit;
-import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.textView5;
+
 
 
 /**
@@ -46,20 +46,12 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.start:
-//                String s = mEditTimer.getText().toString();
-//                if(s != null) {
-//                    int i = Integer.parseInt(s);
-//                    mTextView.setText(i);
-//                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-//                    ft.replace(R.id.fullscreen_content, new CameraFragment());
-//                    ft.commitAllowingStateLoss();
-//                    break;
-//                }else{
+
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.fullscreen_content, new CameraFragment());
                     ft.commitAllowingStateLoss();
                     break;
-//                }
+
 
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
