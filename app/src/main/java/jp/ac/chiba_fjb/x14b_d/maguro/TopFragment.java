@@ -31,15 +31,10 @@ public class TopFragment extends Fragment implements View.OnClickListener {
 
         //設定済みの名前を読み出す
         AppDB db = new AppDB(getContext());
-        String name = db.getSetting("NAME","");
+        String name = db.getSetting("USER_NAME","");
         db.close();
 
-
-
         View view =inflater.inflate(R.layout.fragment_top, container, false);
-
-// Inflate the ayout for this fragment
-
         mEditName = (EditText)view.findViewById(R.id.editName);
         mEditName.setText(name);
 
@@ -53,7 +48,7 @@ public class TopFragment extends Fragment implements View.OnClickListener {
             case R.id.imagesettei:
                 //名前の保存
                 AppDB db = new AppDB(getContext());
-                db.setSetting("NAME",mEditName.getText().toString());
+                db.setSetting("USER_NAME",mEditName.getText().toString());
                 db.close();
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();

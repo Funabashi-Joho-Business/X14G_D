@@ -1,33 +1,32 @@
 package jp.ac.chiba_fjb.x14b_d.maguro.Lib;
 
 public class TeamOperation{
-    private OnCreateListener mListener;
+    private OnTeamListener mListener;
 
-    public interface OnCreateListener{
-        public void onTeamCreated(boolean flag,int teamId,int userId);
-    }
-    public interface OnListListener{
-        public void onTeamList(RecvTeam datas);
+    public interface OnTeamListener{
+        public void onTeam(RecvData recvData);
     }
 
     private static String GAS_URL = "https://script.google.com/macros/s/AKfycbxIKA6B_PqTzYDzqJZLoYL3T3Dl4p8Nyz2i0lvjTAGKCyAywsHi/exec";
 
     public static class SendData{
         public String cmd;
+        public String teamId;
         public String teamName;
         public String teamPass;
         public String userName;
-    }
-    public static class RecvTeam{
-        public Object[][] values;
+        public String userId;
+
     }
     public static class RecvData {
         public Boolean result;
         public int userId;
         public int teamId;
+        public String teamName;
+        public Object[][] values;
     }
 
-    public static void createTeam(final String teamName, final String teamPass, final String userName,final OnCreateListener listener){
+    public static void createTeam(final String teamName, final String teamPass, final String userName,final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
             public void run() {
@@ -41,17 +40,12 @@ public class TeamOperation{
                 //GASに接続
                 RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
                 if(listener != null)
-                    if(recvData != null && recvData.result)
-                        listener.onTeamCreated(true,recvData.teamId,recvData.userId);
-
+                    listener.onTeam(recvData);
             }
         };
         thread.start();
     }
-    public static void getTeam(final OnListListener listener){
-
-
-
+    public static void getTeam(final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
             public void run() {
@@ -59,13 +53,49 @@ public class TeamOperation{
                 SendData sendData = new SendData();
                 sendData.cmd = "TEAM_LIST";
 
-                RecvTeam recvData = Json.send(GAS_URL,sendData,RecvTeam.class);
+                RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
                 if(listener != null)
-                    listener.onTeamList(recvData);
+                    listener.onTeam(recvData);
 
             }
         };
         thread.start();
     }
+    public static void joinTeam(final String teamId, final String teamPass, final String userId, final String userName,final OnTeamListener listener){
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                //送信データの作成
+                SendData sendData = new SendData();
+                sendData.cmd = "TEAM_JOIN";
+                sendData.teamId = teamId;
+                sendData.teamPass = teamPass;
+                sendData.userId = userId;
+                sendData.userName = userName;
 
+                RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
+                if(listener != null)
+                    listener.onTeam(recvData);
+
+            }
+        };
+        thread.start();
+    }
+    public static void removeTeam(final String teamId, final String teamPass, final String userId,final OnTeamListener listener){
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                //送信データの作成
+                SendData sendData = new SendData();
+                sendData.cmd = "TEAM_REMOVE";
+                sendData.teamId = teamId;
+                sendData.teamPass = teamPass;
+                sendData.userId = userId;
+                RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
+                if(listener != null)
+                   listener.onTeam(recvData);
+            }
+        };
+        thread.start();
+    }
 }

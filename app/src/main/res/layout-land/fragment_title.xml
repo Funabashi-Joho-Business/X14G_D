@@ -74,6 +74,23 @@
             android:layout_marginBottom="12dp" />
 
 
+<<<<<<< HEAD
+=======
+        <TextView
+            android:text="名前"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/rename2"
+            android:id="@+id/textUserName"
+            android:background="@null"
+            android:textSize="24sp"
+            android:textColor="@color/gts"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="17dp"
+            android:layout_alignLeft="@+id/textTeamName"
+            android:layout_alignStart="@+id/textTeamName"/>
+
+>>>>>>> 57b09f94166159476b5d202420376b3bf7416b07
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,6 +124,7 @@
             android:background="@null"
             android:textSize="24sp"
             android:textColor="@color/gts"
+<<<<<<< HEAD
             android:paddingLeft="10dp"
             android:layout_above="@+id/imageRena"
             android:layout_alignRight="@+id/imageRena"
@@ -129,6 +147,11 @@
             android:layout_alignEnd="@+id/textTeamName"
             android:layout_marginRight="8dp"
             android:layout_marginEnd="8dp" />
+=======
+            android:layout_below="@+id/textUserName"
+            android:layout_alignLeft="@+id/imageRena"
+            android:layout_alignStart="@+id/imageRena"/>
+>>>>>>> 57b09f94166159476b5d202420376b3bf7416b07
 
 
     </RelativeLayout>
