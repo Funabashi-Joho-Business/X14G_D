@@ -12,20 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="チームに参加しました"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView14"
-            android:textSize="36sp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="82dp"
-            android:layout_marginEnd="82dp"
-            android:layout_marginTop="95dp"
-            android:textColor="@color/gts" />
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,6 +32,18 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
             android:textColor="@color/gts" />
+
+        <TextView
+            android:text="(チーム名)に参加しました"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView14"
+            android:textSize="36sp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/gts"
+            android:layout_below="@+id/imageBack"
+            android:layout_alignLeft="@+id/textView15"
+            android:layout_alignStart="@+id/textView15" />
     </RelativeLayout>
 
 </FrameLayout>

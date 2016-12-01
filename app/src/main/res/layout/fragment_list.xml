@@ -24,7 +24,7 @@
             android:layout_marginTop="29dp" />
 
         <TextView
-            android:text="チーム名"
+            android:text="(チーム名)"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView23"
