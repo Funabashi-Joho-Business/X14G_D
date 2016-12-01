@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
@@ -38,9 +39,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_camera, container, false);
-
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
 
@@ -52,6 +53,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         view.findViewById(R.id.imageriv).setOnClickListener(this);
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         return view;
+
     }
 
     @Override
@@ -60,10 +62,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         mLocation = new MyLocationSource(getContext());
     }
 
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mVisibilty = view.getSystemUiVisibility();
         view.setSystemUiVisibility(
             View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -73,8 +75,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         );
-
-
         view.requestFocus();
     }
 
@@ -116,7 +116,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fullscreen_content,new TitleFragment());
                 ft.commit();
-//                getActivity().onBackPressed();
                 break;
             case R.id.imageREC:
                 if(!mCamera.isRecording()) {
