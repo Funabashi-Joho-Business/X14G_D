@@ -36,8 +36,7 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener {
             System.out.println(bundle.getInt("teamId"));
             System.out.println(bundle.getString("teamName"));
         }
-
-
+        
         return view;
     }
 
