@@ -1,25 +1,54 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
+
+
+class TeamAdapter extends ArrayAdapter<Object[]> {
+    public TeamAdapter(Context context) {
+        super(context,R.layout.team_item);
+
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+	    if (convertView == null) {
+		    convertView = LayoutInflater.from(getContext()).inflate(R.layout.team_item, null);
+	    }
+		Object[] value = getItem(position);
+	    TextView textView = (TextView)convertView.findViewById(R.id.textTeamName);
+	    textView.setText((String)value[2]);
+	    TextView textView2 = (TextView)convertView.findViewById(R.id.textMembers);
+	    textView2.setText(String.valueOf(value[3]));
+        return convertView;
+
+    }
+}
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TeamListFragment extends Fragment implements View.OnClickListener, TeamOperation.OnListListener {
+public class TeamListFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener, AdapterView.OnItemClickListener {
 
 
-    private LinearLayout mTeamList;
+    private ListView mTeamList;
+	private TeamAdapter mAdapter;
 
-    public TeamListFragment() {
+	public TeamListFragment() {
         // Required empty public constructor
     }
 
@@ -33,7 +62,10 @@ public class TeamListFragment extends Fragment implements View.OnClickListener, 
         view.findViewById(R.id.imageSetuzoku).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
 
-        mTeamList = (LinearLayout)view.findViewById(R.id.layoutTeamList);
+	    mAdapter = new TeamAdapter(getContext());
+        mTeamList = (ListView)view.findViewById(R.id.listTeam);
+	    mTeamList.setAdapter(mAdapter);
+	    mTeamList.setOnItemClickListener(this);
 
         update();
 
@@ -50,7 +82,7 @@ public class TeamListFragment extends Fragment implements View.OnClickListener, 
                 break;
             case R.id.imageSetuzoku:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content,new team3());
+                ft2.replace(R.id.fullscreen_content,new TeamJoinFragment());
                 ft2.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:
@@ -65,21 +97,34 @@ public class TeamListFragment extends Fragment implements View.OnClickListener, 
     }
 
     @Override
-    public void onTeamList(final TeamOperation.RecvTeam datas) {
-        if(datas!=null && datas.values!=null){
+    public void onTeam(final TeamOperation.RecvData recvData) {
+        if(recvData!=null && recvData.values!=null && getActivity()!=null){
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mTeamList.removeAllViews();
-                    for(Object[] value : datas.values){
-                        TextView text = new TextView(getContext());
-                        text.setText((String)value[2]);
-                        mTeamList.addView(text);
+	                mAdapter.clear();
+                    for(Object[] value : recvData.values){
+	                    mAdapter.add(value);
                     }
+	                mAdapter.notifyDataSetChanged();
                 }
             });
 
         }
-
     }
+
+	@Override
+	public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+		Object[] value = mAdapter.getItem(i);
+		Bundle bundle = new Bundle();
+		bundle.putInt("teamId",(int)value[0]);
+		bundle.putString("teamName",(String)value[2]);
+
+		Fragment f = new TeamJoinFragment();
+		f.setArguments(bundle);
+
+		FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+		ft2.replace(R.id.fullscreen_content,f);
+		ft2.commitAllowingStateLoss();
+	}
 }

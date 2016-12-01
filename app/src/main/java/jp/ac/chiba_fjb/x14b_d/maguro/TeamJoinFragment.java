@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class team3 extends Fragment implements View.OnClickListener {
+public class TeamJoinFragment extends Fragment implements View.OnClickListener {
 
 
-    public team3() {
+    public TeamJoinFragment() {
         // Required empty public constructor
     }
 
@@ -24,11 +24,19 @@ public class team3 extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view =  inflater.inflate(R.layout.fragment_team3, container, false);
+        View view =  inflater.inflate(R.layout.fragment_join, container, false);
 
         view.findViewById(R.id.editPass);
         view.findViewById(R.id.imageSetuzoku).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
+
+
+        Bundle bundle = getArguments();
+        if(bundle != null){
+            System.out.println(bundle.getInt("teamId"));
+            System.out.println(bundle.getString("teamName"));
+        }
+
 
         return view;
     }

@@ -79,16 +79,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/rename2"
-            android:id="@+id/textname"
+            android:id="@+id/textUserName"
             android:background="@null"
             android:textSize="24sp"
             android:textColor="@color/gts"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="44dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginTop="17dp" />
+            android:layout_marginTop="17dp"
+            android:layout_alignLeft="@+id/textTeamName"
+            android:layout_alignStart="@+id/textTeamName"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -113,6 +111,19 @@
             android:layout_above="@+id/imageKaisan"
             android:layout_alignLeft="@+id/imageKaisan"
             android:layout_alignStart="@+id/imageKaisan" />
+
+        <TextView
+            android:text="チーム"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/rename2"
+            android:id="@+id/textTeamName"
+            android:background="@null"
+            android:textSize="24sp"
+            android:textColor="@color/gts"
+            android:layout_below="@+id/textUserName"
+            android:layout_alignLeft="@+id/imageRena"
+            android:layout_alignStart="@+id/imageRena"/>
 
 
     </RelativeLayout>

@@ -70,6 +70,7 @@
             android:contentDescription=""
             tools:ignore="ContentDescription" />
 
+<<<<<<< HEAD
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +79,7 @@
             android:layout_toRightOf="@+id/imageTimer"
             android:layout_toEndOf="@+id/imageTimer"
             android:layout_marginTop="25dp" />
-
+=======
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,10 +90,33 @@
             android:id="@+id/imageriv"
             android:background="@null" />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/purasusu"
+            android:id="@+id/imageZoomIn"
+            android:background="@null"
+            tools:ignore="ContentDescription"
+            android:layout_above="@+id/imageZoomOut"
+            android:layout_alignLeft="@+id/imageZoomOut"
+            android:layout_alignStart="@+id/imageZoomOut" />
+>>>>>>> 57b09f94166159476b5d202420376b3bf7416b07
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/member"
+            android:id="@+id/imageMember"
+            android:background="@null"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/imageZoomIn"
+            android:layout_alignStart="@+id/imageZoomIn" />
+
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/textView2"
             android:layout_toEndOf="@+id/textView2"
@@ -101,14 +125,31 @@
             android:layout_marginTop="18dp"
             android:id="@+id/textGPS"/>
 
+=======
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:id="@+id/textGPS"
+            android:layout_below="@+id/textTeamName"
+            android:layout_toRightOf="@+id/imageBack"
+            android:layout_toEndOf="@+id/imageBack"
+            android:layout_marginTop="20dp" />
+>>>>>>> 57b09f94166159476b5d202420376b3bf7416b07
 
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:id="@+id/textView5"
+=======
+            android:id="@+id/textTeamName"
+            android:layout_above="@+id/imageZoomIn"
+>>>>>>> 57b09f94166159476b5d202420376b3bf7416b07
             android:layout_toLeftOf="@+id/imageMember"
-            android:layout_toStartOf="@+id/imageMember" />
+            android:layout_toStartOf="@+id/imageMember"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="28dp" />
 
         <ImageButton
             android:layout_width="wrap_content"

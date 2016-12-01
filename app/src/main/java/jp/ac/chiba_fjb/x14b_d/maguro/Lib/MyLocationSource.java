@@ -1,4 +1,4 @@
-package jp.ac.chiba_fjb.x14b_d.maguro;
+package jp.ac.chiba_fjb.x14b_d.maguro.Lib;
 
 import android.Manifest;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.support.v4.app.ActivityCompat;
  */
 
 public class MyLocationSource implements android.location.LocationListener {
-	interface OnLocationListener {
+	public interface OnLocationListener {
 		public void onLocation(Location location);
 	}
 
@@ -29,7 +29,7 @@ public class MyLocationSource implements android.location.LocationListener {
 	private LocationManager mLocationManager;
 	private Location mLastLocation;
 
-	MyLocationSource(Context context) {
+	public MyLocationSource(Context context) {
 		mContext = context;
 		mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
 

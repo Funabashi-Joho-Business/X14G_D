@@ -24,26 +24,11 @@
             android:paddingLeft="60dp"
             android:paddingRight="40dp">
 
-            <ScrollView
+            <ListView
                 android:layout_width="match_parent"
-                android:layout_height="147dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/layoutTeamList">
-
-                    <TextView
-                        android:text="読み込み中..."
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView11"
-                        android:textColor="@color/gts"
-                        android:textSize="24sp" />
-
-                </LinearLayout>
-            </ScrollView>
+                android:layout_height="123dp"
+                android:id="@+id/listTeam"
+                style="@style/Widget.AppCompat.ListView"/>
 
         </LinearLayout>
 
