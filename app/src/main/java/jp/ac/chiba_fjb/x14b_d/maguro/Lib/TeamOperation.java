@@ -11,11 +11,11 @@ public class TeamOperation{
 
     public static class SendData{
         public String cmd;
-        public String teamId;
+        public int teamId;
         public String teamName;
         public String teamPass;
         public String userName;
-        public String userId;
+        public int userId;
 
     }
     public static class RecvData {
@@ -61,7 +61,7 @@ public class TeamOperation{
         };
         thread.start();
     }
-    public static void joinTeam(final String teamId, final String teamPass, final String userId, final String userName,final OnTeamListener listener){
+    public static void joinTeam(final int teamId, final String teamPass, final int userId, final String userName,final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
             public void run() {
@@ -81,7 +81,7 @@ public class TeamOperation{
         };
         thread.start();
     }
-    public static void removeTeam(final String teamId, final String teamPass, final String userId,final OnTeamListener listener){
+    public static void removeTeam(final int teamId, final String teamPass, final int userId,final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
             public void run() {

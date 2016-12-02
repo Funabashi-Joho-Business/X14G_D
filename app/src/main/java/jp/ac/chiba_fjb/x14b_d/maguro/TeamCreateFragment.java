@@ -42,7 +42,7 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
             case R.id.imageSetuzoku:
                 //設定済みの名前を読み出す
                 AppDB db = new AppDB(getContext());
-                String userName = db.getSetting("NAME","");
+                String userName = db.getSetting("USER_NAME","");
                 db.close();
 
                 Snackbar.make(getView(), "チーム作成", Snackbar.LENGTH_SHORT).show();

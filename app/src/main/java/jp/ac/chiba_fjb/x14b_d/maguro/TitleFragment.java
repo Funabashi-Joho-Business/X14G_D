@@ -49,7 +49,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
         mTextTeam = (TextView)view.findViewById(R.id.textTeamName);
         if(mTeamId.length() > 0) {
             mTextTeam.setText("確認中");
-            TeamOperation.joinTeam(mTeamId,mTeamPass,mUserId,mUserName,this);
+            TeamOperation.joinTeam(Integer.parseInt(mTeamId),mTeamPass,Integer.parseInt(mUserId),mUserName,this);
         }
 
         return view;
@@ -75,7 +75,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
                 break;
             case R.id.imageKaisan:
                 mTextTeam.setText("離脱中");
-                TeamOperation.removeTeam(mTeamId, mTeamPass, mUserId, new TeamOperation.OnTeamListener() {
+                TeamOperation.removeTeam(Integer.parseInt(mTeamId), mTeamPass, Integer.parseInt(mUserId), new TeamOperation.OnTeamListener() {
                     @Override
                     public void onTeam(TeamOperation.RecvData recvData) {
                         getActivity().runOnUiThread(new Runnable() {
