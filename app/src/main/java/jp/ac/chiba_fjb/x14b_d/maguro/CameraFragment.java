@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
@@ -45,13 +44,14 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
 
-        view.findViewById(R.id.imageZoomIn).setOnClickListener(this);
-        view.findViewById(R.id.imageZoomOut).setOnClickListener(this);
+        view.findViewById(R.id.imageTateUp).setOnClickListener(this);
+        view.findViewById(R.id.imageTateDown).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
         view.findViewById(R.id.imageMember).setOnClickListener(this);
+        view.findViewById(R.id.imageZeroin).setOnClickListener(this);
         return view;
 
     }
@@ -106,10 +106,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imageZoomIn:
+            case R.id.imageTateUp:
                 mCamera.zoom(4);
                 break;
-            case R.id.imageZoomOut:
+            case R.id.imageTateDown:
                 mCamera.zoom(-4);
                 break;
             case R.id.imageBack:
@@ -149,6 +149,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 FragmentTransaction ft4 = getFragmentManager().beginTransaction();
                 ft4.replace(R.id.fullscreen_content,new MemberListFragment());
                 ft4.commitAllowingStateLoss();
+                break;
+            case R.id.imageZeroin:
+                FragmentTransaction ft5 = getFragmentManager().beginTransaction();
+                ft5.replace(R.id.fullscreen_content,new CameraFragment2());
+                ft5.commitAllowingStateLoss();
                 break;
         }
     }

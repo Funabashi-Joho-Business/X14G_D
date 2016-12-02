@@ -27,7 +27,7 @@
             app:srcCompat="@drawable/mainasuu"
             android:layout_marginRight="15dp"
             android:layout_marginEnd="15dp"
-            android:id="@+id/imageZoomOut"
+            android:id="@+id/imageTateDown"
             android:layout_alignBottom="@+id/imageTimer"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -85,8 +85,8 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/guru"
             android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/imageZoomOut"
-            android:layout_alignEnd="@+id/imageZoomOut"
+            android:layout_alignRight="@+id/imageTateDown"
+            android:layout_alignEnd="@+id/imageTateDown"
             android:id="@+id/imageriv"
             android:background="@null" />
 
@@ -94,12 +94,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/purasusu"
-            android:id="@+id/imageZoomIn"
+            android:id="@+id/imageTateUp"
             android:background="@null"
             tools:ignore="ContentDescription"
-            android:layout_above="@+id/imageZoomOut"
-            android:layout_alignLeft="@+id/imageZoomOut"
-            android:layout_alignStart="@+id/imageZoomOut" />
+            android:layout_above="@+id/imageTateDown"
+            android:layout_alignLeft="@+id/imageTateDown"
+            android:layout_alignStart="@+id/imageTateDown" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -108,8 +108,8 @@
             android:id="@+id/imageMember"
             android:background="@null"
             android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageZoomIn"
-            android:layout_alignStart="@+id/imageZoomIn" />
+            android:layout_alignLeft="@+id/imageTateUp"
+            android:layout_alignStart="@+id/imageTateUp" />
 
         <TextView
             android:text="TextView"
@@ -145,6 +145,16 @@
             android:layout_alignTop="@+id/textGPS"
             android:layout_toLeftOf="@+id/imageMember"
             android:layout_toStartOf="@+id/imageMember" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/sp"
+            android:layout_alignTop="@+id/imageriv"
+            android:layout_alignLeft="@+id/imageTimer"
+            android:layout_alignStart="@+id/imageTimer"
+            android:id="@+id/imageZeroin"
+            android:background="@null" />
 
 
     </RelativeLayout>
