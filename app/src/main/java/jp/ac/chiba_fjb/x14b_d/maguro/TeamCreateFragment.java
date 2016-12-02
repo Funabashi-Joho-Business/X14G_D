@@ -42,11 +42,13 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
             case R.id.imageSetuzoku:
                 //設定済みの名前を読み出す
                 AppDB db = new AppDB(getContext());
+                int userId = db.getSetting("USER_ID",0);
                 String userName = db.getSetting("USER_NAME","");
+                String userPass = db.getSetting("USER_PASS","");
                 db.close();
 
                 Snackbar.make(getView(), "チーム作成", Snackbar.LENGTH_SHORT).show();
-                TeamOperation.createTeam(mEditName.getText().toString(),mEditPass.getText().toString(),userName,this);
+                TeamOperation.joinTeam(mEditName.getText().toString(),mEditPass.getText().toString(),userId,userName,userPass,this);
                 break;
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
@@ -65,8 +67,9 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
                 if(recvData!= null && recvData.result) {
                     Snackbar.make(getView(), "チーム作成完了", Snackbar.LENGTH_SHORT).show();
                     AppDB db = new AppDB(getContext());
-                    db.setSetting("TEAM_ID",recvData.teamId);
                     db.setSetting("USER_ID",recvData.userId);
+                    db.setSetting("USER_PASS",recvData.userPass);
+                    db.setSetting("TEAM_NAME",mEditName.getText().toString());
                     db.setSetting("TEAM_PASS",mEditPass.getText().toString());
                     db.close();
 

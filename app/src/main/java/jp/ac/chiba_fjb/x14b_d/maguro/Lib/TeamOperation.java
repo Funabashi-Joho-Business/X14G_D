@@ -7,44 +7,32 @@ public class TeamOperation{
         public void onTeam(RecvData recvData);
     }
 
-    private static String GAS_URL = "https://script.google.com/macros/s/AKfycbxIKA6B_PqTzYDzqJZLoYL3T3Dl4p8Nyz2i0lvjTAGKCyAywsHi/exec";
+    private static String GAS_URL = "https://script.google.com/macros/s/AKfycbw8yQimj_TyBl_2EhXDV02cyaAEQaOF9M0w-M3OVghO_CQ1Tqo/exec";
 
     public static class SendData{
         public String cmd;
         public int teamId;
         public String teamName;
         public String teamPass;
-        public String userName;
         public int userId;
+        public String userName;
+        public String userPass;
+
 
     }
+    public static class TeamData{
+        public String teamName;
+        public int teamCount;
+    }
+
     public static class RecvData {
         public Boolean result;
         public int userId;
-        public int teamId;
         public String teamName;
-        public Object[][] values;
+        public String userPass;
+        public TeamData[] values;
     }
 
-    public static void createTeam(final String teamName, final String teamPass, final String userName,final OnTeamListener listener){
-        Thread thread = new Thread(){
-            @Override
-            public void run() {
-
-                //送信データの作成
-                SendData sendData = new SendData();
-                sendData.cmd = "TEAM_CREATE";
-                sendData.teamName = teamName;
-                sendData.teamPass = teamPass;
-                sendData.userName = userName;
-                //GASに接続
-                RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
-                if(listener != null)
-                    listener.onTeam(recvData);
-            }
-        };
-        thread.start();
-    }
     public static void getTeam(final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
@@ -61,17 +49,18 @@ public class TeamOperation{
         };
         thread.start();
     }
-    public static void joinTeam(final int teamId, final String teamPass, final int userId, final String userName,final OnTeamListener listener){
+    public static void joinTeam(final String teamName, final String teamPass, final int userId, final String userName,final String userPass,final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
             public void run() {
                 //送信データの作成
                 SendData sendData = new SendData();
                 sendData.cmd = "TEAM_JOIN";
-                sendData.teamId = teamId;
+                sendData.teamName = teamName;
                 sendData.teamPass = teamPass;
                 sendData.userId = userId;
                 sendData.userName = userName;
+                sendData.userPass = userPass;
 
                 RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
                 if(listener != null)
@@ -81,16 +70,15 @@ public class TeamOperation{
         };
         thread.start();
     }
-    public static void removeTeam(final int teamId, final String teamPass, final int userId,final OnTeamListener listener){
+    public static void removeTeam(final int userId,final String userPass,final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
             public void run() {
                 //送信データの作成
                 SendData sendData = new SendData();
                 sendData.cmd = "TEAM_REMOVE";
-                sendData.teamId = teamId;
-                sendData.teamPass = teamPass;
                 sendData.userId = userId;
+                sendData.userPass = userPass;
                 RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
                 if(listener != null)
                    listener.onTeam(recvData);
