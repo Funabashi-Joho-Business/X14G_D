@@ -9,16 +9,20 @@ public class TeamOperation{
 
     private static String GAS_URL = "https://script.google.com/macros/s/AKfycbw8yQimj_TyBl_2EhXDV02cyaAEQaOF9M0w-M3OVghO_CQ1Tqo/exec";
 
-    public static class SendData{
-        public String cmd;
+    public static class UserData{
         public int teamId;
         public String teamName;
         public String teamPass;
         public int userId;
         public String userName;
         public String userPass;
+        public double locationX;
+        public double locationY;
+    }
 
-
+    public static class SendData{
+        public String cmd;
+        public UserData userData;
     }
     public static class TeamData{
         public String teamName;
@@ -31,6 +35,7 @@ public class TeamOperation{
         public String teamName;
         public String userPass;
         public TeamData[] values;
+        public UserData[] members;
     }
 
     public static void getTeam(final OnTeamListener listener){
@@ -49,18 +54,21 @@ public class TeamOperation{
         };
         thread.start();
     }
-    public static void joinTeam(final String teamName, final String teamPass, final int userId, final String userName,final String userPass,final OnTeamListener listener){
+    public static void joinTeam(final String teamName, final String teamPass, final int userId, final String userName, final String userPass, final double locationX, final double locationY, final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override
             public void run() {
                 //送信データの作成
                 SendData sendData = new SendData();
                 sendData.cmd = "TEAM_JOIN";
-                sendData.teamName = teamName;
-                sendData.teamPass = teamPass;
-                sendData.userId = userId;
-                sendData.userName = userName;
-                sendData.userPass = userPass;
+                sendData.userData = new UserData();
+                sendData.userData.teamName = teamName;
+                sendData.userData.teamPass = teamPass;
+                sendData.userData.userId = userId;
+                sendData.userData.userName = userName;
+                sendData.userData.userPass = userPass;
+                sendData.userData.locationX = locationX;
+                sendData.userData.locationY = locationY;
 
                 RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
                 if(listener != null)
@@ -77,8 +85,9 @@ public class TeamOperation{
                 //送信データの作成
                 SendData sendData = new SendData();
                 sendData.cmd = "TEAM_REMOVE";
-                sendData.userId = userId;
-                sendData.userPass = userPass;
+                sendData.userData = new UserData();
+                sendData.userData.userId = userId;
+                sendData.userData.userPass = userPass;
                 RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
                 if(listener != null)
                    listener.onTeam(recvData);

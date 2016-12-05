@@ -50,7 +50,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
 
         mTextTeam = (TextView)view.findViewById(R.id.textTeamName);
         if(mTeamName.length() > 0) {
-            TeamOperation.joinTeam(mTeamName,mTeamPass,mUserId,mUserName,mUserPass,this);
+            TeamOperation.joinTeam(mTeamName,mTeamPass,mUserId,mUserName,mUserPass,0,0,this);
         }
 
         return view;

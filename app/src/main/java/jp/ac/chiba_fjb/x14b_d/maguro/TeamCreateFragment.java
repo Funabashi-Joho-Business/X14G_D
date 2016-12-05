@@ -48,7 +48,7 @@ public class TeamCreateFragment extends Fragment implements View.OnClickListener
                 db.close();
 
                 Snackbar.make(getView(), "チーム作成", Snackbar.LENGTH_SHORT).show();
-                TeamOperation.joinTeam(mEditName.getText().toString(),mEditPass.getText().toString(),userId,userName,userPass,this);
+                TeamOperation.joinTeam(mEditName.getText().toString(),mEditPass.getText().toString(),userId,userName,userPass,0,0,this);
                 break;
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();

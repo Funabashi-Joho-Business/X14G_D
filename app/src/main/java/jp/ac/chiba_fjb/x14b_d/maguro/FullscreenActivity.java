@@ -13,13 +13,14 @@ import java.util.TimerTask;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.MyLocationSource;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.Permission;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class FullscreenActivity extends AppCompatActivity implements MyLocationSource.OnLocationListener {
+public class FullscreenActivity extends AppCompatActivity implements MyLocationSource.OnLocationListener, TeamOperation.OnTeamListener {
     private MyLocationSource mLocationSource;
     private Permission mPermission;
     private PowerManager.WakeLock mLock;
@@ -80,7 +81,14 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
                 db.close();
 
                 if(teamName.length()>0 && teamPass.length()>0 && userId>0 && userPass.length()>0){
+                    double x = 0.0;
+                    double y = 0.0;
+                    if(mLocation != null) {
+                        x = mLocation.getLongitude();
+                        y = mLocation.getLatitude();
+                    }
 
+                    TeamOperation.joinTeam(teamName,teamPass,userId,userName,userPass,x,y,FullscreenActivity.this);
                 }
 
             }
@@ -101,8 +109,10 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
     @Override
     public void onLocation(Location location) {
         mLocation = location;
+    }
 
-       // TextView textView = (TextView)getView().findViewById(R.id.textGPS);
-        //textView.setText(String.format("東経%.2f 北緯%.2f",location.getLongitude(),location.getLatitude()));
+    @Override
+    public void onTeam(TeamOperation.RecvData recvData) {
+
     }
 }

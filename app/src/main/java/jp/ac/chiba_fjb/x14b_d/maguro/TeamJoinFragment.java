@@ -59,7 +59,7 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
         switch (v.getId()) {
             case R.id.imageSetuzoku:
                 Snackbar.make(getView(), "チーム参加中", Snackbar.LENGTH_SHORT).show();
-                TeamOperation.joinTeam(mTeamName,mEditPass.getText().toString(),mUserId,mUserName,mUserPass,this);
+                TeamOperation.joinTeam(mTeamName,mEditPass.getText().toString(),mUserId,mUserName,mUserPass,0,0,this);
 
                 break;
             case R.id.imageBack:
