@@ -31,37 +31,32 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/purasusu"
-            android:id="@+id/imageTateUp"
+            app:srcCompat="@drawable/mainasuu"
+            android:id="@+id/imageYokoDown"
             android:background="@null"
+<<<<<<< HEAD
             tools:ignore="ContentDescription"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="17dp" />
+=======
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/imageTateDown"
+            android:layout_toStartOf="@+id/imageTateDown"
+            android:layout_marginRight="63dp"
+            android:layout_marginEnd="63dp" />
+>>>>>>> 9f74c5933d764c281925de7b6cbd53db808b22ac
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/purasusu"
-            android:layout_marginRight="21dp"
-            android:layout_marginEnd="21dp"
-            android:id="@+id/imageYokoUp"
+            android:layout_marginTop="14dp"
+            android:id="@+id/imageTateUp"
             android:background="@null"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/imageTateDown"
-            android:layout_toStartOf="@+id/imageTateDown" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mainasuu"
-            android:layout_marginLeft="82dp"
-            android:layout_marginStart="82dp"
-            android:id="@+id/imageYokoDown"
-            android:background="@null"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/imageBack"
-            android:layout_toEndOf="@+id/imageBack" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -69,11 +64,21 @@
             app:srcCompat="@drawable/mainasuu"
             android:id="@+id/imageTateDown"
             android:background="@null"
-            tools:ignore="ContentDescription,UnknownId"
-            android:layout_above="@+id/imageYokoUp"
+            android:layout_above="@+id/imageYokoDown"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="12dp" />
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/purasusu"
+            android:id="@+id/imageYokoUp"
+            android:background="@null"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/imageBack"
+            android:layout_toEndOf="@+id/imageBack" />
 
 
     </RelativeLayout>
