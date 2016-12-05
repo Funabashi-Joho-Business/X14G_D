@@ -34,26 +34,19 @@
             android:textColor="@color/gts" />
 
         <TextView
-<<<<<<< HEAD
+
             android:text="チームに参加しました"
-=======
-            android:text="(チーム名)に参加しました"
->>>>>>> 48a4b94ab748e6d5355240b2a89aa2a2680ee82d
+
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView14"
             android:textSize="36sp"
-<<<<<<< HEAD
             android:textColor="@color/gts"
             android:layout_below="@+id/imageBack"
             android:layout_centerHorizontal="true" />
-=======
-            android:layout_marginTop="15dp"
-            android:textColor="@color/gts"
-            android:layout_below="@+id/imageBack"
-            android:layout_alignLeft="@+id/textView15"
-            android:layout_alignStart="@+id/textView15" />
->>>>>>> 48a4b94ab748e6d5355240b2a89aa2a2680ee82d
-    </RelativeLayout>
+
+
+</RelativeLayout>
 
 </FrameLayout>
