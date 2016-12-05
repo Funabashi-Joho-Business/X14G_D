@@ -60,6 +60,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
+
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
@@ -193,6 +194,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 }
                 mRotation = !mRotation;
                 break;
+
             case R.id.imageMember:
                 FragmentTransaction ft4 = getFragmentManager().beginTransaction();
                 ft4.replace(R.id.fullscreen_content,new MemberListFragment());
@@ -203,6 +205,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 mLayoutPosition.setVisibility(View.VISIBLE);
                 break;
 
+<<<<<<< HEAD
             case R.id.imageTateUp:
                 mPosY -= 3;
                 mCamera.setPosition(mPosX,mPosY);
@@ -211,6 +214,17 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 mPosY += 3;
                 mCamera.setPosition(mPosX,mPosY);
                 break;
+=======
+//            case R.id.imageTateUp:
+//            mPosY += 30;
+//            mCamera.setPosition(mPosX,mPosY);
+//
+//               break;
+//          case R.id.imageTateDown:
+//                mPosY -= 30;
+//                mCamera.setPosition(mPosX,mPosY);
+//                break;
+>>>>>>> a37d30b03254ae6f9daac63eac24b5f2883d45fb
             case R.id.imageYokoUp:
                 mPosX -= 3;
                 mCamera.setPosition(mPosX,mPosY);

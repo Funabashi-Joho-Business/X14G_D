@@ -1,18 +1,13 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import static android.R.id.edit;
 
 
 
@@ -38,7 +33,7 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
 
         mEditTimer = (EditText)view.findViewById(R.id.editTimer);
         view.findViewById(R.id.start).setOnClickListener(this);
-        view.findViewById(R.id.imageBack).setOnClickListener(this);
+
 
         return view;
     }
@@ -57,6 +52,7 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
                 ft2.replace(R.id.fullscreen_content,new CameraFragment());
                 ft2.commitAllowingStateLoss();
                 break;
+
         }
     }
 }

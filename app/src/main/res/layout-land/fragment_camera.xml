@@ -6,17 +6,17 @@
              tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment"
              android:id="@+id/frameCamera">
 
-    <TextureView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/textureView" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/a"
         android:id="@+id/imageView"
         tools:ignore="ContentDescription" />
+
+    <TextureView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textureView" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -135,5 +135,13 @@
         android:layout_height="match_parent"
         android:id="@+id/textDebug"
         android:enabled="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/reida"
+        android:id="@+id/imageView5"
+        android:background="@null"
+        android:paddingLeft="150dp" />
 
 </FrameLayout>

@@ -34,16 +34,19 @@
             android:textColor="@color/gts" />
 
         <TextView
-            android:text="(チーム名)に参加しました"
+
+            android:text="チームに参加しました"
+
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView14"
             android:textSize="36sp"
-            android:layout_marginTop="15dp"
             android:textColor="@color/gts"
             android:layout_below="@+id/imageBack"
-            android:layout_alignLeft="@+id/textView15"
-            android:layout_alignStart="@+id/textView15" />
-    </RelativeLayout>
+            android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
 
 </FrameLayout>
