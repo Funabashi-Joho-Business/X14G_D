@@ -2,6 +2,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -20,9 +21,10 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
 
     private TextView mTextTeam;
     private String mUserName;
-    private String mUserId;
+    private int mUserId;
     private String mTeamPass;
-    private String mTeamId;
+    private String mTeamName;
+    private String mUserPass;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,21 +37,20 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
         view.findViewById(R.id.imageKaisan).setOnClickListener(this);
 
         //設定済みの名前を読み出す
-        //設定済みの名前を読み出す
         AppDB db = new AppDB(getContext());
+        mUserId = db.getSetting("USER_ID", 0);
         mUserName = db.getSetting("USER_NAME", "");
-        mUserId = db.getSetting("USER_ID", "");
+        mUserPass = db.getSetting("USER_PASS", "");
+        mTeamName = db.getSetting("TEAM_NAME","");
         mTeamPass = db.getSetting("TEAM_PASS","");
-        mTeamId = db.getSetting("TEAM_ID","");
         db.close();
 
         TextView textView = (TextView)view.findViewById(R.id.textUserName);
         textView.setText(mUserName);
 
         mTextTeam = (TextView)view.findViewById(R.id.textTeamName);
-        if(mTeamId.length() > 0) {
-            mTextTeam.setText("確認中");
-            TeamOperation.joinTeam(mTeamId,mTeamPass,mUserId,mUserName,this);
+        if(mTeamName.length() > 0) {
+            TeamOperation.joinTeam(mTeamName,mTeamPass,mUserId,mUserName,mUserPass,0,0,this);
         }
 
         return view;
@@ -74,19 +75,25 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
                 ft3.commitAllowingStateLoss();
                 break;
             case R.id.imageKaisan:
-                mTextTeam.setText("離脱中");
-                TeamOperation.removeTeam(mTeamId, mTeamPass, mUserId, new TeamOperation.OnTeamListener() {
+                Snackbar.make(getView(), "チーム離脱中", Snackbar.LENGTH_SHORT).show();
+                TeamOperation.removeTeam(mUserId,mUserPass, new TeamOperation.OnTeamListener() {
                     @Override
-                    public void onTeam(TeamOperation.RecvData recvData) {
+                    public void onTeam(final TeamOperation.RecvData recvData) {
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                mTextTeam.setText("---");
-                                AppDB db = new AppDB(getContext());
-                                db.setSetting("USER_ID", "");
-                                db.setSetting("TEAM_ID", "");
-                                db.setSetting("TEAM_PASS", "");
-                                db.close();
+                                if(recvData!=null && recvData.result) {
+                                    Snackbar.make(getView(), "チーム離脱成功", Snackbar.LENGTH_SHORT).show();
+                                    mTextTeam.setText("---");
+                                    AppDB db = new AppDB(getContext());
+                                    db.setSetting("USER_ID", 0);
+                                    db.setSetting("TEAM_NAME", "");
+                                    db.setSetting("TEAM_PASS", "");
+                                    db.close();
+                                    mUserId = 0;
+                                }
+                                else
+                                    Snackbar.make(getView(), "チーム離脱失敗", Snackbar.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -103,7 +110,11 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
             @Override
             public void run() {
                 if(recvData!=null && recvData.result){
-                    mTextTeam.setText(recvData.teamName);
+                    mTextTeam.setText(mTeamName);
+                    AppDB db = new AppDB(getContext());
+                    db.setSetting("USER_ID", recvData.userId);
+                    db.setSetting("USER_PASS", recvData.userPass );
+                    db.close();
                 }
                 else{
                     mTextTeam.setText("---");
