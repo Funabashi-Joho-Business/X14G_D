@@ -142,6 +142,6 @@
         app:srcCompat="@drawable/reida"
         android:id="@+id/imageView5"
         android:background="@null"
-        android:paddingLeft="150dp" />
+        android:paddingLeft="140dp" />
 
 </FrameLayout>

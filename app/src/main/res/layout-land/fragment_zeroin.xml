@@ -34,18 +34,12 @@
             app:srcCompat="@drawable/mainasuu"
             android:id="@+id/imageYokoDown"
             android:background="@null"
-<<<<<<< HEAD
+
             tools:ignore="ContentDescription"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="17dp" />
-=======
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/imageTateDown"
-            android:layout_toStartOf="@+id/imageTateDown"
-            android:layout_marginRight="63dp"
-            android:layout_marginEnd="63dp" />
->>>>>>> 9f74c5933d764c281925de7b6cbd53db808b22ac
+
 
         <ImageButton
             android:layout_width="wrap_content"
