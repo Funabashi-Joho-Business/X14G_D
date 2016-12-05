@@ -59,7 +59,6 @@ public class TeamListFragment extends Fragment implements View.OnClickListener, 
         View view =  inflater.inflate(R.layout.fragment_team_list, container, false);
 
         view.findViewById(R.id.imageSakusei).setOnClickListener(this);
-        view.findViewById(R.id.imageSetuzoku).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
 
 	    mAdapter = new TeamAdapter(getContext());
@@ -79,11 +78,6 @@ public class TeamListFragment extends Fragment implements View.OnClickListener, 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fullscreen_content,new TeamCreateFragment());
                 ft.commitAllowingStateLoss();
-                break;
-            case R.id.imageSetuzoku:
-                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content,new TeamJoinFragment());
-                ft2.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:
                 FragmentTransaction ft3 = getFragmentManager().beginTransaction();

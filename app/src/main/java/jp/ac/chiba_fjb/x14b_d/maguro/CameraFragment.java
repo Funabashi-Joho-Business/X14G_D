@@ -38,21 +38,26 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_camera, container, false);
-
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
 
-        view.findViewById(R.id.imageZoomIn).setOnClickListener(this);
-        view.findViewById(R.id.imageZoomOut).setOnClickListener(this);
+        view.findViewById(R.id.imageTateUp).setOnClickListener(this);
+        view.findViewById(R.id.imageTateDown).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
         view.findViewById(R.id.imageriv).setOnClickListener(this);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 48a4b94ab748e6d5355240b2a89aa2a2680ee82d
         view.findViewById(R.id.imageMember).setOnClickListener(this);
+        view.findViewById(R.id.imageZeroin).setOnClickListener(this);
         return view;
+
     }
 
     @Override
@@ -61,10 +66,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
         mLocation = new MyLocationSource(getContext());
     }
 
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         mVisibilty = view.getSystemUiVisibility();
         view.setSystemUiVisibility(
             View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -74,8 +79,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         );
-
-
         view.requestFocus();
     }
 
@@ -107,17 +110,16 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imageZoomIn:
+            case R.id.imageTateUp:
                 mCamera.zoom(4);
                 break;
-            case R.id.imageZoomOut:
+            case R.id.imageTateDown:
                 mCamera.zoom(-4);
                 break;
             case R.id.imageBack:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fullscreen_content,new TitleFragment());
                 ft.commit();
-//                getActivity().onBackPressed();
                 break;
             case R.id.imageREC:
                 if(!mCamera.isRecording()) {
@@ -147,11 +149,19 @@ public class CameraFragment extends Fragment implements View.OnClickListener, My
                 mRotation = !mRotation;
                 mCamera.setRotation(180.0f);
                 break;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 48a4b94ab748e6d5355240b2a89aa2a2680ee82d
             case R.id.imageMember:
                 FragmentTransaction ft4 = getFragmentManager().beginTransaction();
-                ft4.replace(R.id.fullscreen_content,new list());
+                ft4.replace(R.id.fullscreen_content,new MemberListFragment());
                 ft4.commitAllowingStateLoss();
+                break;
+            case R.id.imageZeroin:
+                FragmentTransaction ft5 = getFragmentManager().beginTransaction();
+                ft5.replace(R.id.fullscreen_content,new CameraFragment2());
+                ft5.commitAllowingStateLoss();
                 break;
         }
     }
