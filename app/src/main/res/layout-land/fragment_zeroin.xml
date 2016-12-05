@@ -31,7 +31,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mainasuu"
+            app:srcCompat="@drawable/migi"
             android:id="@+id/imageYokoDown"
             android:background="@null"
             android:layout_alignParentBottom="true"
@@ -43,7 +43,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/purasusu"
+            app:srcCompat="@drawable/ue"
             android:layout_marginTop="14dp"
             android:id="@+id/imageTateUp"
             android:background="@null"
@@ -54,7 +54,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mainasuu"
+            app:srcCompat="@drawable/sita"
             android:id="@+id/imageTateDown"
             android:background="@null"
             android:layout_above="@+id/imageYokoDown"
@@ -64,7 +64,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/purasusu"
+            app:srcCompat="@drawable/hidari"
             android:id="@+id/imageYokoUp"
             android:background="@null"
             android:layout_marginLeft="48dp"
