@@ -29,7 +29,7 @@
             app:srcCompat="@drawable/mainasuu"
             android:layout_marginRight="15dp"
             android:layout_marginEnd="15dp"
-            android:id="@+id/imageTateDown"
+            android:id="@+id/imageZoomout"
             android:layout_alignBottom="@+id/imageTimer"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -78,8 +78,8 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/guru"
             android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/imageTateDown"
-            android:layout_alignEnd="@+id/imageTateDown"
+            android:layout_alignRight="@+id/imageZoomout"
+            android:layout_alignEnd="@+id/imageZoomout"
             android:id="@+id/imageriv"
             android:background="@null" />
 
@@ -87,12 +87,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/purasusu"
-            android:id="@+id/imageTateUp"
+            android:id="@+id/imageZoomin"
             android:background="@null"
             tools:ignore="ContentDescription"
-            android:layout_above="@+id/imageTateDown"
-            android:layout_alignLeft="@+id/imageTateDown"
-            android:layout_alignStart="@+id/imageTateDown" />
+            android:layout_above="@+id/imageZoomout"
+            android:layout_alignLeft="@+id/imageZoomout"
+            android:layout_alignStart="@+id/imageZoomout" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -101,8 +101,8 @@
             android:id="@+id/imageMember"
             android:background="@null"
             android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageTateUp"
-            android:layout_alignStart="@+id/imageTateUp" />
+            android:layout_alignLeft="@+id/imageZoomin"
+            android:layout_alignStart="@+id/imageZoomin" />
 
         <TextView
             android:text="TextView"

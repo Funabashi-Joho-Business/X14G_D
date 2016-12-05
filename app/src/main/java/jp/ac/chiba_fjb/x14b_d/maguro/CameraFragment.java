@@ -54,8 +54,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
 
-        view.findViewById(R.id.imageTateUp).setOnClickListener(this);
-        view.findViewById(R.id.imageTateDown).setOnClickListener(this);
+        view.findViewById(R.id.imageZoomin).setOnClickListener(this);
+        view.findViewById(R.id.imageZoomout).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
@@ -142,11 +142,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imageTateUp:
+            case R.id.imageZoomin:
                 mScale += 0.1f;
                 mCamera.setScale(mScale);
                 break;
-            case R.id.imageTateDown:
+            case R.id.imageZoomout:
                 mScale -= 0.1f;
                 if(mScale < 1.0f)
                     mScale = 1.0f;
@@ -203,16 +203,20 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 mLayoutPosition.setVisibility(View.VISIBLE);
                 break;
 
-            //case R.id.imageTateUp:
-             //   break;
-            //case R.id.imageTateDown:
-             //   break;
+            case R.id.imageTateUp:
+                mPosY -= 3;
+                mCamera.setPosition(mPosX,mPosY);
+                break;
+            case R.id.imageTateDown:
+                mPosY += 3;
+                mCamera.setPosition(mPosX,mPosY);
+                break;
             case R.id.imageYokoUp:
-                mPosX += 30;
+                mPosX -= 3;
                 mCamera.setPosition(mPosX,mPosY);
                 break;
             case R.id.imageYokoDown:
-                mPosX -= 30;
+                mPosX += 3;
                 mCamera.setPosition(mPosX,mPosY);
                 break;
 
