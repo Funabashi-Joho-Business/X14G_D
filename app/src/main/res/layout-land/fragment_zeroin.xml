@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.">
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.FullscreenActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -35,7 +35,6 @@
             android:id="@+id/imageTateUp"
             android:background="@null"
             tools:ignore="ContentDescription"
-            android:layout_below="@+id/textView5"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="17dp" />

@@ -1,18 +1,13 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import static android.R.id.edit;
 
 
 
@@ -52,14 +47,12 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
                 ft.commitAllowingStateLoss();
                 break;
 
-<<<<<<< HEAD
-=======
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
                 ft2.replace(R.id.fullscreen_content,new CameraFragment());
                 ft2.commitAllowingStateLoss();
                 break;
->>>>>>> 48a4b94ab748e6d5355240b2a89aa2a2680ee82d
+
         }
     }
 }
