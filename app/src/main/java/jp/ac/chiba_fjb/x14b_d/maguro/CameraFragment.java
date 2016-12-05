@@ -1,5 +1,5 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
-import android.location.Location;
+
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -9,13 +9,17 @@ import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import jp.ac.chiba_fjb.x14b_d.maguro.Lib.MyLocationSource;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
@@ -24,10 +28,17 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener {
+public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
 
     private CameraPreview mCamera;
     private int mVisibilty;
+    private View mLayoutPosition;
+    private View mLayoutNormal;
+    private float mPosX = 0.0f;
+    private float mPosY = 0.0f;
+    private float mScale = 1.0f;
+    private Timer mTimer;
+    private TextView mTextDebug;
 
     public CameraFragment() {
         mCamera = new CameraPreview();
@@ -51,6 +62,20 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.imageriv).setOnClickListener(this);
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
+
+        mLayoutNormal = view.findViewById(R.id.layoutNormal);
+        mTextDebug = (TextView)view.findViewById(R.id.textDebug);
+
+        mLayoutPosition = inflater.inflate(R.layout.fragment_zeroin, container, false);
+        mLayoutPosition.findViewById(R.id.imageTateUp).setOnClickListener(this);
+        mLayoutPosition.findViewById(R.id.imageTateDown).setOnClickListener(this);
+        mLayoutPosition.findViewById(R.id.imageYokoUp).setOnClickListener(this);
+        mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
+        mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
+
+        ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
+        mLayoutPosition.setVisibility(View.GONE);
+
         return view;
 
     }
@@ -92,10 +117,24 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
         mCamera.open(0);
         mCamera.startPreview();
 
+        mTimer = new Timer();
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                AppDB db = new AppDB(getContext());
+                String teamName = db.getSetting("TEAM_NAME","");
+                String teamPass = db.getSetting("TEAM_PASS","");
+                db.close();
+                if(teamName.length()>0 && teamPass.length()>0)
+                    TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
+            }
+        },0,30*1000);
+
     }
 
     @Override
     public void onPause() {
+        mTimer.cancel();
         mCamera.close();
         super.onPause();
     }
@@ -104,15 +143,24 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageTateUp:
-                mCamera.zoom(4);
+                mScale += 0.1f;
+                mCamera.setScale(mScale);
                 break;
             case R.id.imageTateDown:
-                mCamera.zoom(-4);
+                mScale -= 0.1f;
+                if(mScale < 1.0f)
+                    mScale = 1.0f;
+                mCamera.setScale(mScale);
                 break;
             case R.id.imageBack:
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new TitleFragment());
-                ft.commit();
+                if(mLayoutNormal.getVisibility() == View.GONE){
+                    mLayoutNormal.setVisibility(View.VISIBLE);
+                    mLayoutPosition.setVisibility(View.GONE);
+                }else{
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.fullscreen_content,new TitleFragment());
+                    ft.commit();
+                }
                 break;
             case R.id.imageREC:
                 if(!mCamera.isRecording()) {
@@ -135,12 +183,15 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.imageriv:
-                if(mRotation)
+                if(mRotation) {
                     getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                else
+                    mCamera.setRotation(180.0f);
+                }
+                else {
                     getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
+                    mCamera.setRotation(0.0f);
+                }
                 mRotation = !mRotation;
-                mCamera.setRotation(180.0f);
                 break;
             case R.id.imageMember:
                 FragmentTransaction ft4 = getFragmentManager().beginTransaction();
@@ -148,13 +199,43 @@ public class CameraFragment extends Fragment implements View.OnClickListener {
                 ft4.commitAllowingStateLoss();
                 break;
             case R.id.imageZeroin:
-                FragmentTransaction ft5 = getFragmentManager().beginTransaction();
-                ft5.replace(R.id.fullscreen_content,new CameraFragment2());
-                ft5.commitAllowingStateLoss();
+                mLayoutNormal.setVisibility(View.GONE);
+                mLayoutPosition.setVisibility(View.VISIBLE);
                 break;
+
+            //case R.id.imageTateUp:
+             //   break;
+            //case R.id.imageTateDown:
+             //   break;
+            case R.id.imageYokoUp:
+                mPosX += 30;
+                mCamera.setPosition(mPosX,mPosY);
+                break;
+            case R.id.imageYokoDown:
+                mPosX -= 30;
+                mCamera.setPosition(mPosX,mPosY);
+                break;
+
         }
     }
 
 
+    @Override
+    public void onTeam(final TeamOperation.RecvData recvData) {
+        if(recvData!=null && recvData.result){
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    StringBuilder sb = new StringBuilder();
+                    for(TeamOperation.UserData m : recvData.members){
+                        String msg = String.format("%s (%f,%f)\n",m.userName,m.locationX,m.locationY);
+                        sb.append(msg);
+                    }
+
+                    mTextDebug.setText(sb.toString());
+                }
+            });
+        }
+    }
 }
 

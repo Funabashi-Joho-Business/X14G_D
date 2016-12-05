@@ -54,6 +54,23 @@ public class TeamOperation{
         };
         thread.start();
     }
+    public static void getMember(final String teamName, final String teamPass,final OnTeamListener listener){
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                SendData sendData = new SendData();
+                sendData.cmd = "TEAM_MEMBER";
+                sendData.userData = new UserData();
+                sendData.userData.teamName = teamName;
+                sendData.userData.teamPass = teamPass;
+
+                RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
+                if(listener != null)
+                    listener.onTeam(recvData);
+            }
+        };
+        thread.start();
+    }
     public static void joinTeam(final String teamName, final String teamPass, final int userId, final String userName, final String userPass, final double locationX, final double locationY, final OnTeamListener listener){
         Thread thread = new Thread(){
             @Override

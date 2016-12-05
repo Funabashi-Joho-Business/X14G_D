@@ -26,6 +26,10 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
     private boolean mPreview = false;
     private SaveListener mSaveListener;
     private MediaRecorder mRec;
+    private Matrix mBaseMatrix;
+    private Matrix mRotation;
+    private Matrix mPosition;
+    private Matrix mScale;
 
     static interface SaveListener{
         public void onSave(Bitmap bitmap);
@@ -80,7 +84,8 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
                 m.setScale(1.0f, (float) (1.0 / (req / view_aspect)));
             else
                 m.setScale((float) (req / view_aspect), 1.0f);
-            mTextureView.setTransform(m);
+            mBaseMatrix = m;
+            updateMatrix();
 
             mCamera.setPreviewTexture(texture);
             mCamera.startPreview();
@@ -90,12 +95,42 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         return true;
     }
     void setRotation(float rot){
-        Matrix mat = new Matrix();
-        mTextureView.getTransform(mat);
-
-        mat.postTranslate(-mTextureView.getWidth()*0.5f,-mTextureView.getHeight()*0.5f);
-        mat.postRotate(180.0f);
-        mat.postTranslate(mTextureView.getWidth()*0.5f,mTextureView.getHeight()*0.5f);
+        if(rot == 0)
+            mRotation = null;
+        else{
+            mRotation = new Matrix();
+            mRotation.setTranslate(-mTextureView.getWidth() * 0.5f, -mTextureView.getHeight() * 0.5f);
+            mRotation.postRotate(rot);
+            mRotation.postTranslate(mTextureView.getWidth() * 0.5f, mTextureView.getHeight() * 0.5f);
+        }
+        updateMatrix();
+    }
+    void setPosition(float x,float y){
+        if(x == 0 && y == 0)
+            mPosition = null;
+        else {
+            mPosition = new Matrix();
+            mPosition.setTranslate(x, y);
+        }
+        updateMatrix();
+    }
+    void setScale(float s){
+        if(s == 1.0f)
+            mScale = null;
+        else {
+            mScale = new Matrix();
+            mScale.setScale(s,s);
+        }
+        updateMatrix();
+    }
+    void updateMatrix(){
+        Matrix mat = new Matrix(mBaseMatrix);
+        if(mRotation != null)
+           mat.setConcat(mat,mRotation);
+        if(mPosition != null)
+            mat.setConcat(mat,mPosition);
+        if(mScale != null)
+            mat.setConcat(mat,mScale);
         mTextureView.setTransform(mat);
     }
     @Override

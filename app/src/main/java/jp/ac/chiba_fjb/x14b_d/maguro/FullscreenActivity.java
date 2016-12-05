@@ -92,7 +92,7 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
                 }
 
             }
-        },30*1000);
+        },0,30*1000);
 
     }
 
