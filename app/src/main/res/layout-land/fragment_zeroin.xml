@@ -35,11 +35,19 @@
             android:id="@+id/imageYokoDown"
             android:background="@null"
 
+<<<<<<< HEAD
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/imageTateDown"
             android:layout_toStartOf="@+id/imageTateDown"
             android:layout_marginRight="63dp"
             android:layout_marginEnd="63dp" />
+=======
+            tools:ignore="ContentDescription"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="17dp" />
+
+>>>>>>> ccf9fcad197475602a3e27e0fc08bf356829e0ab
 
         <ImageButton
             android:layout_width="wrap_content"

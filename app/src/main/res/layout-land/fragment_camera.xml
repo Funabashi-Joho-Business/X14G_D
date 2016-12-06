@@ -136,4 +136,15 @@
         android:id="@+id/textDebug"
         android:enabled="true"/>
 
+<<<<<<< HEAD
+=======
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/reida"
+        android:id="@+id/imageView5"
+        android:background="@null"
+        android:paddingLeft="140dp" />
+
+>>>>>>> ccf9fcad197475602a3e27e0fc08bf356829e0ab
 </FrameLayout>
