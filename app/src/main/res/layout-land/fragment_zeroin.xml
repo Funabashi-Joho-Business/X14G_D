@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/guru"
             android:layout_marginBottom="10dp"
-            android:id="@+id/imageButton"
+            android:id="@+id/imageriv"
             android:background="@null"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
