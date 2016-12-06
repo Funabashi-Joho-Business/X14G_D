@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.FullscreenActivity">
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment">
 
     <ImageView
         android:layout_width="wrap_content"
