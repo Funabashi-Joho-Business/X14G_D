@@ -205,20 +205,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 mLayoutPosition.setVisibility(View.VISIBLE);
                 break;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-//            case R.id.imageTateUp:
-//            mPosY += 30;
-//            mCamera.setPosition(mPosX,mPosY);
-//
-//               break;
-//          case R.id.imageTateDown:
-//                mPosY -= 30;
-//                mCamera.setPosition(mPosX,mPosY);
-//                break;
-=======
->>>>>>> ccf9fcad197475602a3e27e0fc08bf356829e0ab
             case R.id.imageTateUp:
                 mPosY -= 3;
                 mCamera.setPosition(mPosX,mPosY);
@@ -227,10 +213,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 mPosY += 3;
                 mCamera.setPosition(mPosX,mPosY);
                 break;
-<<<<<<< HEAD
-=======
->>>>>>> 9f74c5933d764c281925de7b6cbd53db808b22ac
->>>>>>> ccf9fcad197475602a3e27e0fc08bf356829e0ab
+
             case R.id.imageYokoUp:
                 mPosX -= 3;
                 mCamera.setPosition(mPosX,mPosY);

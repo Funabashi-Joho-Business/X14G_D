@@ -6,13 +6,6 @@
              tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment"
              android:id="@+id/frameCamera">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/a"
-        android:id="@+id/imageView"
-        tools:ignore="ContentDescription" />
-
     <TextureView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -76,16 +69,6 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/guru"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/imageZoomout"
-            android:layout_alignEnd="@+id/imageZoomout"
-            android:id="@+id/imageriv"
-            android:background="@null" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             app:srcCompat="@drawable/purasusu"
             android:id="@+id/imageZoomin"
             android:background="@null"
@@ -97,6 +80,16 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:srcCompat="@drawable/sp"
+            android:layout_below="@+id/imageTimer"
+            android:layout_alignLeft="@+id/imageTimer"
+            android:layout_alignStart="@+id/imageTimer"
+            android:id="@+id/imageZeroin"
+            android:background="@null" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:srcCompat="@drawable/member"
             android:id="@+id/imageMember"
             android:background="@null"
@@ -104,47 +97,32 @@
             android:layout_alignLeft="@+id/imageZoomin"
             android:layout_alignStart="@+id/imageZoomin" />
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_marginEnd="15dp"
-            android:id="@+id/textTimer"
-            android:textSize="24sp"
-            android:layout_alignTop="@+id/textGPS"
-            android:layout_toLeftOf="@+id/imageMember"
-            android:layout_toStartOf="@+id/imageMember" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sp"
-            android:layout_alignTop="@+id/imageriv"
-            android:layout_alignLeft="@+id/imageTimer"
-            android:layout_alignStart="@+id/imageTimer"
-            android:id="@+id/imageZeroin"
-            android:background="@null" />
+        <!--<TextView-->
+            <!--android:text="TextView"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_marginEnd="15dp"-->
+            <!--android:id="@+id/textTimer"-->
+            <!--android:textSize="24sp"-->
+            <!--android:layout_alignTop="@+id/textGPS"-->
+            <!--android:layout_toLeftOf="@+id/imageMember"-->
+            <!--android:layout_toStartOf="@+id/imageMember" />-->
 
 
     </RelativeLayout>
 
     <TextView
-        android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/textDebug"
         android:enabled="true"/>
 
-<<<<<<< HEAD
-=======
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/reida"
-        android:id="@+id/imageView5"
-        android:background="@null"
-        android:paddingLeft="140dp" />
+        app:srcCompat="@drawable/a"
+        android:id="@+id/imageView"
+        tools:ignore="ContentDescription" />
 
->>>>>>> ccf9fcad197475602a3e27e0fc08bf356829e0ab
 </FrameLayout>

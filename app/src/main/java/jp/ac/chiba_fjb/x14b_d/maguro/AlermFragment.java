@@ -42,9 +42,13 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.start:
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new CameraFragment());
-                ft.commitAllowingStateLoss();
+//                FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.replace(R.id.fullscreen_content,new CameraFragment());
+//                ft.commitAllowingStateLoss();
+                String s = mEditTimer.getText().toString();
+
+                Bundle args = new Bundle();
+                args.putInt("Timer", 1);
                 break;
 
             case R.id.imageBack:
