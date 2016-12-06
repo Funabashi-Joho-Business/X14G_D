@@ -1,6 +1,7 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -92,13 +93,39 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         if(args != null) {
             timer = args.getInt("Timer");
             String sTimer = Integer.toString(timer);
-                    System.out.println(sTimer);
-                    mTextTimer.setText(sTimer);
+
+            timer = timer * 60000;
+            CountDownTimer cdt = new CountDownTimer(timer, 1000)
+            {
+                public void onTick(long millisUntilFinished)
+                {
+                    setText(Long.toString(millisUntilFinished));
+                }
+
+                public void onFinish()
+                {
+                    mTextTimer.setText("終了");
+                }
+            }.start();
+
         }else{
-            timer = 0;
+            String set = "0";
+            setText(set);
         }
     }
 
+
+    void setText(final String number){
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                int i = Integer.parseInt(number);
+                int mm = i / 1000 / 60;
+                int ss = i / 1000 % 60;
+                mTextTimer.setText(String.format("%1$02d:%2$02d", mm, ss));
+            }
+        });
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
