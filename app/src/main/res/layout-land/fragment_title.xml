@@ -125,6 +125,18 @@
             android:layout_alignLeft="@+id/imageRena"
             android:layout_alignStart="@+id/imageRena"/>
 
+        <Button
+            android:text="定型文作成"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:layout_alignTop="@+id/imageS"
+            android:layout_alignRight="@+id/imageKaisan"
+            android:layout_alignEnd="@+id/imageKaisan"
+            android:background="@null"
+            android:textSize="24sp"
+            android:textColor="@color/gts" />
+
 
     </RelativeLayout>
 
