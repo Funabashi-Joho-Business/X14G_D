@@ -3,12 +3,14 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import static android.R.attr.fragment;
 
 
 /**
@@ -38,17 +40,21 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.start:
-//                FragmentTransaction ft = getFragmentManager().beginTransaction();
-//                ft.replace(R.id.fullscreen_content,new CameraFragment());
-//                ft.commitAllowingStateLoss();
+                CameraFragment fragment = new CameraFragment();
                 String s = mEditTimer.getText().toString();
-
+                int i = Integer.parseInt(s);
                 Bundle args = new Bundle();
-                args.putInt("Timer", 1);
+                args.putInt("Timer",i);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                fragment.setArguments(args);
+                ft.replace(R.id.fullscreen_content,fragment);
+                ft.commitAllowingStateLoss();
                 break;
 
             case R.id.imageBack:

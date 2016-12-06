@@ -30,6 +30,7 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
  */
 public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
 
+    public int timer;
     private CameraPreview mCamera;
     private int mVisibilty;
     private View mLayoutPosition;
@@ -39,6 +40,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mScale = 1.0f;
     private Timer mTimer;
     private TextView mTextDebug;
+    private TextView mTextTimer;
 
     public CameraFragment() {
         mCamera = new CameraPreview();
@@ -59,13 +61,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
-        view.findViewById(R.id.imageriv).setOnClickListener(this);
-
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
         mLayoutNormal = view.findViewById(R.id.layoutNormal);
         mTextDebug = (TextView)view.findViewById(R.id.textDebug);
+        mTextTimer = (TextView)view.findViewById(R.id.textTimer);
 
         mLayoutPosition = inflater.inflate(R.layout.fragment_zeroin, container, false);
         mLayoutPosition.findViewById(R.id.imageTateUp).setOnClickListener(this);
@@ -73,6 +74,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.findViewById(R.id.imageYokoUp).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
+        mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
 
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
@@ -84,9 +86,14 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle args = getArguments();
+        if(args != null) {
+            timer = args.getInt("Timer");
+            System.out.println(timer);
+//            mTextTimer.setText(timer);
+        }
 
     }
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
