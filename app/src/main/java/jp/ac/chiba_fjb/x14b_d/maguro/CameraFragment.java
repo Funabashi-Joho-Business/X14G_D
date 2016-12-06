@@ -2,6 +2,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -41,6 +42,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private Timer mTimer;
     private TextView mTextDebug;
     private TextView mTextTimer;
+    Handler mHandler = new Handler();
 
     public CameraFragment() {
         mCamera = new CameraPreview();
@@ -89,11 +91,14 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         Bundle args = getArguments();
         if(args != null) {
             timer = args.getInt("Timer");
-            System.out.println(timer);
-//            mTextTimer.setText(timer);
+            String sTimer = Integer.toString(timer);
+                    System.out.println(sTimer);
+                    mTextTimer.setText(sTimer);
+        }else{
+            timer = 0;
         }
-
     }
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
