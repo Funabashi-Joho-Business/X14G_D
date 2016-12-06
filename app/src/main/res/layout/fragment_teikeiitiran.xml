@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.teikeiFragment"
+    tools:context="layout.teikeiitirann"
     android:background="@color/bac">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,44 +12,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:background="@drawable/sinwaku"
-            android:layout_above="@+id/imageButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="75dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sette"
-            android:id="@+id/imageButton"
-            android:layout_marginBottom="48dp"
-            android:background="@null"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
-
         <TextView
-            android:text="定型文設定"
+            android:text="定型文一覧"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:id="@+id/textView2"
+            android:textSize="30sp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
-            android:id="@+id/textView5"
-            android:textSize="30sp"
             android:textColor="@color/gts" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="19dp"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/modoru"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="12dp"
             android:id="@+id/imageBack"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
