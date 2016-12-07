@@ -7,6 +7,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
+
+import static android.R.attr.name;
 
 
 /**
@@ -14,7 +19,7 @@ import android.view.ViewGroup;
  */
 public class teikeiFragment extends Fragment implements View.OnClickListener {
 
-
+    private EditText mEditteikei;
     public teikeiFragment() {
         // Required empty public constructor
     }
@@ -24,8 +29,14 @@ public class teikeiFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        AppDB db = new AppDB(getContext());
+        String name = db.getSetting("TEIKEI","");
+        db.close();
+
         View view = inflater.inflate(R.layout.fragment_teikei, container, false);
         view.findViewById(R.id.itiran).setOnClickListener(this);
+        mEditteikei = (EditText)view.findViewById(R.id.itiran);
+        mEditteikei.setText(name);
         return view;
     }
 
