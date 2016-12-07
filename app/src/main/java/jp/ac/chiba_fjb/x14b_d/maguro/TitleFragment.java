@@ -101,7 +101,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
                 break;
             case R.id.teikeibun:
                 FragmentTransaction ft4 = getFragmentManager().beginTransaction();
-                ft4.replace(R.id.fullscreen_content,new teikeiFragment());
+                ft4.replace(R.id.fullscreen_content,new TeikeiCreateFragment());
                 ft4.commitAllowingStateLoss();
                 break;
 

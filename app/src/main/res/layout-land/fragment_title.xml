@@ -125,17 +125,15 @@
             android:layout_alignLeft="@+id/imageRena"
             android:layout_alignStart="@+id/imageRena"/>
 
-        <Button
-            android:text="定型文作成"
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:srcCompat="@drawable/teikeisakusei"
             android:id="@+id/teikeibun"
-            android:layout_alignTop="@+id/imageS"
-            android:layout_alignRight="@+id/imageKaisan"
-            android:layout_alignEnd="@+id/imageKaisan"
             android:background="@null"
-            android:textSize="24sp"
-            android:textColor="@color/gts" />
+            android:layout_below="@+id/imageKaisan"
+            android:layout_alignLeft="@+id/imageKaisan"
+            android:layout_alignStart="@+id/imageKaisan" />
 
 
     </RelativeLayout>

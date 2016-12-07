@@ -45,11 +45,18 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private Timer mTimer;
     private TextView mTextDebug;
     private TextView mTextTimer;
+<<<<<<< HEAD
 
     Handler mHandler = new Handler();
 
     private Compass mCompass;
     private ImageView mImageCompass;
+=======
+    Handler mHandler = new Handler();
+    private Compass mCompass;
+    private ImageView mImageCompass;
+
+>>>>>>> 96547077665a5edc861c09fdc33f2af3ef2c1500
 
     public CameraFragment() {
         mCamera = new CameraPreview();
@@ -85,11 +92,15 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
 
+<<<<<<< HEAD
 
          mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
 
         
 
+=======
+        mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
+>>>>>>> 96547077665a5edc861c09fdc33f2af3ef2c1500
 
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
@@ -293,7 +304,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                         String msg = String.format("%s (%f,%f)\n",m.userName,m.locationX,m.locationY);
                         sb.append(msg);
                     }
-
                     mTextDebug.setText(sb.toString());
                 }
             });
