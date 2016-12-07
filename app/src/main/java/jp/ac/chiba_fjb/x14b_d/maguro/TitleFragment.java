@@ -35,7 +35,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
         view.findViewById(R.id.imageS).setOnClickListener(this);
         view.findViewById(R.id.imageRena).setOnClickListener(this);
         view.findViewById(R.id.imageKaisan).setOnClickListener(this);
-
+        view.findViewById(R.id.teikeibun).setOnClickListener(this);
         //設定済みの名前を読み出す
         AppDB db = new AppDB(getContext());
         mUserId = db.getSetting("USER_ID", 0);
@@ -99,6 +99,12 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
                     }
                 });
                 break;
+            case R.id.teikeibun:
+                FragmentTransaction ft4 = getFragmentManager().beginTransaction();
+                ft4.replace(R.id.fullscreen_content,new teikeiFragment());
+                ft4.commitAllowingStateLoss();
+                break;
+
         }
     }
 

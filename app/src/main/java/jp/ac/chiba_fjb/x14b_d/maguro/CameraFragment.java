@@ -64,6 +64,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e4929668a0d151ff85ccba66e4cadf35492551b2
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
@@ -77,8 +82,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.findViewById(R.id.imageYokoUp).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
+<<<<<<< HEAD
         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
 
+=======
+         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
+>>>>>>> e4929668a0d151ff85ccba66e4cadf35492551b2
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
 
@@ -222,17 +231,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 ft2.commit();
 
                 break;
-            case R.id.imageriv:
-                if(mRotation) {
-                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-                    mCamera.setRotation(180.0f);
-                }
-                else {
-                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
-                    mCamera.setRotation(0.0f);
-                }
-                mRotation = !mRotation;
-                break;
+
 
             case R.id.imageMember:
                 FragmentTransaction ft4 = getFragmentManager().beginTransaction();
@@ -260,6 +259,17 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
             case R.id.imageYokoDown:
                 mPosX += 3;
                 mCamera.setPosition(mPosX,mPosY);
+                break;
+            case R.id.imageriv:
+                if(mRotation) {
+                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+                    mCamera.setRotation(180.0f);
+                }
+                else {
+                    getActivity().setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
+                    mCamera.setRotation(0.0f);
+                }
+                mRotation = !mRotation;
                 break;
 
         }
