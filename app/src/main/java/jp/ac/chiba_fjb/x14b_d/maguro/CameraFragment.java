@@ -289,7 +289,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 @Override
                 public void run() {
                     StringBuilder sb = new StringBuilder();
-                    for(TeamOperation.UserData m : recvData.members){
+                    for(TeamOperation.UserData m : recvData.members ){
                         String msg = String.format("%s (%f,%f)\n",m.userName,m.locationX,m.locationY);
                         sb.append(msg);
                     }
