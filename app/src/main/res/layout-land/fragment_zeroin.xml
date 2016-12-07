@@ -79,6 +79,10 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/guru"
             android:layout_marginBottom="10dp"
+<<<<<<< HEAD
+=======
+
+>>>>>>> aec649b9c1208e05368da25198fa4337cc98cad9
             android:id="@+id/imageriv"
             android:background="@null"
             android:layout_marginLeft="13dp"
