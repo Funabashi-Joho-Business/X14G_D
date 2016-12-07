@@ -125,4 +125,14 @@
         android:id="@+id/imageView"
         tools:ignore="ContentDescription" />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTimer"
+        android:layout_alignLeft="@+id/imageMember"
+        android:layout_alignStart="@+id/imageMember"
+        android:textSize="24sp"
+        android:gravity="center" />
+
 </FrameLayout>
