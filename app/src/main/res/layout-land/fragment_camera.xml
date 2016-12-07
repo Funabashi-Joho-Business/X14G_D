@@ -16,6 +16,20 @@
         android:layout_height="match_parent"
         android:id="@+id/layoutNormal">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ns"
+            android:id="@+id/imageCompas"
+            android:alpha="0.1"
+            android:baselineAlignBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"/>
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,5 +138,15 @@
         app:srcCompat="@drawable/a"
         android:id="@+id/imageView"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTimer"
+        android:layout_alignLeft="@+id/imageMember"
+        android:layout_alignStart="@+id/imageMember"
+        android:textSize="24sp"
+        android:gravity="center" />
 
 </FrameLayout>

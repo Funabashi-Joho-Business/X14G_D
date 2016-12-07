@@ -10,6 +10,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.Compass;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
@@ -28,8 +30,9 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
+public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener, Compass.OnSensorListener {
 
+    public int timer;
     private CameraPreview mCamera;
     private int mVisibilty;
     private View mLayoutPosition;
@@ -39,6 +42,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mScale = 1.0f;
     private Timer mTimer;
     private TextView mTextDebug;
+    private TextView mTextTimer;
+    private Compass mCompass;
+    private ImageView mImageCompass;
 
     public CameraFragment() {
         mCamera = new CameraPreview();
@@ -60,12 +66,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
 
-
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
         mLayoutNormal = view.findViewById(R.id.layoutNormal);
         mTextDebug = (TextView)view.findViewById(R.id.textDebug);
+        mTextTimer = (TextView)view.findViewById(R.id.textTimer);
 
         mLayoutPosition = inflater.inflate(R.layout.fragment_zeroin, container, false);
         mLayoutPosition.findViewById(R.id.imageTateUp).setOnClickListener(this);
@@ -73,10 +79,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.findViewById(R.id.imageYokoUp).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
-         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
+        mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
+
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
 
+        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
+        mCompass = new Compass(getContext(),this);
         return view;
 
     }
@@ -84,9 +93,14 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle args = getArguments();
+        if(args != null) {
+            timer = args.getInt("Timer");
+            System.out.println(timer);
+//            mTextTimer.setText(timer);
+        }
 
     }
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -130,11 +144,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                     TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
             }
         },0,30*1000);
-
+        mCompass.start();
     }
 
     @Override
     public void onPause() {
+        mCompass.stop();
         mTimer.cancel();
         mCamera.close();
         super.onPause();
@@ -244,6 +259,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 }
             });
         }
+    }
+
+    @Override
+    public void onChange(double direction) {
+        mImageCompass.setRotation((float)direction);
     }
 }
 
