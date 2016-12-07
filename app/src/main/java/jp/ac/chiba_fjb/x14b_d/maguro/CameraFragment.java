@@ -64,11 +64,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 393a04ad6c58f04157741d582372fa5079300dc0
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
@@ -82,12 +78,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.findViewById(R.id.imageYokoUp).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
-<<<<<<< HEAD
-         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
-=======
-        mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
 
->>>>>>> 393a04ad6c58f04157741d582372fa5079300dc0
+         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
+
+        
+
+
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
 
