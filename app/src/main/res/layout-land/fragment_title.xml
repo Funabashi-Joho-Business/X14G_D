@@ -36,7 +36,7 @@
         android:textColor="@color/gts" />
 
     <TextView
-        android:text="Gun's Try System"
+        android:text="Gun's Twin System"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
@@ -61,17 +61,6 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="86dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/teim"
-            android:id="@+id/imageTim"
-            android:background="@null"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/imageS"
-            android:layout_alignStart="@+id/imageS"
-            android:layout_marginBottom="12dp" />
 
 
         <TextView
@@ -124,6 +113,27 @@
             android:layout_below="@+id/textUserName"
             android:layout_alignLeft="@+id/imageRena"
             android:layout_alignStart="@+id/imageRena"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/teikeisakusei"
+            android:id="@+id/teikeibun"
+            android:background="@null"
+            android:layout_below="@+id/imageKaisan"
+            android:layout_alignLeft="@+id/imageKaisan"
+            android:layout_alignStart="@+id/imageKaisan" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/teim"
+            android:id="@+id/imageTim"
+            android:background="@null"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/imageS"
+            android:layout_alignEnd="@+id/imageS" />
 
 
     </RelativeLayout>

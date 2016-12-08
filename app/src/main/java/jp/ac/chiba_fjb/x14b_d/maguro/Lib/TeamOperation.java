@@ -72,6 +72,8 @@ public class TeamOperation{
         thread.start();
     }
     public static void joinTeam(final String teamName, final String teamPass, final int userId, final String userName, final String userPass, final double locationX, final double locationY, final OnTeamListener listener){
+        if(teamName.length() == 0)
+            return;
         Thread thread = new Thread(){
             @Override
             public void run() {

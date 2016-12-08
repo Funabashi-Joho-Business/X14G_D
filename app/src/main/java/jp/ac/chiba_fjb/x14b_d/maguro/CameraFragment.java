@@ -1,7 +1,9 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -41,10 +43,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mPosY = 0.0f;
     private float mScale = 1.0f;
     private Timer mTimer;
-    private TextView mTextDebug;
     private TextView mTextTimer;
+    Handler mHandler = new Handler();
     private Compass mCompass;
     private ImageView mImageCompass;
+
 
     public CameraFragment() {
         mCamera = new CameraPreview();
@@ -70,7 +73,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
         mLayoutNormal = view.findViewById(R.id.layoutNormal);
-        mTextDebug = (TextView)view.findViewById(R.id.textDebug);
         mTextTimer = (TextView)view.findViewById(R.id.textTimer);
 
         mLayoutPosition = inflater.inflate(R.layout.fragment_zeroin, container, false);
@@ -79,13 +81,14 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.findViewById(R.id.imageYokoUp).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
+
         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
 
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
 
         mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
-        mCompass = new Compass(getContext(),this);
+        mCompass = new Compass(getActivity(),this);
         return view;
 
     }
@@ -96,10 +99,39 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         Bundle args = getArguments();
         if(args != null) {
             timer = args.getInt("Timer");
-            System.out.println(timer);
-//            mTextTimer.setText(timer);
-        }
+            String sTimer = Integer.toString(timer);
 
+            timer = timer * 60000;
+            CountDownTimer cdt = new CountDownTimer(timer, 1000)
+            {
+                public void onTick(long millisUntilFinished)
+                {
+                    setText(Long.toString(millisUntilFinished));
+                }
+
+                public void onFinish()
+                {
+                    mTextTimer.setText("終了");
+                }
+            }.start();
+
+        }else{
+            String set = "0";
+            setText(set);
+        }
+    }
+
+
+    void setText(final String number){
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                int i = Integer.parseInt(number);
+                int mm = i / 1000 / 60;
+                int ss = i / 1000 % 60;
+                mTextTimer.setText(String.format("%1$02d:%2$02d", mm, ss));
+            }
+        });
     }
 
     @Override
@@ -149,7 +181,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onPause() {
-        mCompass.stop();
+
         mTimer.cancel();
         mCamera.close();
         super.onPause();
@@ -245,26 +277,25 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onTeam(final TeamOperation.RecvData recvData) {
-        if(recvData!=null && recvData.result){
+        if (recvData != null && recvData.result) {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     StringBuilder sb = new StringBuilder();
-                    for(TeamOperation.UserData m : recvData.members){
-                        String msg = String.format("%s (%f,%f)\n",m.userName,m.locationX,m.locationY);
+                    for (TeamOperation.UserData m : recvData.members) {
+                        String msg = String.format("%s (%f,%f)\n", m.userName, m.locationX, m.locationY);
                         sb.append(msg);
                     }
-
                     //mTextDebug.setText(sb.toString());
                 }
             });
         }
     }
 
-    @Override
+    //@Override
     public void onChange(double direction) {
-        mImageCompass.setRotation((float)direction);
-        mTextDebug.setText(""+direction);
-    }
-}
+        mImageCompass.setRotation(-(float)direction);
 
+    }
+
+}

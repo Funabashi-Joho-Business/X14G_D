@@ -7,13 +7,22 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MemberListFragment extends Fragment implements View.OnClickListener {
+public class MemberListFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
 
+    private String mTeamName;
+    private TextView mTextTeamname;
+    private String mUserPass;
+    private String mTeamPass;
+    private TextView mTextList;
 
     public MemberListFragment() {
         // Required empty public constructor
@@ -27,6 +36,18 @@ public class MemberListFragment extends Fragment implements View.OnClickListener
         View view =inflater.inflate(R.layout.fragment_list, container, false);
 
         view.findViewById(R.id.imageBack).setOnClickListener(this);
+        AppDB db = new AppDB(getContext());
+        mTeamName = db.getSetting("TEAM_NAME","");
+        mTeamPass = db.getSetting("TEAM_PASS","");
+        db.close();
+
+        mTextTeamname = (TextView)view.findViewById(R.id.TextTeamname);
+        if(mTeamName.length() > 0) {
+            mTextTeamname.setText(mTeamName);
+            TeamOperation.getMember(mTeamName,mTeamPass,this);
+        }
+
+        mTextList = (TextView)view.findViewById(R.id.textList);
         return view;
     }
     @Override
@@ -40,4 +61,21 @@ public class MemberListFragment extends Fragment implements View.OnClickListener
         }
     }
 
+    @Override
+    public void onTeam(final TeamOperation.RecvData recvData) {
+        if(getActivity() == null)
+            return;
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                TeamOperation.TeamData[] list = recvData.values;
+                StringBuilder sb = new StringBuilder();
+                for (TeamOperation.UserData m : recvData.members) {
+                    String msg = String.format("%s\n", m.userName);
+                    sb.append(msg);
+                }
+                mTextList.setText(sb.toString());
+            }
+        });
+    }
 }

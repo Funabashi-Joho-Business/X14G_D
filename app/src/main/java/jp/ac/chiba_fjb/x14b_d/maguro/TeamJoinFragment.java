@@ -2,6 +2,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
@@ -19,7 +21,8 @@ import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
  */
 public class TeamJoinFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
 
-
+    Handler mHandler = new Handler();
+    private TextView mTextTeamname;
     private EditText mEditPass;
     private int mTeamId;
     private String mUserName;
@@ -49,9 +52,19 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
         mUserPass = db.getSetting("USER_PASS","");
         db.close();
 
-
+        mTextTeamname = (TextView)view.findViewById(R.id.TextTeamname);
+        setText(mTeamName);
 
         return view;
+    }
+
+    void setText(final String TeamName){
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                mTextTeamname.setText(TeamName);
+            }
+        });
     }
 
     @Override
@@ -72,6 +85,7 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onTeam(TeamOperation.RecvData recvData) {
+
         if(recvData != null && recvData.result){
             AppDB db = new AppDB(getContext());
             db.setSetting("TEAM_NAME",mTeamName);
@@ -86,7 +100,12 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
 
 
         }else{
+            AppDB db = new AppDB(getContext());
             Snackbar.make(getView(), "参加失敗", Snackbar.LENGTH_SHORT).show();
+            db.setSetting("TEAM_NAME","");
+            db.setSetting("USER_ID",0);
+            db.setSetting("USER_PASS","");
+            db.close();
         }
 
     }
