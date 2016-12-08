@@ -46,8 +46,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private TextView mTextDebug;
     private TextView mTextTimer;
     Handler mHandler = new Handler();
-    private Compass mCompass;
-    private ImageView mImageCompass;
+//    private Compass mCompass;
+//    private ImageView mImageCompass;
 
 
     public CameraFragment() {
@@ -178,7 +178,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                     TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
             }
         },0,30*1000);
-        mCompass.start();
+//        mCompass.start();
     }
 
     @Override
