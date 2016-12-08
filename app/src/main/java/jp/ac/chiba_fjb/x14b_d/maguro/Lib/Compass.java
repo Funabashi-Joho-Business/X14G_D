@@ -9,15 +9,12 @@ import android.hardware.SensorManager;
 import static android.content.Context.SENSOR_SERVICE;
 
 public class Compass implements SensorEventListener {
+    private float[] mAccell;
+    private float[] mMagnetic;
+
     public interface OnSensorListener{
         public void onChange(double direction);
     }
-
-    private static final int MATRIX_SIZE = 16;
-    private static final int DIMENSION = 4;
-    private static final String TAG = "TEST";
-    private float[] magneticValues;
-    private float[] accelerometerValues;
     private SensorManager mSensor;
     private double mDirection;
     private OnSensorListener mListener;
@@ -39,34 +36,34 @@ public class Compass implements SensorEventListener {
     }
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE)
-            return;
-
-        switch (sensorEvent.sensor.getType()) {
-            case Sensor.TYPE_MAGNETIC_FIELD: // 地磁気センサ
-                magneticValues = sensorEvent.values.clone();
+        // センサの取得値をそれぞれ保存しておく
+        switch( sensorEvent.sensor.getType()) {
+            case Sensor.TYPE_ACCELEROMETER:
+                mAccell = sensorEvent.values.clone();
                 break;
-            case Sensor.TYPE_ACCELEROMETER:  // 加速度センサ
-                accelerometerValues = sensorEvent.values.clone();
+            case Sensor.TYPE_MAGNETIC_FIELD:
+                mMagnetic = sensorEvent.values.clone();
                 break;
         }
 
-        if (magneticValues != null && accelerometerValues != null) {
-            float[] rotationMatrix = new float[MATRIX_SIZE];
-            float[] inclinationMatrix = new float[MATRIX_SIZE];
-            float[] remapedMatrix = new float[MATRIX_SIZE];
+        // fAccell と fMagnetic から傾きと方位角を計算する
+        if( mAccell != null && mMagnetic != null ) {
+            // 回転行列を得る
+            float[] inR = new float[16];
+            SensorManager.getRotationMatrix(
+                inR,
+                null,
+                mAccell,
+                mMagnetic );
+            // ワールド座標とデバイス座標のマッピングを変換する
 
-            float[] orientationValues = new float[DIMENSION];
+            // 姿勢を得る
+            float[] fAttitude = new float[3];
+            SensorManager.getOrientation(
+                inR,
+                fAttitude );
 
-            // 加速度センサと地磁気センサから回転行列を取得
-            SensorManager.getRotationMatrix(rotationMatrix, inclinationMatrix, accelerometerValues, magneticValues);
-            SensorManager.remapCoordinateSystem(rotationMatrix, SensorManager.AXIS_X, SensorManager.AXIS_Z, remapedMatrix);
-            SensorManager.getOrientation(remapedMatrix, orientationValues);
-
-            // 方位を取得する
-            float angrad = orientationValues[0];
-            mDirection = Math.floor(angrad >= 0 ? Math.toDegrees(angrad) : 360.0f + Math.toDegrees(angrad));
-
+            mDirection = Math.toDegrees(fAttitude[0]);
             mListener.onChange(mDirection);
         }
     }

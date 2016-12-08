@@ -255,7 +255,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                         sb.append(msg);
                     }
 
-                    mTextDebug.setText(sb.toString());
+                    //mTextDebug.setText(sb.toString());
                 }
             });
         }
@@ -264,6 +264,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     @Override
     public void onChange(double direction) {
         mImageCompass.setRotation((float)direction);
+        mTextDebug.setText(""+direction);
     }
 }
 
