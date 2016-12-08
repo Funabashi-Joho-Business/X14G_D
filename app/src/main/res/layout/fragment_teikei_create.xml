@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<<<<<<< HEAD:app/src/main/res/layout/fragment_teikei.xml
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,9 +23,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="75dp" />
 
-=======
->>>>>>> 96547077665a5edc861c09fdc33f2af3ef2c1500:app/src/main/res/layout/fragment_teikei_create.xml
-        <ImageButton
+
+<ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sette"
@@ -68,7 +66,7 @@
             android:layout_toEndOf="@+id/editText"
             android:layout_marginLeft="58dp"
             android:layout_marginStart="58dp"
-            android:id="@+id/itiran"
+
             android:background="@null" />
 
         <EditText

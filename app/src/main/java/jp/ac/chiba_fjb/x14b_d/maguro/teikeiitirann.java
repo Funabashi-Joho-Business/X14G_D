@@ -39,7 +39,7 @@ public class teikeiitirann extends Fragment implements View.OnClickListener {
             case R.id.imageBack:
 
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.replace(R.id.fullscreen_content,new teikeiFragment());
+                    ft.replace(R.id.fullscreen_content,new TeamCreateFragment());
                     ft.commit();
                 }
 

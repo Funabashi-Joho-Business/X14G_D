@@ -22,19 +22,16 @@ import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
  */
 public class TeikeiListFragment extends Fragment implements View.OnClickListener {
 
-<<<<<<< HEAD:app/src/main/java/jp/ac/chiba_fjb/x14b_d/maguro/teikeiFragment.java
-    private EditText mEditteikei;
-    public teikeiFragment() {
-=======
 
+    private EditText mEditteikei;
     public TeikeiListFragment() {
->>>>>>> 96547077665a5edc861c09fdc33f2af3ef2c1500:app/src/main/java/jp/ac/chiba_fjb/x14b_d/maguro/TeikeiListFragment.java
+
         // Required empty public constructor
     }
 
 
     @Override
-<<<<<<< HEAD:app/src/main/java/jp/ac/chiba_fjb/x14b_d/maguro/teikeiFragment.java
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -46,11 +43,11 @@ public class TeikeiListFragment extends Fragment implements View.OnClickListener
         view.findViewById(R.id.itiran).setOnClickListener(this);
         mEditteikei = (EditText)view.findViewById(R.id.itiran);
         mEditteikei.setText(name);
-=======
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_teikei_list, container, false);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
->>>>>>> 96547077665a5edc861c09fdc33f2af3ef2c1500:app/src/main/java/jp/ac/chiba_fjb/x14b_d/maguro/TeikeiListFragment.java
+
         return view;
     }
 
