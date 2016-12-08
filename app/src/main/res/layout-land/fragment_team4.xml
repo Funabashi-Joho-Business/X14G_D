@@ -35,7 +35,7 @@
 
         <TextView
 
-            android:text="チームに参加しました"
+            android:text="に参加しました"
 
 
             android:layout_width="wrap_content"
@@ -44,9 +44,24 @@
             android:textSize="36sp"
             android:textColor="@color/gts"
             android:layout_below="@+id/imageBack"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignRight="@+id/textView15"
+            android:layout_alignEnd="@+id/textView15"
+            android:layout_marginRight="23dp"
+            android:layout_marginEnd="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="14dp"
+            android:layout_marginEnd="14dp"
+            android:id="@+id/textTeamname"
+            android:textSize="30sp"
+            android:textColor="@color/gts"
+            android:layout_above="@+id/textView15"
+            android:layout_toLeftOf="@+id/textView14"
+            android:layout_toStartOf="@+id/textView14" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </FrameLayout>

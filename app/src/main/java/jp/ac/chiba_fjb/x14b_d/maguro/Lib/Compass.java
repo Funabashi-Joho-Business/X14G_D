@@ -1,18 +1,16 @@
 package jp.ac.chiba_fjb.x14b_d.maguro.Lib;
 
-import android.content.Context;
+import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.view.Display;
+import android.view.Surface;
 
 import static android.content.Context.SENSOR_SERVICE;
 
 public class Compass implements SensorEventListener {
-    public interface OnSensorListener{
-        public void onChange(double direction);
-    }
-
     private static final int MATRIX_SIZE = 16;
     private static final int DIMENSION = 4;
     private static final String TAG = "TEST";
@@ -20,9 +18,14 @@ public class Compass implements SensorEventListener {
     private float[] accelerometerValues;
     private SensorManager mSensor;
     private double mDirection;
-    private OnSensorListener mListener;
+    private Activity mActivity;
 
-    public Compass(Context con,OnSensorListener listener){
+    public interface OnSensorListener{
+        public void onChange(double direction);
+    }
+    private OnSensorListener mListener;
+    public Compass(Activity con,OnSensorListener listener){
+        mActivity = con;
         mSensor = (SensorManager) con.getSystemService(SENSOR_SERVICE);
         mListener = listener;
     }
@@ -52,6 +55,10 @@ public class Compass implements SensorEventListener {
         }
 
         if (magneticValues != null && accelerometerValues != null) {
+
+            Display d = mActivity.getWindowManager().getDefaultDisplay();
+            int dr = d.getRotation();
+
             float[] rotationMatrix = new float[MATRIX_SIZE];
             float[] inclinationMatrix = new float[MATRIX_SIZE];
             float[] remapedMatrix = new float[MATRIX_SIZE];
@@ -60,13 +67,37 @@ public class Compass implements SensorEventListener {
 
             // 加速度センサと地磁気センサから回転行列を取得
             SensorManager.getRotationMatrix(rotationMatrix, inclinationMatrix, accelerometerValues, magneticValues);
-            SensorManager.remapCoordinateSystem(rotationMatrix, SensorManager.AXIS_X, SensorManager.AXIS_Z, remapedMatrix);
+
+            if (dr == Surface.ROTATION_0) {
+                remapedMatrix = rotationMatrix;
+            } else {
+                // 回転あり
+                float[] outR = new float[16];
+
+                if (dr == Surface.ROTATION_90) {
+                    SensorManager.remapCoordinateSystem(rotationMatrix,
+                        SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X, remapedMatrix);
+
+                } else if (dr == Surface.ROTATION_180) {
+                    float[] outR2 = new float[16];
+                    SensorManager.remapCoordinateSystem(rotationMatrix,
+                        SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X, remapedMatrix);
+                    SensorManager.remapCoordinateSystem(remapedMatrix,
+                        SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X, remapedMatrix);
+
+                } else if (dr == Surface.ROTATION_270) {
+                    SensorManager.remapCoordinateSystem(rotationMatrix,
+                        SensorManager.AXIS_MINUS_Y, SensorManager.AXIS_MINUS_X, remapedMatrix);
+
+                }
+            }
+
+            //SensorManager.remapCoordinateSystem(rotationMatrix, SensorManager.AXIS_Z, SensorManager.AXIS_X, remapedMatrix);
             SensorManager.getOrientation(remapedMatrix, orientationValues);
 
             // 方位を取得する
             float angrad = orientationValues[0];
             mDirection = Math.floor(angrad >= 0 ? Math.toDegrees(angrad) : 360.0f + Math.toDegrees(angrad));
-
             mListener.onChange(mDirection);
         }
     }

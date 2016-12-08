@@ -155,10 +155,15 @@ public class AppDB extends SQLite {
     }
     public int getSetting(String name,int defValue)
     {
-        String v = getSetting(name);
-        if(v == null)
-            return defValue;
-        return Integer.valueOf(v);
+        try {
+            String v = getSetting(name);
+            if(v != null)
+                return Integer.valueOf(v);
+        } catch (NumberFormatException e) {
+
+        }
+        return defValue;
+
     }
     public long getSetting(String name,long defValue)
     {

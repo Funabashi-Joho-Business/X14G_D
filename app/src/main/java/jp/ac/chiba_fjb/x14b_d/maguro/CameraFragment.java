@@ -43,7 +43,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mPosY = 0.0f;
     private float mScale = 1.0f;
     private Timer mTimer;
-    private TextView mTextDebug;
     private TextView mTextTimer;
 
 
@@ -82,7 +81,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
         mLayoutNormal = view.findViewById(R.id.layoutNormal);
-        mTextDebug = (TextView)view.findViewById(R.id.textDebug);
         mTextTimer = (TextView)view.findViewById(R.id.textTimer);
 
         mLayoutPosition = inflater.inflate(R.layout.fragment_zeroin, container, false);
@@ -104,7 +102,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.setVisibility(View.GONE);
 
         mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
-        mCompass = new Compass(getContext(),this);
+        mCompass = new Compass(getActivity(),this);
         return view;
 
     }
@@ -197,7 +195,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onPause() {
-        mCompass.stop();
+
         mTimer.cancel();
         mCamera.close();
         super.onPause();
@@ -293,24 +291,30 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onTeam(final TeamOperation.RecvData recvData) {
-        if(recvData!=null && recvData.result){
+        if (recvData != null && recvData.result) {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     StringBuilder sb = new StringBuilder();
+<<<<<<< HEAD
                     for(TeamOperation.UserData m : recvData.members ){
                         String msg = String.format("%s (%f,%f)\n",m.userName,m.locationX,m.locationY);
+=======
+                    for (TeamOperation.UserData m : recvData.members) {
+                        String msg = String.format("%s (%f,%f)\n", m.userName, m.locationX, m.locationY);
+>>>>>>> 10228eb4a9163ed21a4e0b2aa108d1f16a264191
                         sb.append(msg);
                     }
-                    mTextDebug.setText(sb.toString());
+                    //mTextDebug.setText(sb.toString());
                 }
             });
         }
     }
 
-    @Override
+    //@Override
     public void onChange(double direction) {
-        mImageCompass.setRotation((float)direction);
-    }
-}
+        mImageCompass.setRotation(-(float)direction);
 
+    }
+
+}
