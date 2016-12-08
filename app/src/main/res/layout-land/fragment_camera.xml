@@ -16,20 +16,6 @@
         android:layout_height="match_parent"
         android:id="@+id/layoutNormal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ns"
-            android:id="@+id/imageCompas"
-            android:alpha="0.1"
-            android:baselineAlignBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"/>
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,6 +96,16 @@
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/imageZoomin"
             android:layout_alignStart="@+id/imageZoomin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textChat"
+            android:layout_alignBottom="@+id/imageZeroin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="24sp"
+            android:padding="15dp" />
 
         <!--<TextView-->
             <!--android:text="TextView"-->

@@ -89,8 +89,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
 
-        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
-        mCompass = new Compass(getContext(),this);
+//        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
+//        mCompass = new Compass(getContext(),this);
         return view;
 
     }
