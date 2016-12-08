@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.teikeiitirann"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.ChatPushFragment"
     android:background="@color/bac">
 
     <!-- TODO: Update blank fragment layout -->

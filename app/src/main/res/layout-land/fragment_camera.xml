@@ -97,15 +97,28 @@
             android:layout_alignLeft="@+id/imageZoomin"
             android:layout_alignStart="@+id/imageZoomin" />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/teikeiichiran"
+            android:id="@+id/imageChat"
+            android:background="@null"
+            android:layout_alignBottom="@+id/imageZeroin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textChat"
-            android:layout_alignBottom="@+id/imageZeroin"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/imageChat"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParent="true"
             android:textSize="24sp"
-            android:padding="15dp" />
+            android:padding="15dp"
+            android:paddingLeft="20dp"
+            android:paddingEnd="250dp"
+            android:layout_marginLeft="150dp" />
 
         <!--<TextView-->
             <!--android:text="TextView"-->
@@ -128,13 +141,6 @@
         android:id="@+id/textDebug"
         android:enabled="true"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/a"
-        android:id="@+id/imageView"
-        tools:ignore="ContentDescription" />
-
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
@@ -144,5 +150,12 @@
         android:layout_alignStart="@+id/imageMember"
         android:textSize="24sp"
         android:gravity="center" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/a"
+        android:id="@+id/imageView"
+        tools:ignore="ContentDescription" />
 
 </FrameLayout>
