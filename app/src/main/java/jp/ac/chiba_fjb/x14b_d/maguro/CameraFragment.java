@@ -32,7 +32,7 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener, Compass.OnSensorListener {
+public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
 
     public int timer;
     private CameraPreview mCamera;
@@ -183,7 +183,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onPause() {
-        mCompass.stop();
+
         mTimer.cancel();
         mCamera.close();
         super.onPause();
@@ -279,13 +279,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onTeam(final TeamOperation.RecvData recvData) {
-        if(recvData!=null && recvData.result){
+        if (recvData != null && recvData.result) {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     StringBuilder sb = new StringBuilder();
-                    for(TeamOperation.UserData m : recvData.members){
-                        String msg = String.format("%s (%f,%f)\n",m.userName,m.locationX,m.locationY);
+                    for (TeamOperation.UserData m : recvData.members) {
+                        String msg = String.format("%s (%f,%f)\n", m.userName, m.locationX, m.locationY);
                         sb.append(msg);
                     }
                     mTextDebug.setText(sb.toString());
@@ -293,10 +293,4 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
             });
         }
     }
-
-    @Override
-    public void onChange(double direction) {
-        mImageCompass.setRotation((float)direction);
-    }
 }
-
