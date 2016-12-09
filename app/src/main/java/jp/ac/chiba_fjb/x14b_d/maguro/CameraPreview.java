@@ -119,7 +119,9 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
             mScale = null;
         else {
             mScale = new Matrix();
-            mScale.setScale(s,s);
+            mScale.setTranslate(-mTextureView.getWidth() * 0.5f, -mTextureView.getHeight() * 0.5f);
+            mScale.postScale(s,s);
+            mScale.postTranslate(mTextureView.getWidth() * 0.5f, mTextureView.getHeight() * 0.5f);
         }
         updateMatrix();
     }

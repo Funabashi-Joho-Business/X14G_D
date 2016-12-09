@@ -147,6 +147,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         );
         view.requestFocus();
+        mCamera.setScale(1.1f);
     }
 
 
