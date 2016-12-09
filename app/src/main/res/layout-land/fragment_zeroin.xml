@@ -78,17 +78,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/guru"
-            android:layout_marginBottom="10dp"
 
-            android:id="@+id/imageriv"
-            android:background="@null"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-
+            android:layout_alignParentStart="true"
+            android:background="@null"
+            android:id="@+id/imageriv" />
     </RelativeLayout>
 
 </FrameLayout>

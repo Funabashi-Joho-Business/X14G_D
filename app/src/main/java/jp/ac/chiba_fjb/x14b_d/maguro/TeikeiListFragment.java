@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,15 +17,32 @@ import android.view.ViewGroup;
 public class TeikeiListFragment extends Fragment implements View.OnClickListener {
 
 
+    private EditText mEditteikei;
     public TeikeiListFragment() {
+
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_teikei_list, container, false);
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        AppDB db = new AppDB(getContext());
+        String name = db.getSetting("TEIKEI","");
+        db.close();
+
+        View view = inflater.inflate(R.layout.fragment_teikei_list, container, false);
+        view.findViewById(R.id.editTikei1).setOnClickListener(this);
+        mEditteikei = (EditText)view.findViewById(R.id.editTeikei1);
+        mEditteikei = (EditText)view.findViewById(R.id.editTeikei2);
+        mEditteikei = (EditText)view.findViewById(R.id.editTeikei3);
+        mEditteikei = (EditText)view.findViewById(R.id.editTeikei4);
+        mEditteikei = (EditText)view.findViewById(R.id.editTeikei5);
+        mEditteikei.setText(name);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
+
         return view;
     }
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.TeamListFragment"
     tools:background="@color/bac">
 
     <!-- TODO: Update blank fragment layout -->
@@ -32,18 +32,6 @@
 
         </LinearLayout>
 
-        <ImageButton
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/modoru"
-            android:id="@+id/imageBack"
-            android:background="@null"
-            android:layout_marginRight="518dp"
-            android:layout_marginEnd="518dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
         <TextView
             android:text="作成するか接続するチームを選択してください"
             android:layout_width="match_parent"
@@ -68,6 +56,17 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp" />
 
+
+        <ImageButton
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/modoru"
+            android:id="@+id/imageBack"
+            android:background="@null"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
@@ -88,7 +87,8 @@
             android:layout_alignBottom="@+id/imageSakusei"
             android:layout_toRightOf="@+id/imageSakusei"
             android:layout_toEndOf="@+id/imageSakusei"
-            android:layout_marginBottom="11dp" />
+
+      />
 
     </RelativeLayout>
 

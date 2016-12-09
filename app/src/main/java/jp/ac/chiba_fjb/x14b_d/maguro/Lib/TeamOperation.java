@@ -36,6 +36,7 @@ public class TeamOperation{
         public String userPass;
         public TeamData[] values;
         public UserData[] members;
+
     }
 
     public static void getTeam(final OnTeamListener listener){

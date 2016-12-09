@@ -12,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/sette"
-            android:id="@+id/imageButton"
+            android:id="@+id/imagesetteing"
             android:layout_marginBottom="48dp"
             android:background="@null"
             android:layout_alignParentBottom="true"
@@ -49,26 +50,71 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/teikeiichiran"
-            android:layout_alignBottom="@+id/editText"
-            android:layout_toRightOf="@+id/editText"
-            android:layout_toEndOf="@+id/editText"
-            android:layout_marginLeft="58dp"
-            android:layout_marginStart="58dp"
-            android:id="@+id/itiran"
-            android:background="@null" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:background="@drawable/wakusan"
-            android:padding="15dp"
-            android:textColor="@android:color/background_dark"
-            android:textSize="24sp"
-            android:layout_below="@+id/imageBack"
-            android:layout_centerHorizontal="true" />
+            android:background="@null"
+            android:layout_alignBottom="@+id/imagesetteing"
+            android:layout_toRightOf="@+id/editTeikei5"
+            android:layout_toEndOf="@+id/editTeikei5"
+            android:layout_marginLeft="38dp"
+            android:layout_marginStart="38dp"
+            android:id="@+id/imageTeikeiList" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView5"
+            android:layout_above="@+id/imagesetteing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTeikei1"
+                    android:background="@drawable/sinwaku" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTeikei2"
+                    android:background="@drawable/sinwaku" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTeikei3"
+                    android:background="@drawable/sinwaku" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTeikei4"
+                    android:background="@drawable/sinwaku" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTeikei5"
+                    android:background="@drawable/sinwaku"
+                    android:layout_above="@+id/imagesetteing"
+                    android:layout_centerHorizontal="true" />
+            </LinearLayout>
+        </ScrollView>
 
     </RelativeLayout>
 </FrameLayout>
