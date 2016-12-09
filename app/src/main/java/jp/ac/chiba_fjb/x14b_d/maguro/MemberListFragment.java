@@ -20,6 +20,9 @@ public class MemberListFragment extends Fragment implements View.OnClickListener
 
     private String mTeamName;
     private TextView mTextTeamname;
+    private String mUserPass;
+    private String mTeamPass;
+    private TextView mTextList;
 
     public MemberListFragment() {
         // Required empty public constructor
@@ -35,12 +38,16 @@ public class MemberListFragment extends Fragment implements View.OnClickListener
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         AppDB db = new AppDB(getContext());
         mTeamName = db.getSetting("TEAM_NAME","");
+        mTeamPass = db.getSetting("TEAM_PASS","");
         db.close();
 
         mTextTeamname = (TextView)view.findViewById(R.id.TextTeamname);
         if(mTeamName.length() > 0) {
-            TeamOperation.joinTeam(mTeamName,"0",0,"0","0",0,0,this);
+            mTextTeamname.setText(mTeamName);
+            TeamOperation.getMember(mTeamName,mTeamPass,this);
         }
+
+        mTextList = (TextView)view.findViewById(R.id.textList);
         return view;
     }
     @Override
@@ -55,18 +62,19 @@ public class MemberListFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void onTeam(TeamOperation.RecvData recvData) {
+    public void onTeam(final TeamOperation.RecvData recvData) {
         if(getActivity() == null)
             return;
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(mTeamName!=null){
-                    mTextTeamname.setText(mTeamName);
+                TeamOperation.TeamData[] list = recvData.values;
+                StringBuilder sb = new StringBuilder();
+                for (TeamOperation.UserData m : recvData.members) {
+                    String msg = String.format("%s\n", m.userName);
+                    sb.append(msg);
                 }
-                else{
-                    mTextTeamname.setText("---");
-                }
+                mTextList.setText(sb.toString());
             }
         });
     }

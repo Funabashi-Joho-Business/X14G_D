@@ -113,6 +113,10 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
 
     @Override
     public void onTeam(TeamOperation.RecvData recvData) {
-
+        if(recvData != null && recvData.result) {
+            AppDB db = new AppDB(this);
+            db.setSetting("TEAM_PASS", recvData.userPass);
+            db.close();
+        }
     }
 }

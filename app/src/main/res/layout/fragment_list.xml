@@ -6,7 +6,6 @@
     tools:context="jp.ac.chiba_fjb.x14b_d.maguro.MemberListFragment"
     android:background="@color/bac">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,17 +32,25 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <ScrollView
             android:layout_below="@+id/textView3"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/gts"
-            android:layout_marginTop="28dp"
-            android:elevation="0dp"
-            android:textSize="24sp"
-            android:entries="@android:id/list"
-            android:background="@color/bac" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/gts"
+                android:layout_marginTop="28dp"
+                android:elevation="0dp"
+                android:textSize="24sp"
+                android:background="@color/bac"
+                android:id="@+id/textList"/>
+        </ScrollView>
+
+
 
         <ImageButton
             android:layout_width="wrap_content"

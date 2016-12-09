@@ -49,6 +49,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
         textView.setText(mUserName);
 
         mTextTeam = (TextView)view.findViewById(R.id.textTeamName);
+        mTextTeam.setText("---");
         if(mTeamName.length() > 0) {
             TeamOperation.joinTeam(mTeamName,mTeamPass,mUserId,mUserName,mUserPass,0,0,this);
         }

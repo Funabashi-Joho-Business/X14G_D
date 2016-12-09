@@ -4,6 +4,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -60,18 +61,23 @@ public class TeamListFragment extends Fragment implements View.OnClickListener, 
 
         view.findViewById(R.id.imageSakusei).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
+	    view.findViewById(R.id.imageUpdate).setOnClickListener(this);
 
 	    mAdapter = new TeamAdapter(getContext());
         mTeamList = (ListView)view.findViewById(R.id.listTeam);
 	    mTeamList.setAdapter(mAdapter);
 	    mTeamList.setOnItemClickListener(this);
 
-        update();
-
         return view;
     }
 
-    @Override
+	@Override
+	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
+		update();
+	}
+
+	@Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageSakusei:
@@ -84,27 +90,39 @@ public class TeamListFragment extends Fragment implements View.OnClickListener, 
                 ft3.replace(R.id.fullscreen_content,new TitleFragment());
                 ft3.commitAllowingStateLoss();
                 break;
+	        case R.id.imageUpdate:
+		        update();
+		        break;
         }
     }
     void update(){
+	    ((TextView)getView().findViewById(R.id.textUpdate)).setText("リスト更新中");
         TeamOperation.getTeam(this);
     }
 
     @Override
     public void onTeam(final TeamOperation.RecvData recvData) {
-        if(recvData!=null && recvData.values!=null && getActivity()!=null){
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-	                mAdapter.clear();
-                    for(TeamOperation.TeamData value : recvData.values){
-	                    mAdapter.add(value);
-                    }
-	                mAdapter.notifyDataSetChanged();
-                }
-            });
 
-        }
+	    if( getActivity() != null) {
+		    getActivity().runOnUiThread(new Runnable() {
+			    @Override
+			    public void run() {
+				    if (recvData != null && recvData.values != null && getActivity() != null) {
+					    mAdapter.clear();
+					    ((TextView) getView().findViewById(R.id.textUpdate)).setText(recvData.values.length + "件");
+					    for (TeamOperation.TeamData value : recvData.values) {
+						    mAdapter.add(value);
+					    }
+					    mAdapter.notifyDataSetChanged();
+				    } else {
+					    ((TextView) getView().findViewById(R.id.textUpdate)).setText("更新失敗");
+				    }
+
+
+			    }
+		    });
+	    }
+
     }
 
 	@Override

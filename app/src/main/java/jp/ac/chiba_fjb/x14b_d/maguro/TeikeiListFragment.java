@@ -2,15 +2,11 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
-import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 
 /**
  * A simple {@link Fragment} subclass.

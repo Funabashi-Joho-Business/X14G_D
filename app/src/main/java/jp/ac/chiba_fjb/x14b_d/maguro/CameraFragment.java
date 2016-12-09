@@ -32,7 +32,7 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
+public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener, Compass.OnSensorListener {
 
     public int timer;
     private CameraPreview mCamera;
@@ -43,11 +43,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mPosY = 0.0f;
     private float mScale = 1.0f;
     private Timer mTimer;
-    private TextView mTextDebug;
     private TextView mTextTimer;
     Handler mHandler = new Handler();
-//    private Compass mCompass;
-//    private ImageView mImageCompass;
+    private Compass mCompass;
+    private ImageView mImageCompass;
 
 
     public CameraFragment() {
@@ -74,7 +73,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
 
         mLayoutNormal = view.findViewById(R.id.layoutNormal);
-        mTextDebug = (TextView)view.findViewById(R.id.textDebug);
         mTextTimer = (TextView)view.findViewById(R.id.textTimer);
 
         mLayoutPosition = inflater.inflate(R.layout.fragment_zeroin, container, false);
@@ -89,8 +87,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
 
-//        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
-//        mCompass = new Compass(getContext(),this);
+        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
+        mCompass = new Compass(getActivity(),this);
         return view;
 
     }
@@ -178,7 +176,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                     TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
             }
         },0,30*1000);
-//        mCompass.start();
+        mCompass.start();
     }
 
     @Override
@@ -288,9 +286,16 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                         String msg = String.format("%s (%f,%f)\n", m.userName, m.locationX, m.locationY);
                         sb.append(msg);
                     }
-                    mTextDebug.setText(sb.toString());
+                    //mTextDebug.setText(sb.toString());
                 }
             });
         }
     }
+
+    //@Override
+    public void onChange(double direction) {
+        mImageCompass.setRotation(-(float)direction);
+
+    }
+
 }

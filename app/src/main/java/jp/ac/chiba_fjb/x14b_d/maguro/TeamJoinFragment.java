@@ -85,6 +85,7 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onTeam(TeamOperation.RecvData recvData) {
+
         if(recvData != null && recvData.result){
             AppDB db = new AppDB(getContext());
             db.setSetting("TEAM_NAME",mTeamName);
@@ -99,7 +100,12 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
 
 
         }else{
+            AppDB db = new AppDB(getContext());
             Snackbar.make(getView(), "参加失敗", Snackbar.LENGTH_SHORT).show();
+            db.setSetting("TEAM_NAME","");
+            db.setSetting("USER_ID",0);
+            db.setSetting("USER_PASS","");
+            db.close();
         }
 
     }
