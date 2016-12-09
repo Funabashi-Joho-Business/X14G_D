@@ -87,14 +87,8 @@
             android:layout_alignBottom="@+id/imageSakusei"
             android:layout_toRightOf="@+id/imageSakusei"
             android:layout_toEndOf="@+id/imageSakusei"
-<<<<<<< HEAD
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp"
-            android:id="@+id/imageUpdate"/>
->>>>>>> 10228eb4a9163ed21a4e0b2aa108d1f16a264191
-=======
-            android:layout_marginBottom="11dp" />
->>>>>>> 47511f7bbb270a797c6c374636f2d657518d30a8
+
+      />
 
     </RelativeLayout>
 
