@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTikei1"
+                    android:id="@+id/editTeikei1"
                     android:background="@drawable/sinwaku" />
 
                 <EditText
