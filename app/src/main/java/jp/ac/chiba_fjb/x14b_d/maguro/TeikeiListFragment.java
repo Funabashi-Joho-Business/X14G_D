@@ -30,24 +30,31 @@ public class TeikeiListFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         AppDB db = new AppDB(getContext());
-        String name = db.getSetting("USER_TEIKEI1","");
+        String teikei1 = db.getSetting("USER_TEIKEI1","");
+        String teikei2 = db.getSetting("USER_TEIKEI2","");
+        String teikei3 = db.getSetting("USER_TEIKEI3","");
+        String teikei4 = db.getSetting("USER_TEIKEI4","");
+        String teikei5 = db.getSetting("USER_TEIKEI5","");
         db.close();
 
         View view = inflater.inflate(R.layout.fragment_teikei_list, container, false);
         view.findViewById(R.id.editTeikei1).setOnClickListener(this);
-<<<<<<< HEAD
         view.findViewById(R.id.editTeikei2).setOnClickListener(this);
         view.findViewById(R.id.editTeikei3).setOnClickListener(this);
         view.findViewById(R.id.editTeikei4).setOnClickListener(this);
         view.findViewById(R.id.editTeikei5).setOnClickListener(this);
-=======
->>>>>>> dd63b164eb1147530d54c826236571f5d63577a7
+
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei1);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei2);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei3);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei4);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei5);
-        mEditteikei.setText(name);
+        mEditteikei.setText(teikei1);
+        mEditteikei.setText(teikei2);
+        mEditteikei.setText(teikei3);
+        mEditteikei.setText(teikei4);
+        mEditteikei.setText(teikei5);
+
         view.findViewById(R.id.imageBack).setOnClickListener(this);
 
         return view;
