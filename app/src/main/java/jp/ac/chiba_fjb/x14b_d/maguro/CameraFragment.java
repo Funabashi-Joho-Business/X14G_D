@@ -182,7 +182,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onPause() {
-
+        mCompass.stop();
         mTimer.cancel();
         mCamera.close();
         super.onPause();
