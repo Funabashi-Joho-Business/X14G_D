@@ -44,16 +44,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mScale = 1.0f;
     private Timer mTimer;
     private TextView mTextTimer;
-
-
-
-
-
-    private ImageView mImageCompass;
-
     Handler mHandler = new Handler();
-
-
+    private Compass mCompass;
+    private ImageView mImageCompass;
 
 
     public CameraFragment() {
@@ -89,18 +82,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
 
-
-
-         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
-
-        
-
-
+        mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
 
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
 
-
+        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
+        mCompass = new Compass(getActivity(),this);
         return view;
 
     }
@@ -188,7 +176,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                     TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
             }
         },0,30*1000);
-
+        mCompass.start();
     }
 
     @Override
@@ -294,19 +282,20 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 @Override
                 public void run() {
                     StringBuilder sb = new StringBuilder();
-
                     for (TeamOperation.UserData m : recvData.members) {
                         String msg = String.format("%s (%f,%f)\n", m.userName, m.locationX, m.locationY);
-
-
-
-                            sb.append(msg);
-                        }
+                        sb.append(msg);
+                    }
+                    //mTextDebug.setText(sb.toString());
                 }
-            }
+            });
         }
     }
-                        //mTextDebug.setText(sb.toString());
 
+    //@Override
+    public void onChange(double direction) {
+        mImageCompass.setRotation(-(float)direction);
 
+    }
 
+}
