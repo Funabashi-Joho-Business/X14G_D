@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.team"
+    tools:context="jp.ac.chiba_fjb.x14b_d.maguro.TeamListFragment"
     tools:background="@color/bac">
 
     <!-- TODO: Update blank fragment layout -->
@@ -56,7 +56,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp" />
 
-<<<<<<< HEAD
+
         <ImageButton
             android:layout_width="128dp"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-=======
+
         <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
