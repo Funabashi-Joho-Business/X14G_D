@@ -2,6 +2,8 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 
 import android.os.Bundle;
+
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
  */
 public class OkJoinFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener {
 
+//    Handler mHandler = new Handler();
     private String mTeamName;
     private TextView mTextTeamname;
 
@@ -32,19 +35,30 @@ public class OkJoinFragment extends Fragment implements View.OnClickListener, Te
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_team4, container, false);
+        Bundle bundle = getArguments();
+        mTeamName = bundle.getString("teamName");
         view.findViewById(R.id.imageBack).setOnClickListener(this);
 
         AppDB db = new AppDB(getContext());
-        mTeamName = db.getSetting("TEAM_NAME","");
         db.close();
 
         mTextTeamname = (TextView)view.findViewById(R.id.textTeamname);
+//        setText(mTeamName);
         if(mTeamName.length() > 0) {
             TeamOperation.joinTeam(mTeamName,"0",0,"0","0",0,0,this);
         }
 
     return view;
     }
+
+//    void setText(final String TeamName){
+//        mHandler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                mTextTeamname.setText(TeamName);
+//            }
+//        });
+//    }
 
     @Override
     public void onClick(View view) {
