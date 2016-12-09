@@ -34,7 +34,7 @@ public class TeikeiListFragment extends Fragment implements View.OnClickListener
         db.close();
 
         View view = inflater.inflate(R.layout.fragment_teikei_list, container, false);
-        view.findViewById(R.id.editTikei1).setOnClickListener(this);
+        view.findViewById(R.id.editTeikei1).setOnClickListener(this);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei1);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei2);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei3);
