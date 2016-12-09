@@ -80,13 +80,15 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/friend01"
-            android:layout_alignTop="@+id/imageSakusei"
+            app:srcCompat="@drawable/relist"
+            android:layout_marginLeft="27dp"
+            android:layout_marginStart="27dp"
+            android:id="@+id/imageUpdate"
+            android:background="@null"
+            android:layout_alignBottom="@+id/imageSakusei"
             android:layout_toRightOf="@+id/imageSakusei"
             android:layout_toEndOf="@+id/imageSakusei"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp"
-            android:id="@+id/imageUpdate"/>
+            android:layout_marginBottom="11dp" />
 
     </RelativeLayout>
 
