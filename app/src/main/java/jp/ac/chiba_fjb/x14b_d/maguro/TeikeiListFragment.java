@@ -30,11 +30,15 @@ public class TeikeiListFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         AppDB db = new AppDB(getContext());
-        String name = db.getSetting("TEIKEI","");
+        String name = db.getSetting("USER_TEIKEI1","");
         db.close();
 
         View view = inflater.inflate(R.layout.fragment_teikei_list, container, false);
-        view.findViewById(R.id.editTikei1).setOnClickListener(this);
+        view.findViewById(R.id.editTeikei1).setOnClickListener(this);
+        view.findViewById(R.id.editTeikei2).setOnClickListener(this);
+        view.findViewById(R.id.editTeikei3).setOnClickListener(this);
+        view.findViewById(R.id.editTeikei4).setOnClickListener(this);
+        view.findViewById(R.id.editTeikei5).setOnClickListener(this);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei1);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei2);
         mEditteikei = (EditText)view.findViewById(R.id.editTeikei3);

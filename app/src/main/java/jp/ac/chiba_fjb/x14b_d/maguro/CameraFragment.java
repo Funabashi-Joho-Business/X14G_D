@@ -96,6 +96,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Bundle args = getArguments();
         if(args != null) {
             timer = args.getInt("Timer");
@@ -119,6 +120,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
             String set = "0";
             setText(set);
         }
+
     }
 
 
@@ -271,7 +273,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 }
                 mRotation = !mRotation;
                 break;
-
+            case R.id.imageChat:
+                FragmentTransaction ft5 = getFragmentManager().beginTransaction();
+                ft5.replace(R.id.fullscreen_content,new TeamListFragment());
+                ft5.commitAllowingStateLoss();
+                break;
         }
     }
 

@@ -78,4 +78,6 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
         db.getSetting("URSE_TEIKEI5","");
         db.close();
     }
+
+
 }
