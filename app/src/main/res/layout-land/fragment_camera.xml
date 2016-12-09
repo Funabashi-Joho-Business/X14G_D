@@ -1,10 +1,11 @@
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:app="http://schemas.android.com/apk/res-auto"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment"
-             android:id="@+id/frameCamera">
+             android:id="@+id/frameCamera"
+             tools:context="jp.ac.chiba_fjb.x14b_d.maguro.CameraFragment">
 
     <TextureView
         android:layout_width="match_parent"
@@ -141,21 +142,24 @@
         android:layout_alignLeft="@+id/imageMember"
         android:layout_alignStart="@+id/imageMember"
         android:textSize="24sp"
-        android:gravity="center" />
+        android:gravity="center"
+        tools:ignore="ObsoleteLayoutParam"/>
 
-    <ImageView
+    <jp.ac.chiba_fjb.x14b_d.maguro.CompassView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/ns"
         android:id="@+id/imageCompas"
         tools:ignore="ContentDescription"
-        android:alpha="0.5"/>
+        android:alpha="0.5"
+        />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/a"
         android:id="@+id/imageView"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        />
 
 </FrameLayout>
