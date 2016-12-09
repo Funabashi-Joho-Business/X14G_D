@@ -63,7 +63,7 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
     private void save() {
 
 
-
+//定型文セット処理
         AppDB db = new AppDB(getContext());
         db.setSetting("URSE_TEIKEI1",editTeikei1.getText().toString());
         db.setSetting("URSE_TEIKEI2",editTeikei2.getText().toString());
