@@ -36,7 +36,7 @@ public class OkJoinFragment extends Fragment implements View.OnClickListener, Te
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_team4, container, false);
         Bundle bundle = getArguments();
-        mTeamName = bundle.getString("teamName");
+        mTeamName = bundle.getString("teamName2");
         view.findViewById(R.id.imageBack).setOnClickListener(this);
 
         AppDB db = new AppDB(getContext());
