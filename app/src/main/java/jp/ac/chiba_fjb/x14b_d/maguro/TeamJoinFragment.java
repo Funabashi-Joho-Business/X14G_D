@@ -15,6 +15,8 @@ import android.widget.TextView;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 
+import static android.R.attr.value;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -94,8 +96,13 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
             db.setSetting("TEAM_PASS",mEditPass.getText().toString());
             db.close();
 
+            Bundle bundle = new Bundle();
+            bundle.putString("teamName2",mTeamName);
+            Fragment f = new OkJoinFragment();
+            f.setArguments(bundle);
+
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fullscreen_content,new OkJoinFragment());
+            ft.replace(R.id.fullscreen_content,f);
             ft.commitAllowingStateLoss();
 
 
