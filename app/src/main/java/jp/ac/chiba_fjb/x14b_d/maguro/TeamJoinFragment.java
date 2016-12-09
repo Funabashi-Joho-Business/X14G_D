@@ -50,7 +50,6 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
         mUserName = db.getSetting("USER_NAME","");
         mUserId = db.getSetting("USER_ID",0);
         mUserPass = db.getSetting("USER_PASS","");
-        mTeamName = db.getSetting("TEAM_NAME","");
         db.close();
 
         mTextTeamname = (TextView)view.findViewById(R.id.TextTeamname);
