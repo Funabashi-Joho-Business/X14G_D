@@ -11,8 +11,6 @@ import android.widget.EditText;
 
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 
-import static android.R.attr.name;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -35,13 +33,10 @@ public class TeikeiListFragment extends Fragment implements View.OnClickListener
         String name = db.getSetting("TEIKEI","");
         db.close();
 
-        View view = inflater.inflate(R.layout.fragment_teikei, container, false);
+        View view = inflater.inflate(R.layout.fragment_teikei_list, container, false);
         view.findViewById(R.id.itiran).setOnClickListener(this);
         mEditteikei = (EditText)view.findViewById(R.id.itiran);
         mEditteikei.setText(name);
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_teikei_list, container, false);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
 
         return view;
