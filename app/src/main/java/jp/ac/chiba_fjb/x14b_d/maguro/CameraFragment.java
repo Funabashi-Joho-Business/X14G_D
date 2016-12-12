@@ -71,7 +71,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
-
+        view.findViewById(R.id.imageChat).setOnClickListener(this);
         mLayoutNormal = view.findViewById(R.id.layoutNormal);
         mTextTimer = (TextView)view.findViewById(R.id.textTimer);
 
