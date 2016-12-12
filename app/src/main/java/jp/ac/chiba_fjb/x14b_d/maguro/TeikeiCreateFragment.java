@@ -56,6 +56,10 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
             case R.id.imagesetteing:
                 save();
                 get();
+
+                FragmentTransaction ft3 = getFragmentManager().beginTransaction();
+                ft3.replace(R.id.fullscreen_content,new TeikeiListFragment());
+                ft3.commitAllowingStateLoss();
                 break;
         }
     }
@@ -63,7 +67,7 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
     private void save() {
 
 
-
+//定型文セット処理
         AppDB db = new AppDB(getContext());
         db.setSetting("URSE_TEIKEI1",editTeikei1.getText().toString());
         db.setSetting("URSE_TEIKEI2",editTeikei2.getText().toString());

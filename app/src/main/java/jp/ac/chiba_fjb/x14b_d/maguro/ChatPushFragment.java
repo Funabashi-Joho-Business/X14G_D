@@ -24,7 +24,7 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_teikei_list, container, false);
+        View view= inflater.inflate(R.layout.fragment_chat, container, false);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         AppDB db = new AppDB(getContext());
         String teikei1 = db.getSetting("USER_TEIKEI1","");

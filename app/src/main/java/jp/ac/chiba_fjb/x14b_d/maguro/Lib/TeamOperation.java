@@ -18,6 +18,7 @@ public class TeamOperation{
         public String userPass;
         public double locationX;
         public double locationY;
+
     }
 
     public static class SendData{
