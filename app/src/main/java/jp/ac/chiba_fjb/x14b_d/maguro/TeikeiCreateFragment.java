@@ -56,7 +56,7 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
             case R.id.imagesetteing:
                 save();
                 get();
-                
+
                 FragmentTransaction ft3 = getFragmentManager().beginTransaction();
                 ft3.replace(R.id.fullscreen_content,new TeikeiListFragment());
                 ft3.commitAllowingStateLoss();
