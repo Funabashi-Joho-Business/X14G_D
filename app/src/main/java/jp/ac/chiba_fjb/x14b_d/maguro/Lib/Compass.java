@@ -42,8 +42,8 @@ public class Compass implements SensorEventListener {
     }
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE)
-            return;
+        //if (sensorEvent.accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE)
+         //   return;
 
         switch (sensorEvent.sensor.getType()) {
             case Sensor.TYPE_MAGNETIC_FIELD: // 地磁気センサ

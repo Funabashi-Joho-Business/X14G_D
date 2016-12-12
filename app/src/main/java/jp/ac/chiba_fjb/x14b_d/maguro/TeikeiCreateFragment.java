@@ -61,6 +61,9 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
     }
 
     private void save() {
+
+
+
         AppDB db = new AppDB(getContext());
         db.setSetting("URSE_TEIKEI1",editTeikei1.getText().toString());
         db.setSetting("URSE_TEIKEI2",editTeikei2.getText().toString());
@@ -68,7 +71,11 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
         db.setSetting("URSE_TEIKEI4",editTeikei4.getText().toString());
         db.setSetting("URSE_TEIKEI5",editTeikei5.getText().toString());
         db.close();
+
+
     }
+
+    //定型文呼び出し
     private void get(){
         AppDB db = new AppDB(getContext());
         db.getSetting("URSE_TEIKEI1","");
@@ -78,4 +85,6 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
         db.getSetting("URSE_TEIKEI5","");
         db.close();
     }
+
+
 }
