@@ -145,17 +145,15 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/ns"
-        android:id="@+id/imageCompas"
-        tools:ignore="ContentDescription"
-        android:alpha="0.5"/>
-
-    <ImageView
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/a"
         android:id="@+id/imageView"
         tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/konpasu3"
+        android:id="@+id/imageCompas" />
 
 </FrameLayout>

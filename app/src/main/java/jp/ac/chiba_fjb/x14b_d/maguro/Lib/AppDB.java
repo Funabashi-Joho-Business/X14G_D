@@ -175,7 +175,7 @@ public class AppDB extends SQLite {
 
 
 
-    public List<Map<String,String>> getTableData(String tableName)
+    public List<Map<String,String>> getTableDafta(String tableName)
     {
         String sql;
         sql = String.format("select * from %s;",tableName);
