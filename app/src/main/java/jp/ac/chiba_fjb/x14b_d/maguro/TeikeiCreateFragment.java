@@ -56,6 +56,7 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
             case R.id.imagesetteing:
                 save();
                 get();
+           
                 break;
         }
     }
