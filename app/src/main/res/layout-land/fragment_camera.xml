@@ -136,6 +136,7 @@
 
     <jp.ac.chiba_fjb.x14b_d.maguro.CompassView
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent"
         app:srcCompat="@drawable/ns"
         android:id="@+id/imageCompas"
@@ -145,10 +146,18 @@
 
     <ImageView
         android:layout_width="match_parent"
+=======
+>>>>>>> 41a85c77c46072be098a86a880cde1e5fd0d33e3
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/a"
         android:id="@+id/imageView"
         tools:ignore="ContentDescription"
         />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/konpasu3"
+        android:id="@+id/imageCompas" />
 
 </FrameLayout>
