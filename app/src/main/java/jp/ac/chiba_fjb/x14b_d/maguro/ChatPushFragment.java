@@ -24,7 +24,7 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment_chat, container, false);
+        View view= inflater.inflate(R.layout.fragment_teikei_list, container, false);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         AppDB db = new AppDB(getContext());
         String teikei1 = db.getSetting("USER_TEIKEI1","");
@@ -33,22 +33,7 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener {
         String teikei4 = db.getSetting("USER_TEIKEI4","");
         String teikei5 = db.getSetting("USER_TEIKEI5","");
         db.close();
-        view.findViewById(R.id.editTeikei1).setOnClickListener(this);
-        view.findViewById(R.id.editTeikei2).setOnClickListener(this);
-        view.findViewById(R.id.editTeikei3).setOnClickListener(this);
-        view.findViewById(R.id.editTeikei4).setOnClickListener(this);
-        view.findViewById(R.id.editTeikei5).setOnClickListener(this);
 
-        mEditteikei = (EditText)view.findViewById(R.id.editTeikei1);
-        mEditteikei = (EditText)view.findViewById(R.id.editTeikei2);
-        mEditteikei = (EditText)view.findViewById(R.id.editTeikei3);
-        mEditteikei = (EditText)view.findViewById(R.id.editTeikei4);
-        mEditteikei = (EditText)view.findViewById(R.id.editTeikei5);
-        mEditteikei.setText(teikei1);
-        mEditteikei.setText(teikei2);
-        mEditteikei.setText(teikei3);
-        mEditteikei.setText(teikei4);
-        mEditteikei.setText(teikei5);
 
         return view;
     }

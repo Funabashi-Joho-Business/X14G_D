@@ -3,9 +3,15 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.os.PowerManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,7 +32,53 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
     private PowerManager.WakeLock mLock;
     private Location mLocation;
     private Timer mTimer;
+    int timer;
+    int timerOk;
+    private TextView mTextTimer;
+    Handler mHandler = new Handler();
+    public CountDownTimer cdt;
 
+
+    public void onOkClicked(int i) {
+        mTextTimer = (TextView)findViewById(R.id.textView6);
+        if(i != 0) {
+            if(i != -1) {
+                if(timerOk == 1) {
+                    cdt.cancel();
+                }
+                timerOk = 1;
+                timer = i;
+                timer = timer * 60000;
+                cdt = new CountDownTimer(timer, 1000) {
+                    public void onTick(long millisUntilFinished) {
+                        setText(Long.toString(millisUntilFinished));
+                    }
+                    public void onFinish() {
+                        mTextTimer.setText("終了");
+                    }
+                }.start();
+
+            }else{
+                timerOk = 0;
+                cdt.cancel();
+                mTextTimer.setText("");
+            }
+        }else{
+            timerOk = 0;
+        }
+    }
+
+    void setText(final String number){
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                int i = Integer.parseInt(number);
+                int mm = i / 1000 / 60;
+                int ss = i / 1000 % 60;
+                mTextTimer.setText(String.format("%1$02d:%2$02d", mm, ss));
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

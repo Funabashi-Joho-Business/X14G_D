@@ -80,7 +80,8 @@
                     android:id="@+id/editTeikei1"
                     android:background="@drawable/wakusan"
                     android:layout_gravity="center_horizontal"
-                    android:padding="15dp" />
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -90,7 +91,8 @@
                     android:id="@+id/editTeikei2"
                     android:background="@drawable/wakusan"
                     android:layout_gravity="center_horizontal"
-                    android:padding="15dp" />
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -100,7 +102,8 @@
                     android:id="@+id/editTeikei3"
                     android:background="@drawable/wakusan"
                     android:layout_gravity="center_horizontal"
-                    android:padding="15dp" />
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -110,7 +113,8 @@
                     android:id="@+id/editTeikei4"
                     android:background="@drawable/wakusan"
                     android:layout_gravity="center_horizontal"
-                    android:padding="15dp" />
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -122,7 +126,8 @@
                     android:layout_above="@+id/imagesetteing"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
-                    android:padding="15dp" />
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
             </LinearLayout>
         </ScrollView>
 
