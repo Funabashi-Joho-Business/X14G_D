@@ -3,7 +3,9 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.PowerManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
@@ -26,6 +28,7 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
     private PowerManager.WakeLock mLock;
     private Location mLocation;
     private Timer mTimer;
+    public int timer;
 
 
     @Override
@@ -52,6 +55,50 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
         });
         mPermission.requestPermissions(this);
         mLocationSource = new MyLocationSource(this);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Bundle args = getArguments();
+        if(args != null) {
+            timer = args.getInt("Timer");
+            String sTimer = Integer.toString(timer);
+
+            timer = timer * 60000;
+            CountDownTimer cdt = new CountDownTimer(timer, 1000)
+            {
+                public void onTick(long millisUntilFinished)
+                {
+                    setText(Long.toString(millisUntilFinished));
+                }
+
+                public void onFinish()
+                {
+                    mTextTimer.setText("終了");
+                }
+            }.start();
+
+        }else{
+            String set = "0";
+            setText(set);
+        }
+
+    }
+
+
+    void setText(final String number){
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                int i = Integer.parseInt(number);
+                int mm = i / 1000 / 60;
+                int ss = i / 1000 % 60;
+                mTextTimer.setText(String.format("%1$02d:%2$02d", mm, ss));
+            }
+        });
     }
 
     @Override
