@@ -32,20 +32,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:text="作成するか接続するチームを選択してください"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView16"
-            android:textSize="24sp"
-            android:textColor="@color/gts"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:gravity="center"
-            android:paddingLeft="50dp"
-            android:paddingTop="20dp" />
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,6 +75,19 @@
             android:layout_toEndOf="@+id/imageSakusei"
 
       />
+
+        <TextView
+            android:text="作成するか接続するチームを選択してください"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            android:textSize="24sp"
+            android:textColor="@color/gts"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:paddingTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 
