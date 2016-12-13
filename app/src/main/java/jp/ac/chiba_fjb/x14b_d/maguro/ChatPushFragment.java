@@ -22,7 +22,7 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-<<<<<<< HEAD
+
         View view= inflater.inflate(R.layout.fragment_teikei_list, container, false);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         AppDB db = new AppDB(getContext());
@@ -32,12 +32,6 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener {
         String teikei4 = db.getSetting("USER_TEIKEI4","");
         String teikei5 = db.getSetting("USER_TEIKEI5","");
         db.close();
-=======
-        View view = inflater.inflate(R.layout.fragment_teikei_list, container, false);
-        view.findViewById(R.id.imageBack).setOnClickListener(this);
->>>>>>> 41a85c77c46072be098a86a880cde1e5fd0d33e3
-
-
         return view;
     }
 
