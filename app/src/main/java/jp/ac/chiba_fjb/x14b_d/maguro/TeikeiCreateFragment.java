@@ -13,8 +13,14 @@ import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeikeiOperation;
 
+import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.editTeikei1;
+import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.editTeikei2;
+import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.editTeikei3;
+import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.editTeikei4;
+import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.editTeikei5;
 
-public abstract class TeikeiCreateFragment extends Fragment implements View.OnClickListener, TeikeiOperation.OnTeikeiListener {
+
+public class TeikeiCreateFragment extends Fragment implements View.OnClickListener, TeikeiOperation.OnTeikeiListener {
 
     private EditText teikei1;
     private EditText teikei2;
@@ -30,11 +36,11 @@ public abstract class TeikeiCreateFragment extends Fragment implements View.OnCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_teikei_create, container, false);
-        teikei1=(EditText)view.findViewById(R.id.editTeikei1);
-        teikei2=(EditText)view.findViewById(R.id.editTeikei2);
-        teikei3=(EditText)view.findViewById(R.id.editTeikei3);
-        teikei4=(EditText)view.findViewById(R.id.editTeikei4);
-        teikei5=(EditText)view.findViewById(R.id.editTeikei5);
+        teikei1=(EditText)view.findViewById(editTeikei1);
+        teikei2=(EditText)view.findViewById(editTeikei2);
+        teikei3=(EditText)view.findViewById(editTeikei3);
+        teikei4=(EditText)view.findViewById(editTeikei4);
+        teikei5=(EditText)view.findViewById(editTeikei5);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageTeikeiList).setOnClickListener(this);
         view.findViewById(R.id.imagesetteing).setOnClickListener(this);
@@ -48,49 +54,50 @@ public abstract class TeikeiCreateFragment extends Fragment implements View.OnCl
         switch (view.getId()) {
             case R.id.imageTeikeiList:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fullscreen_content,new TeikeiListFragment());
+                ft.replace(R.id.fullscreen_content, new TeikeiListFragment());
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.imageBack:
                 FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content,new TitleFragment());
+                ft2.replace(R.id.fullscreen_content, new TitleFragment());
                 ft2.commitAllowingStateLoss();
                 break;
             case R.id.imagesetteing:
-                save();
-                get();
-
-                FragmentTransaction ft3 = getFragmentManager().beginTransaction();
-                ft3.replace(R.id.fullscreen_content,new TeikeiListFragment());
-                ft3.commitAllowingStateLoss();
+                AppDB db = new AppDB(getContext());
+                int userId = db.getSetting("USER_ID", 0);
+                String userName = db.getSetting("USER_NAME", "");
+                String userPass = db.getSetting("USER_PASS", "");
+//                db.setSetting("URSE_TEIKEI1", teikei1.getText().toString());
+//                db.setSetting("URSE_TEIKEI2", teikei2.getText().toString());
+//                db.setSetting("URSE_TEIKEI3", teikei3.getText().toString());
+//                db.setSetting("URSE_TEIKEI4", teikei4.getText().toString());
+//                db.setSetting("URSE_TEIKEI5", teikei5.getText().toString());
+//                db.close();
+                Snackbar.make(getView(), "定型文作成", Snackbar.LENGTH_SHORT).show();
+                TeikeiOperation.teikeiCreate(teikei1.getText().toString(), teikei2.getText().toString(), teikei3.getText().toString(), teikei4.getText().toString(), teikei5.getText().toString(), userId, userName, userPass, this);
                 break;
         }
     }
 
-    private void save() {
-//定型文セット処理
-        AppDB db = new AppDB(getContext());
-        int userId = db.getSetting("USER_ID",0);
-        db.setSetting("URSE_TEIKEI1",teikei1.getText().toString());
-        db.setSetting("URSE_TEIKEI2",teikei2.getText().toString());
-        db.setSetting("URSE_TEIKEI3",teikei3.getText().toString());
-        db.setSetting("URSE_TEIKEI4",teikei4.getText().toString());
-        db.setSetting("URSE_TEIKEI5",teikei5.getText().toString());
-        db.close();
-        Snackbar.make(getView(), "定型文作成", Snackbar.LENGTH_SHORT).show();
-      //  TeamOperation.joinTeam(editTeikei1.getText().toString(),editTeikei2.getText().toString(),editTeikei3.getText().toString(),editTeikei4.getText().toString(),editTeikei5.getText().toString(),userId,this);
+    @Override
+    public void onTeikei(final TeikeiOperation.RecvData recvData) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(recvData!= null && recvData.result) {
+                    Snackbar.make(getView(), "定型文作成完了", Snackbar.LENGTH_SHORT).show();
+                    AppDB db = new AppDB(getContext());
+                    db.setSetting("USER_ID",recvData.userId);
+                    db.setSetting("USER_PASS",recvData.userPass);
+                    db.close();
+
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.replace(R.id.fullscreen_content,new  TeikeiListFragment());
+                    ft.commitAllowingStateLoss();
+                }
+                else
+                    Snackbar.make(getView(), "定型文作成失敗", Snackbar.LENGTH_SHORT).show();
+            }
+        });
     }
-
-    //定型文呼び出し
-    private void get(){
-        AppDB db = new AppDB(getContext());
-        db.getSetting("URSE_TEIKEI1","");
-        db.getSetting("URSE_TEIKEI2","");
-        db.getSetting("URSE_TEIKEI3","");
-        db.getSetting("URSE_TEIKEI4","");
-        db.getSetting("URSE_TEIKEI5","");
-        db.close();
-    }
-
-
 }
