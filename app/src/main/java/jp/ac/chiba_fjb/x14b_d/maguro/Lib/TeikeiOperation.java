@@ -1,5 +1,8 @@
 package jp.ac.chiba_fjb.x14b_d.maguro.Lib;
 
+//   GAS保存アドレス       gutsdteam@gmail.com
+//   GAS保存パスワード 　　x14gteamd
+
 public class TeikeiOperation {
     private OnTeikeiListener mListener;
 
