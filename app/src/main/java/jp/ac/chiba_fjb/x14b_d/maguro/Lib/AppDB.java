@@ -24,7 +24,6 @@ public class AppDB extends SQLite {
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE m_setting(s_name text,s_value text);");
-        db.execSQL("CREATE TABLE m_teikei(s_teikei1 text,s_teikei2 text,s_teikei3 text,s_teikei4 text,s_teikei5 text);");
     }
 
     @Override
@@ -173,84 +172,6 @@ public class AppDB extends SQLite {
             return defValue;
         return Long.valueOf(v);
     }
-
-
-    public void setTeikei(String value1 ,String value2 ,String value3 ,String value4 ,String value5)
-    {
-        exec("begin;");
-        String sql = String.format(
-                "delete from m_teikei;");
-        exec(sql);
-        sql = String.format("insert into m_teikei values('%s','%s','%s','%s','%s');",value1,value2,value3,value4,value5);
-        exec(sql);
-        exec("commit;");
-    }
-
-    public String getTeikei1() {
-        String sql = String.format("select s_teikei1 from m_teikei;");
-        Cursor c = query(sql);
-        if(c == null){
-            String s = "エラー";
-            return s;
-        }else {
-            String s = c.getString(0);
-            c.close();
-            return s;
-        }
-    }
-
-    public String getTeikei2() {
-        String sql = String.format("select s_teikei2 from m_teikei;");
-        Cursor c = query(sql);
-        if(c == null){
-            String s = "エラー";
-            return s;
-        }else {
-            String s = c.getString(0);
-            c.close();
-            return s;
-        }
-    }
-
-    public String getTeikei3() {
-        String sql = String.format("select s_teikei3 from m_teikei;");
-        Cursor c = query(sql);
-        if(c == null){
-            String s = "エラー";
-            return s;
-        }else {
-            String s = c.getString(0);
-            c.close();
-            return s;
-        }
-    }
-
-    public String getTeikei4() {
-        String sql = String.format("select s_teikei4 from m_teikei;");
-        Cursor c = query(sql);
-        if(c == null){
-            String s = "エラー";
-            return s;
-        }else {
-            String s = c.getString(0);
-            c.close();
-            return s;
-        }
-    }
-
-    public String getTeikei5() {
-        String sql = String.format("select s_teikei5 from m_teikei;");
-        Cursor c = query(sql);
-        if(c == null){
-            String s = "エラー";
-            return s;
-        }else {
-            String s = c.getString(0);
-            c.close();
-            return s;
-        }
-    }
-
 
     public List<Map<String,String>> getTableDafta(String tableName)
     {

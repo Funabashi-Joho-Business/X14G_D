@@ -64,7 +64,11 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
                 break;
             case R.id.imagesetteing:
                 AppDB db = new AppDB(getContext());
-                db.setTeikei(teikei1.getText().toString() ,teikei2.getText().toString() ,teikei3.getText().toString() ,teikei4.getText().toString() ,teikei5.getText().toString());
+                db.setSetting("USER_TEIKEI1",teikei1.getText().toString());
+                db.setSetting("USER_TEIKEI2",teikei2.getText().toString());
+                db.setSetting("USER_TEIKEI3",teikei3.getText().toString());
+                db.setSetting("USER_TEIKEI4",teikei4.getText().toString());
+                db.setSetting("USER_TEIKEI5",teikei5.getText().toString());
                 db.close();
 
                 FragmentTransaction ft3 = getFragmentManager().beginTransaction();

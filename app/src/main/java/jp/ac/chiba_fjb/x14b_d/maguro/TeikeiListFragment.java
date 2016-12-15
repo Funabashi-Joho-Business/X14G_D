@@ -37,11 +37,11 @@ public class TeikeiListFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         AppDB db = new AppDB(getContext());
-        String sTeikei1 = db.getTeikei1();
-        String sTeikei2 = db.getTeikei2();
-        String sTeikei3 = db.getTeikei3();
-        String sTeikei4 = db.getTeikei4();
-        String sTeikei5 = db.getTeikei5();
+        String sTeikei1 = db.getSetting("USER_TEIKEI1","null");
+        String sTeikei2 = db.getSetting("USER_TEIKEI2","null");
+        String sTeikei3 = db.getSetting("USER_TEIKEI3","null");
+        String sTeikei4 = db.getSetting("USER_TEIKEI4","null");
+        String sTeikei5 = db.getSetting("USER_TEIKEI5","null");
         db.close();
         View view = inflater.inflate(R.layout.fragment_teikei_list, container, false);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
