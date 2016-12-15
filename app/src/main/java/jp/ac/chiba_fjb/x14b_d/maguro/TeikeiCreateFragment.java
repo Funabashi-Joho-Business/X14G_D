@@ -20,7 +20,7 @@ import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.editTeikei4;
 import static jp.ac.chiba_fjb.x14b_d.maguro.R.id.editTeikei5;
 
 
-public class TeikeiCreateFragment extends Fragment implements View.OnClickListener, TeikeiOperation.OnTeikeiListener {
+public class TeikeiCreateFragment extends Fragment implements View.OnClickListener{
 
     private EditText teikei1;
     private EditText teikei2;
@@ -64,40 +64,39 @@ public class TeikeiCreateFragment extends Fragment implements View.OnClickListen
                 break;
             case R.id.imagesetteing:
                 AppDB db = new AppDB(getContext());
-                int userId = db.getSetting("USER_ID", 0);
-                String userName = db.getSetting("USER_NAME", "");
-                String userPass = db.getSetting("USER_PASS", "");
-//                db.setSetting("URSE_TEIKEI1", teikei1.getText().toString());
-//                db.setSetting("URSE_TEIKEI2", teikei2.getText().toString());
-//                db.setSetting("URSE_TEIKEI3", teikei3.getText().toString());
-//                db.setSetting("URSE_TEIKEI4", teikei4.getText().toString());
-//                db.setSetting("URSE_TEIKEI5", teikei5.getText().toString());
-//                db.close();
-                Snackbar.make(getView(), "定型文作成", Snackbar.LENGTH_SHORT).show();
-                TeikeiOperation.teikeiCreate(teikei1.getText().toString(), teikei2.getText().toString(), teikei3.getText().toString(), teikei4.getText().toString(), teikei5.getText().toString(), userId, userName, userPass, this);
+                db.setSetting("URSE_TEIKEI1", teikei1.getText().toString());
+                db.setSetting("URSE_TEIKEI2", teikei2.getText().toString());
+                db.setSetting("URSE_TEIKEI3", teikei3.getText().toString());
+                db.setSetting("URSE_TEIKEI4", teikei4.getText().toString());
+                db.setSetting("URSE_TEIKEI5", teikei5.getText().toString());
+                db.close();
+                Snackbar.make(getView(), "定型文を作成", Snackbar.LENGTH_SHORT).show();
+                onTeikei(this);
                 break;
         }
     }
 
-    @Override
-    public void onTeikei(final TeikeiOperation.RecvData recvData) {
+    private void onTeikei(TeikeiCreateFragment teikeiCreateFragment) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(recvData!= null && recvData.result) {
-                    Snackbar.make(getView(), "定型文作成完了", Snackbar.LENGTH_SHORT).show();
-                    AppDB db = new AppDB(getContext());
-                    db.setSetting("USER_ID",recvData.userId);
-                    db.setSetting("USER_PASS",recvData.userPass);
-                    db.close();
-
+                AppDB db = new AppDB(getContext());
+                String sTeikei1 = db.getSetting("USER_TEIKEI1","");
+                String sTeikei2 = db.getSetting("USER_TEIKEI2","");
+                String sTeikei3 = db.getSetting("USER_TEIKEI3","");
+                String sTeikei4 = db.getSetting("USER_TEIKEI4","");
+                String sTeikei5 = db.getSetting("USER_TEIKEI5","");
+                db.close();
+                if(sTeikei1!= "" && sTeikei2!= "" && sTeikei3!= "" && sTeikei4!= "" && sTeikei5!= "") {
+                    Snackbar.make(getView(), "定型文の作成完了", Snackbar.LENGTH_SHORT).show();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.replace(R.id.fullscreen_content,new  TeikeiListFragment());
                     ft.commitAllowingStateLoss();
                 }
                 else
-                    Snackbar.make(getView(), "定型文作成失敗", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(getView(), "定型文の作成失敗", Snackbar.LENGTH_SHORT).show();
             }
         });
     }
+
 }

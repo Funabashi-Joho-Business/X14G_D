@@ -49,34 +49,44 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teikei1" />
+                    android:id="@+id/teikei1"
+                    android:textSize="24sp"
+                    android:textColor="@color/gts"
+                    android:gravity="center" />
 
                 <TextView
-                    android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teikei2" />
+                    android:id="@+id/teikei2"
+                    android:textSize="24sp"
+                    android:textColor="@color/gts"
+                    android:gravity="center" />
 
                 <TextView
-                    android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teikei3" />
+                    android:id="@+id/teikei3"
+                    android:textSize="24sp"
+                    android:textColor="@color/gts"
+                    android:gravity="center" />
 
                 <TextView
-                    android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teikei4" />
+                    android:id="@+id/teikei4"
+                    android:textSize="24sp"
+                    android:textColor="@color/gts"
+                    android:gravity="center" />
 
                 <TextView
-                    android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teikei5" />
+                    android:id="@+id/teikei5"
+                    android:textSize="24sp"
+                    android:textColor="@color/gts"
+                    android:gravity="center" />
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

@@ -13,9 +13,9 @@ public class TeikeiOperation {
     private static String GAS_URL = "https://script.google.com/macros/s/AKfycbzix67Qe-YhA403i8YGSJ72uzZhyy8X03xQEmD_UtoDitRUhe4/exec";
 
     public static class UserData{
-        public int sUserId;
+        public int sTeikeiId;
         public String sUserName;
-        public String sUserPass;
+        public String sTeikeiPass;
         public String sTeikei1;
         public String sTeikei2;
         public String sTeikei3;
@@ -38,9 +38,8 @@ public class TeikeiOperation {
 
     public static class RecvData {
         public Boolean result;
-        public int userId;
-        public String userName;
-        public String userPass;
+        public int teikeiId;
+        public String teikeiPass;
         public TeikeiData[] values;
     }
 
@@ -79,7 +78,7 @@ public class TeikeiOperation {
 //        thread.start();
 //    }
 
-    public static void teikeiCreate(final String teikei1, final String teikei2, final String teikei3, final String teikei4, final String teikei5, final int userID, final String userName, final String userPass, final TeikeiOperation.OnTeikeiListener listener){
+    public static void teikeiCreate(final String teikei1, final String teikei2, final String teikei3, final String teikei4, final String teikei5, final int teikeiID, final String userName, final String teikeiPass, final TeikeiOperation.OnTeikeiListener listener){
         if(teikei1 == null && teikei2 == null && teikei3 == null && teikei4 == null && teikei5 == null)
             return;
         Thread thread = new Thread(){
@@ -89,9 +88,9 @@ public class TeikeiOperation {
                 SendData sendData = new SendData();
                 sendData.cmd = "TEIKEI_CREATE";
                 sendData.userData = new UserData();
-                sendData.userData.sUserId = userID;
+                sendData.userData.sTeikeiId = teikeiID;
                 sendData.userData.sUserName = userName;
-                sendData.userData.sUserPass = userPass;
+                sendData.userData.sTeikeiPass = teikeiPass;
                 sendData.userData.sTeikei1 = teikei1;
                 sendData.userData.sTeikei2 = teikei2;
                 sendData.userData.sTeikei3 = teikei3;
