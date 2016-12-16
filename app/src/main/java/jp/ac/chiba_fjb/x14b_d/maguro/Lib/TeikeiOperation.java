@@ -13,14 +13,11 @@ public class TeikeiOperation {
     private static String GAS_URL = "https://script.google.com/macros/s/AKfycbzix67Qe-YhA403i8YGSJ72uzZhyy8X03xQEmD_UtoDitRUhe4/exec";
 
     public static class UserData{
-        public int sTeikeiId;
         public String sUserName;
-        public String sTeikeiPass;
-        public String sTeikei1;
-        public String sTeikei2;
-        public String sTeikei3;
-        public String sTeikei4;
-        public String sTeikei5;
+        public int sUserId;
+        public String sTeamName;
+        public String sTeamPass;
+        public String sTeikei;
     }
 
     public static class SendData{
@@ -38,8 +35,7 @@ public class TeikeiOperation {
 
     public static class RecvData {
         public Boolean result;
-        public int teikeiId;
-        public String teikeiPass;
+        public String rUserName;
         public TeikeiData[] values;
     }
 
@@ -78,24 +74,20 @@ public class TeikeiOperation {
 //        thread.start();
 //    }
 
-    public static void teikeiCreate(final String teikei1, final String teikei2, final String teikei3, final String teikei4, final String teikei5, final int teikeiID, final String userName, final String teikeiPass, final TeikeiOperation.OnTeikeiListener listener){
-        if(teikei1 == null && teikei2 == null && teikei3 == null && teikei4 == null && teikei5 == null)
-            return;
+    public static void setTeikei(final String teikei, final String userName, final int userId,final String teamName, final String teamPass, final TeikeiOperation.OnTeikeiListener listener) {
+
         Thread thread = new Thread(){
             @Override
             public void run() {
                 //送信データの作成
                 SendData sendData = new SendData();
-                sendData.cmd = "TEIKEI_CREATE";
+                sendData.cmd = "TEIKEI_SET";
                 sendData.userData = new UserData();
-                sendData.userData.sTeikeiId = teikeiID;
                 sendData.userData.sUserName = userName;
-                sendData.userData.sTeikeiPass = teikeiPass;
-                sendData.userData.sTeikei1 = teikei1;
-                sendData.userData.sTeikei2 = teikei2;
-                sendData.userData.sTeikei3 = teikei3;
-                sendData.userData.sTeikei4 = teikei4;
-                sendData.userData.sTeikei5 = teikei5;
+                sendData.userData.sUserId = userId;
+                sendData.userData.sTeamName = teamName;
+                sendData.userData.sTeamPass = teamPass;
+                sendData.userData.sTeikei = teikei;
                 RecvData recvData = Json.send(GAS_URL,sendData,RecvData.class);
                 if(listener != null);
                     listener.onTeikei(recvData);

@@ -3,6 +3,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -11,11 +12,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeikeiOperation;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChatPushFragment extends Fragment implements View.OnClickListener {
+public class ChatPushFragment extends Fragment implements View.OnClickListener, TeikeiOperation.OnTeikeiListener {
     Handler mHandler = new Handler();
     TextView mTeikei1;
     TextView mTeikei2;
@@ -71,6 +74,17 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        AppDB db = new AppDB(getContext());
+        String sTeikei1 = db.getSetting("USER_TEIKEI1","null");
+        String sTeikei2 = db.getSetting("USER_TEIKEI2","null");
+        String sTeikei3 = db.getSetting("USER_TEIKEI3","null");
+        String sTeikei4 = db.getSetting("USER_TEIKEI4","null");
+        String sTeikei5 = db.getSetting("USER_TEIKEI5","null");
+        String sUserName = db.getSetting("USER_NAME","null");
+        int sUserId = db.getSetting("USER_ID",0);
+        String sTeamName = db.getSetting("TEAM_NAME","null");
+        String sTeamPass = db.getSetting("TEAM_PASS","null");
+        db.close();
         switch (view.getId()) {
             case R.id.imageBack:
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -78,33 +92,39 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener {
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.teikei1:
-                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
-                ft2.replace(R.id.fullscreen_content, new CameraFragment());
-                ft2.commitAllowingStateLoss();
+                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                TeikeiOperation.setTeikei(sTeikei1,sUserName,sUserId,sTeamName,sTeamPass,this);
                 break;
             case R.id.teikei2:
-                FragmentTransaction ft3 = getFragmentManager().beginTransaction();
-                ft3.replace(R.id.fullscreen_content, new CameraFragment());
-                ft3.commitAllowingStateLoss();
+                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                TeikeiOperation.setTeikei(sTeikei2,sUserName,sUserId,sTeamName,sTeamPass,this);
                 break;
             case R.id.teikei3:
-                FragmentTransaction ft4 = getFragmentManager().beginTransaction();
-                ft4.replace(R.id.fullscreen_content, new CameraFragment());
-                ft4.commitAllowingStateLoss();
+                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                TeikeiOperation.setTeikei(sTeikei3,sUserName,sUserId,sTeamName,sTeamPass,this);
                 break;
             case R.id.teikei4:
-                FragmentTransaction ft5 = getFragmentManager().beginTransaction();
-                ft5.replace(R.id.fullscreen_content, new CameraFragment());
-                ft5.commitAllowingStateLoss();
+                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                TeikeiOperation.setTeikei(sTeikei4,sUserName,sUserId,sTeamName,sTeamPass,this);
                 break;
             case R.id.teikei5:
-                FragmentTransaction ft6 = getFragmentManager().beginTransaction();
-                ft6.replace(R.id.fullscreen_content, new CameraFragment());
-                ft6.commitAllowingStateLoss();
+                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                TeikeiOperation.setTeikei(sTeikei5,sUserName,sUserId,sTeamName,sTeamPass,this);
                 break;
 
         }
 
+    }
+
+    @Override
+    public void onTeikei(TeikeiOperation.RecvData recvData) {
+        if (recvData != null && recvData.result) {
+            Snackbar.make(getView(), "送信完了", Snackbar.LENGTH_SHORT).show();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fullscreen_content, new CameraFragment());
+            ft.commitAllowingStateLoss();
+        } else
+            Snackbar.make(getView(), "送信失敗", Snackbar.LENGTH_SHORT).show();
     }
 }
 
