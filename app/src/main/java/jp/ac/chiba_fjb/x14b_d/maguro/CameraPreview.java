@@ -342,6 +342,10 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         mRec.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mRec.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
         mRec.setVideoFrameRate(30);
+        
+        Camera.Parameters params = mCamera.getParameters();
+        mRec.setVideoSize(params.getPreviewSize().width,params.getPreviewSize().height);
+
 
         mRec.setOutputFile(fileName);
         int i;
