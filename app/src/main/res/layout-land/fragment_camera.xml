@@ -117,49 +117,17 @@
             android:textSize="24sp"
             android:padding="15dp"
             android:paddingLeft="20dp"
-            android:layout_marginLeft="150dp" />
-
-        <!--<TextView-->
-            <!--android:text="TextView"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginRight="15dp"-->
-            <!--android:layout_marginEnd="15dp"-->
-            <!--android:id="@+id/textTimer"-->
-            <!--android:textSize="24sp"-->
-            <!--android:layout_alignTop="@+id/textGPS"-->
-            <!--android:layout_toLeftOf="@+id/imageMember"-->
-            <!--android:layout_toStartOf="@+id/imageMember" />-->
-
+            android:layout_marginLeft="150dp"
+            android:text="TextView"
+            android:textColor="@color/gts" />
 
     </RelativeLayout>
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textTimer"
-        android:layout_alignLeft="@+id/imageMember"
-        android:layout_alignStart="@+id/imageMember"
-        android:textSize="24sp"
-        android:gravity="center"
-        tools:ignore="ObsoleteLayoutParam"/>
-
-    <jp.ac.chiba_fjb.x14b_d.maguro.CompassView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/ns"
-        android:id="@+id/imageCompas"
-        tools:ignore="ContentDescription"
-        android:alpha="0.5"
-        />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/a"
-        android:id="@+id/imageView"
-        tools:ignore="ContentDescription"
-        />
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/konpasu3"
+        android:id="@+id/imageCompas" />
 
 </FrameLayout>

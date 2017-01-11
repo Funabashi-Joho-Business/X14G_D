@@ -34,7 +34,7 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
  */
 public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener, Compass.OnSensorListener {
 
-    public int timer;
+    private  TextView mTextChat;
     private CameraPreview mCamera;
     private int mVisibilty;
     private View mLayoutPosition;
@@ -43,8 +43,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mPosY = 0.0f;
     private float mScale = 1.0f;
     private Timer mTimer;
-    private TextView mTextTimer;
-    Handler mHandler = new Handler();
+
     private Compass mCompass;
     private ImageView mImageCompass;
 
@@ -58,82 +57,35 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_camera, container, false);
         TextureView textureView = (TextureView) view.findViewById(R.id.textureView);
         mCamera.setTextureView(textureView);
 
+        mTextChat = (TextView)view.findViewById(R.id.textChat);
         view.findViewById(R.id.imageZoomin).setOnClickListener(this);
         view.findViewById(R.id.imageZoomout).setOnClickListener(this);
         view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imageREC).setOnClickListener(this);
         view.findViewById(R.id.imageTimer).setOnClickListener(this);
-
         view.findViewById(R.id.imageMember).setOnClickListener(this);
         view.findViewById(R.id.imageZeroin).setOnClickListener(this);
-
+        view.findViewById(R.id.imageChat).setOnClickListener(this);
         mLayoutNormal = view.findViewById(R.id.layoutNormal);
-        mTextTimer = (TextView)view.findViewById(R.id.textTimer);
-
         mLayoutPosition = inflater.inflate(R.layout.fragment_zeroin, container, false);
         mLayoutPosition.findViewById(R.id.imageTateUp).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageTateDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageYokoUp).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageYokoDown).setOnClickListener(this);
         mLayoutPosition.findViewById(R.id.imageBack).setOnClickListener(this);
-
         mLayoutPosition.findViewById(R.id.imageriv).setOnClickListener(this);
-
         ((FrameLayout)view.findViewById(R.id.frameCamera)).addView(mLayoutPosition);
         mLayoutPosition.setVisibility(View.GONE);
+        mTextChat.setOnClickListener(this);
 
         mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
         mCompass = new Compass(getActivity(),this);
         return view;
 
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        Bundle args = getArguments();
-        if(args != null) {
-            timer = args.getInt("Timer");
-            String sTimer = Integer.toString(timer);
-
-            timer = timer * 60000;
-            CountDownTimer cdt = new CountDownTimer(timer, 1000)
-            {
-                public void onTick(long millisUntilFinished)
-                {
-                    setText(Long.toString(millisUntilFinished));
-                }
-
-                public void onFinish()
-                {
-                    mTextTimer.setText("終了");
-                }
-            }.start();
-
-        }else{
-            String set = "0";
-            setText(set);
-        }
-
-    }
-
-
-    void setText(final String number){
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                int i = Integer.parseInt(number);
-                int mm = i / 1000 / 60;
-                int ss = i / 1000 % 60;
-                mTextTimer.setText(String.format("%1$02d:%2$02d", mm, ss));
-            }
-        });
     }
 
     @Override
@@ -277,6 +229,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 FragmentTransaction ft5 = getFragmentManager().beginTransaction();
                 ft5.replace(R.id.fullscreen_content,new ChatPushFragment());
                 ft5.commitAllowingStateLoss();
+                break;
+            case R.id.textChat:
+                FragmentTransaction ft6 = getFragmentManager().beginTransaction();
+                ft6.replace(R.id.fullscreen_content,new ChatPushFragment());
+                ft6.commitAllowingStateLoss();
                 break;
         }
     }

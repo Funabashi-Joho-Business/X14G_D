@@ -53,8 +53,7 @@
 
             android:background="@null"
             android:layout_alignBottom="@+id/imagesetteing"
-            android:layout_toRightOf="@+id/editTeikei5"
-            android:layout_toEndOf="@+id/editTeikei5"
+
             android:layout_marginLeft="38dp"
             android:layout_marginStart="38dp"
             android:id="@+id/imageTeikeiList" />
@@ -70,7 +69,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -78,7 +77,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editTeikei1"
-                    android:background="@drawable/sinwaku" />
+                    android:background="@drawable/wakusan"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -86,7 +88,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editTeikei2"
-                    android:background="@drawable/sinwaku" />
+                    android:background="@drawable/wakusan"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -94,7 +99,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editTeikei3"
-                    android:background="@drawable/sinwaku" />
+                    android:background="@drawable/wakusan"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -102,7 +110,10 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editTeikei4"
-                    android:background="@drawable/sinwaku" />
+                    android:background="@drawable/wakusan"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -110,9 +121,12 @@
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/editTeikei5"
-                    android:background="@drawable/sinwaku"
+                    android:background="@drawable/wakusan"
                     android:layout_above="@+id/imagesetteing"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_dark" />
             </LinearLayout>
         </ScrollView>
 
