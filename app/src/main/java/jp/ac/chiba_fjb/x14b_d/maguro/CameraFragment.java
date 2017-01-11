@@ -82,8 +82,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.setVisibility(View.GONE);
         mTextChat.setOnClickListener(this);
 
-        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
-        mCompass = new Compass(getActivity(),this);
+//        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
+//        mCompass = new Compass(getActivity(),this);
         return view;
 
     }
@@ -131,12 +131,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                     TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
             }
         },0,30*1000);
-        mCompass.start();
+//        mCompass.start();
     }
 
     @Override
     public void onPause() {
-        mCompass.stop();
+//        mCompass.stop();
         mTimer.cancel();
         mCamera.close();
         super.onPause();
