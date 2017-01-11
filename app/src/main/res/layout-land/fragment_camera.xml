@@ -12,6 +12,12 @@
         android:layout_height="match_parent"
         android:id="@+id/textureView" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/konpasu3"
+        android:id="@+id/imageCompas" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -109,25 +115,34 @@
             android:layout_alignParentEnd="true"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textChat"
             android:layout_alignBottom="@+id/imageChat"
-            android:layout_alignParentLeft="true"
             android:textSize="24sp"
             android:padding="15dp"
             android:paddingLeft="20dp"
-            android:layout_marginLeft="150dp"
             android:text="TextView"
-            android:textColor="@color/gts" />
+            android:textColor="@color/gts"
+            android:layout_toLeftOf="@+id/imageZoomout"
+            android:layout_toRightOf="@+id/imageZeroin"
+            android:layout_toEndOf="@+id/imageZeroin"
+            android:layout_marginRight="100dp"
+            android:gravity="bottom|center_horizontal" />
+
+        <ImageView
+            android:layout_width="562dp"
+            android:layout_height="285dp"
+            app:srcCompat="@drawable/a"
+            android:id="@+id/imageView2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/imageZoomout"
+            android:layout_alignEnd="@+id/imageZoomout" />
 
     </RelativeLayout>
 
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/konpasu3"
-        android:id="@+id/imageCompas" />
 
 </FrameLayout>
