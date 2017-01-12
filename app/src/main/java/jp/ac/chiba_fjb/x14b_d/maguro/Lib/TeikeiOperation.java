@@ -36,6 +36,7 @@ public class TeikeiOperation {
     public static class RecvData {
         public Boolean result;
         public String rUserName;
+        public String rChat;
         public TeikeiData[] values;
     }
 
@@ -54,25 +55,22 @@ public class TeikeiOperation {
 //            thread.start();
 //    }
 
-//    public static void getMember(final String teikei1, final String teikei2, final String teikei3, final String teikei4, final String teikei5,final TeikeiOperation.OnTeikeiListener listener){
-//        Thread thread = new Thread(){
-//                @Override
-//                public void run() {
-//                    TeikeiOperation.SendData sendData = new TeikeiOperation.SendData();
-//                    sendData.cmd = "TEAM_MEMBER";
-//                    sendData.userData = new TeikeiOperation.UserData();
-//                    sendData.userData.mteikei1 = teikei1;
-//                    sendData.userData.mteikei2 = teikei2;
-//                    sendData.userData.mteikei3 = teikei3;
-//                    sendData.userData.mteikei4 = teikei4;
-//                    sendData.userData.mteikei5 = teikei5;
-//                    TeikeiOperation.RecvData recvData = Json.send(GAS_URL,sendData,TeikeiOperation.RecvData.class);
-//                    if(listener != null)
-//                        listener.onTeikei(recvData);
-//                }
-//        };
-//        thread.start();
-//    }
+    public static void getTeikei(final String teamName, final String teamPass, final TeikeiOperation.OnTeikeiListener listener){
+        Thread thread = new Thread(){
+                @Override
+                public void run() {
+                    TeikeiOperation.SendData sendData = new TeikeiOperation.SendData();
+                    sendData.cmd = "TEIKEI_GET";
+                    sendData.userData = new TeikeiOperation.UserData();
+                    sendData.userData.sTeamName = teamName;
+                    sendData.userData.sTeamPass = teamPass;
+                    TeikeiOperation.RecvData recvData = Json.send(GAS_URL,sendData,TeikeiOperation.RecvData.class);
+                    if(listener != null)
+                        listener.onTeikei(recvData);
+                }
+        };
+        thread.start();
+    }
 
     public static void setTeikei(final String teikei, final String userName, final int userId,final String teamName, final String teamPass, final TeikeiOperation.OnTeikeiListener listener) {
 
