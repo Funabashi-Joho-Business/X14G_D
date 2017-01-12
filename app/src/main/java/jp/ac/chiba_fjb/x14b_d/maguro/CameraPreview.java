@@ -334,6 +334,7 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
             stopRecording();
 
         mRec = new MediaRecorder();  // Works well
+        Camera.Parameters params = mCamera.getParameters();
         mCamera.unlock();
 
         mRec.setCamera(mCamera);
@@ -343,7 +344,7 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
         mRec.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
         mRec.setVideoFrameRate(30);
 
-        Camera.Parameters params = mCamera.getParameters();
+
         mRec.setVideoSize(params.getPreviewSize().width,params.getPreviewSize().height);
 
 
