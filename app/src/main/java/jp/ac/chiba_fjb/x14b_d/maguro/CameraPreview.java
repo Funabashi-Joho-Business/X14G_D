@@ -332,7 +332,7 @@ public class CameraPreview implements TextureView.SurfaceTextureListener,  Camer
     {
         if(mRec!=null)
             stopRecording();
-
+        Camera.Parameters params = mCamera.getParameters();
         mRec = new MediaRecorder();  // Works well
         Camera.Parameters params = mCamera.getParameters();
         mCamera.unlock();
