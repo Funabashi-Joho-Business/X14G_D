@@ -6,12 +6,9 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.PowerManager;
-import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -67,7 +64,9 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
             timerOk = 0;
         }
     }
-
+    public Location getLocation(){
+        return mLocation;
+    }
     void setText(final String number){
         mHandler.post(new Runnable() {
             @Override
