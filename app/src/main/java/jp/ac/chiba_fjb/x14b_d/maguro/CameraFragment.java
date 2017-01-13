@@ -3,6 +3,7 @@ package jp.ac.chiba_fjb.x14b_d.maguro;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -22,6 +23,7 @@ import java.util.TimerTask;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.Compass;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeikeiOperation;
 
 import static android.R.attr.x;
 import static android.R.attr.y;
@@ -32,7 +34,7 @@ import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCA
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener, Compass.OnSensorListener {
+public class CameraFragment extends Fragment implements View.OnClickListener, TeamOperation.OnTeamListener, Compass.OnSensorListener, TeikeiOperation.OnTeikeiListener {
 
     private  TextView mTextChat;
     private CameraPreview mCamera;
@@ -43,9 +45,13 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private float mPosY = 0.0f;
     private float mScale = 1.0f;
     private Timer mTimer;
-
+    private String mTeamName;
+    private String mTeamPass;
     private Compass mCompass;
+
     private CompassView mImageCompass;
+    Handler mHandler = new Handler();
+
 
 
     public CameraFragment() {
@@ -84,8 +90,35 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
         mImageCompass = (CompassView) view.findViewById(R.id.imageCompas);
         mCompass = new Compass(getActivity(),this);
+
+        AppDB db = new AppDB(getContext());
+        mTeamName = db.getSetting("TEAM_NAME","");
+        mTeamPass = db.getSetting("TEAM_PASS","");
+        db.close();
+
+//        if(mTeamName.length() > 0) {
+            TeikeiOperation.getTeikei(mTeamName,mTeamPass,this);
+//        }
+
         return view;
 
+    }
+
+    @Override
+    public void onTeikei(TeikeiOperation.RecvData recvData) {
+        if (recvData != null && recvData.result) {
+            setText(recvData.rUserName + ":" + recvData.rChat);
+        } else
+            setText("受信失敗");
+    }
+
+    void setText(final String chat){
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                mTextChat.setText(chat);
+            }
+        });
     }
 
     @Override
@@ -131,12 +164,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                     TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
             }
         },0,30*1000);
-        mCompass.start();
+//        mCompass.start();
     }
 
     @Override
     public void onPause() {
-        mCompass.stop();
+//        mCompass.stop();
         mTimer.cancel();
         mCamera.close();
         super.onPause();
