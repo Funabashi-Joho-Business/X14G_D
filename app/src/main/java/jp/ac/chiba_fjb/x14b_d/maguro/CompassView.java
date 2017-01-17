@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Point;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
@@ -19,8 +18,8 @@ import java.util.List;
 
 public class CompassView extends AppCompatImageView {
 
-
-	private List<Point> mPoints = new ArrayList<Point>();
+	private float mBaseLength = 40.0f;
+	private List<float[]> mPoints = new ArrayList<float[]>();
 
 	public CompassView(Context context) {
 		super(context);
@@ -28,18 +27,12 @@ public class CompassView extends AppCompatImageView {
 
 	public CompassView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		Test();
 	}
 
 	public CompassView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		Test();
 	}
-	void Test(){
-		addPoint(10,30);
-		addPoint(20,50);
-		addPoint(-120,80);
-	}
+
 
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -49,23 +42,28 @@ public class CompassView extends AppCompatImageView {
 		int size = Math.min(canvas.getWidth(),canvas.getHeight());
 		int px = (canvas.getWidth()-size)/2;
 		int py = (canvas.getHeight()-size)/2;
-
-		int cx = px + size / 2;
-		int cy = py + size / 2;
+		int cx = canvas.getWidth()/2;
+		int cy = canvas.getHeight()/2;
 
 		Paint paint = new Paint();
 		paint.setColor(Color.argb(200, 255, 0, 0));
 
-		for(Point p : mPoints){
-			canvas.drawCircle(cx+p.x,cy+p.y,16, paint);
+
+		for(float[] p : mPoints){
+			double r = (p[1]-90.0f)*Math.PI/180.0f;
+			int x = (int) (cx + p[0]/mBaseLength*Math.cos(r)*size/4);
+			int y = (int) (cy + p[0]/mBaseLength*Math.sin(r)*size/4);
+			canvas.drawCircle(x,y,16, paint);
 		}
 
+		//中心点
+		Paint paint2 = new Paint();
+		paint2.setColor(Color.argb(200, 0, 255, 0));
+		canvas.drawCircle(cx,cy,16, paint2);
 
-//		Rect rect = new Rect(px,py,px+size,+py+size);
-//		canvas.drawRect(rect, paint);
 	}
-	void addPoint(int x,int y){
-		mPoints.add(new Point(x,y));
+	void addPoint(float[] value){
+		mPoints.add(value);
 	}
 	void clearPoint(){
 		mPoints.clear();

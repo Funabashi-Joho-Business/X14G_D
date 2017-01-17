@@ -139,4 +139,11 @@
     </RelativeLayout>
 
 
+    <jp.ac.chiba_fjb.x14b_d.maguro.CompassView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/konpasu3"
+        android:id="@+id/imageCompas" />
+
+
 </FrameLayout>

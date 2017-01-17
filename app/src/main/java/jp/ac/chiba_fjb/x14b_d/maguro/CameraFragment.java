@@ -1,11 +1,10 @@
 package jp.ac.chiba_fjb.x14b_d.maguro;
 
+import android.location.Location;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +25,8 @@ import jp.ac.chiba_fjb.x14b_d.maguro.Lib.Compass;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeikeiOperation;
 
+import static android.R.attr.x;
+import static android.R.attr.y;
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
 
@@ -48,8 +48,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     private String mTeamName;
     private String mTeamPass;
     private Compass mCompass;
-    private ImageView mImageCompass;
+
+    private CompassView mImageCompass;
     Handler mHandler = new Handler();
+
 
 
     public CameraFragment() {
@@ -86,6 +88,9 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         mLayoutPosition.setVisibility(View.GONE);
         mTextChat.setOnClickListener(this);
 
+        mImageCompass = (CompassView) view.findViewById(R.id.imageCompas);
+        mCompass = new Compass(getActivity(),this);
+
         AppDB db = new AppDB(getContext());
         mTeamName = db.getSetting("TEAM_NAME","");
         mTeamPass = db.getSetting("TEAM_PASS","");
@@ -95,8 +100,6 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
             TeikeiOperation.getTeikei(mTeamName,mTeamPass,this);
 //        }
 
-//        mImageCompass = (ImageView)view.findViewById(R.id.imageCompas);
-//        mCompass = new Compass(getActivity(),this);
         return view;
 
     }
@@ -271,15 +274,32 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onTeam(final TeamOperation.RecvData recvData) {
+        final Location location = ((FullscreenActivity)getActivity()).getLocation();
+
         if (recvData != null && recvData.result) {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    StringBuilder sb = new StringBuilder();
-                    for (TeamOperation.UserData m : recvData.members) {
-                        String msg = String.format("%s (%f,%f)\n", m.userName, m.locationX, m.locationY);
-                        sb.append(msg);
+                    if(location != null){
+                        mImageCompass.clearPoint();
+                        for (TeamOperation.UserData m : recvData.members) {
+                            float[] results = new float[3];
+                            Location.distanceBetween(location.getLatitude(), location.getLongitude(), y, x, results);
+                            mImageCompass.addPoint(results);
+                        }
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mImageCompass.invalidate();
+                            }
+                        });
                     }
+
+//                    StringBuilder sb = new StringBuilder();
+//                    for (TeamOperation.UserData m : recvData.members) {
+//                        String msg = String.format("%s (%f,%f)\n", m.userName, m.locationX, m.locationY);
+//                        sb.append(msg);
+//                    }
                     //mTextDebug.setText(sb.toString());
                 }
             });
