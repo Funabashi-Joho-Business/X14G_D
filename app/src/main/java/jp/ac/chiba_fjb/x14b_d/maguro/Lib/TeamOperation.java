@@ -7,7 +7,8 @@ public class TeamOperation{
         public void onTeam(RecvData recvData);
     }
 
-    private static String GAS_URL = "https://script.google.com/macros/s/AKfycbwhmTnKurbsy5TBZ2Y5pwuhirBHi3pTpDf3Qs51Q3WsTUGPoPs/exec";
+    //private static String GAS_URL = "https://script.google.com/macros/s/AKfycbwhmTnKurbsy5TBZ2Y5pwuhirBHi3pTpDf3Qs51Q3WsTUGPoPs/exec";
+    private static String GAS_URL = "https://script.google.com/macros/s/AKfycbw8yQimj_TyBl_2EhXDV02cyaAEQaOF9M0w-M3OVghO_CQ1Tqo/exec";
 
     public static class UserData{
         public int teamId;
