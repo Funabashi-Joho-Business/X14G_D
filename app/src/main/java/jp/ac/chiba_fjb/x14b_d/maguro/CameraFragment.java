@@ -298,6 +298,8 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
 
     @Override
     public void onTeam(final TeamOperation.RecvData recvData) {
+        if(getActivity() == null)
+            return;
         final Location location = ((FullscreenActivity)getActivity()).getLocation();
 
         if (recvData != null && recvData.result) {
