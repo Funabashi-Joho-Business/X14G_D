@@ -37,7 +37,7 @@ public class TopFragment extends Fragment implements View.OnClickListener {
         View view =inflater.inflate(R.layout.fragment_top, container, false);
         mEditName = (EditText)view.findViewById(R.id.editName);
         mEditName.setText(name);
-
+        view.findViewById(R.id.imageBack).setOnClickListener(this);
         view.findViewById(R.id.imagesettei).setOnClickListener(this);
 
         return view;
@@ -54,6 +54,12 @@ public class TopFragment extends Fragment implements View.OnClickListener {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fullscreen_content, new TitleFragment());
                 ft.commitAllowingStateLoss();
+                break;
+
+            case R.id.imageBack:
+                FragmentTransaction ft2 = getFragmentManager().beginTransaction();
+                ft2.replace(R.id.fullscreen_content,new TitleFragment());
+                ft2.commitAllowingStateLoss();
                 break;
         }
     }

@@ -97,11 +97,35 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
         db.close();
 
 //        if(mTeamName.length() > 0) {
-            TeikeiOperation.getTeikei(mTeamName,mTeamPass,this);
+
+        recvTeikei(mTeamName,mTeamPass);
+//            TeikeiOperation.getTeikei(mTeamName,mTeamPass,this);
 //        }
+
 
         return view;
 
+    }
+
+    public void recvTeikei(String teamName, String teamPass){
+        TeikeiOperation.getTeikei(teamName,teamPass,this);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //タイマー処理
+        mTimer = new Timer(true);
+        mTimer.schedule(new TimerTask(){
+            @Override
+            public void run() {
+                mHandler.post( new Runnable() {
+                    public void run() {
+                        recvTeikei(mTeamName,mTeamPass);
+                    }
+                });
+            }
+        },1000,3000); //1秒後から3秒間隔で実行
     }
 
     @Override
@@ -112,7 +136,7 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
             setText("受信失敗");
     }
 
-    void setText(final String chat){
+    public void setText(final String chat){
         mHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -164,12 +188,12 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                     TeamOperation.getMember(teamName,teamPass,CameraFragment.this);
             }
         },0,30*1000);
-//        mCompass.start();
+        mCompass.start();
     }
 
     @Override
     public void onPause() {
-//        mCompass.stop();
+        mCompass.stop();
         mTimer.cancel();
         mCamera.close();
         super.onPause();

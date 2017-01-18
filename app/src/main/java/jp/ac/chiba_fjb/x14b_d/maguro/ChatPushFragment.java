@@ -120,9 +120,9 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener, 
     public void onTeikei(TeikeiOperation.RecvData recvData) {
         if (recvData != null && recvData.result) {
             Snackbar.make(getView(), "送信完了", Snackbar.LENGTH_SHORT).show();
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fullscreen_content, new CameraFragment());
-            ft.commitAllowingStateLoss();
+//            FragmentTransaction ft = getFragmentManager().beginTransaction();
+//            ft.replace(R.id.fullscreen_content, new CameraFragment());
+//            ft.commitAllowingStateLoss();
         } else
             Snackbar.make(getView(), "送信失敗", Snackbar.LENGTH_SHORT).show();
     }

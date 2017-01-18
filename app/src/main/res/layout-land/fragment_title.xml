@@ -75,7 +75,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="17dp"
             android:layout_alignLeft="@+id/textTeamName"
-            android:layout_alignStart="@+id/textTeamName"/>
+            android:layout_alignStart="@+id/textTeamName"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageButton
             android:layout_width="wrap_content"
