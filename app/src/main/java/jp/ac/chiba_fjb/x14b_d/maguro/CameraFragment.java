@@ -287,11 +287,11 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
                 ft5.replace(R.id.fullscreen_content,new ChatPushFragment());
                 ft5.commitAllowingStateLoss();
                 break;
-            case R.id.textChat:
-                FragmentTransaction ft6 = getFragmentManager().beginTransaction();
-                ft6.replace(R.id.fullscreen_content,new ChatPushFragment());
-                ft6.commitAllowingStateLoss();
-                break;
+//            case R.id.textChat:
+//                FragmentTransaction ft6 = getFragmentManager().beginTransaction();
+//                ft6.replace(R.id.fullscreen_content,new ChatPushFragment());
+//                ft6.commitAllowingStateLoss();
+//                break;
         }
     }
 

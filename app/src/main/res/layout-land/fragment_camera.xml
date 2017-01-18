@@ -115,10 +115,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/konpasu3"
-        android:id="@+id/imageCompas" />
+        android:id="@+id/imageCompas"
+        android:focusable="false" />
 
     <TextView
-        android:layout_width="581dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/textChat"
         android:layout_alignBottom="@+id/imageChat"
@@ -131,7 +132,12 @@
         android:layout_toEndOf="@+id/imageZeroin"
         android:layout_marginRight="100dp"
         android:gravity="bottom|center_horizontal"
-        android:text="aaaaaaaaa" />
+        android:enabled="false"
+        android:visibility="visible"
+        android:focusable="false"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:layout_marginLeft="100dp" />
 
 
 </FrameLayout>

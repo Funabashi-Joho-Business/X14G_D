@@ -35,7 +35,7 @@ public class AlermFragment extends Fragment implements View.OnClickListener {
 
         mEditTimer = (EditText)view.findViewById(R.id.editTimer);
         view.findViewById(R.id.start).setOnClickListener(this);
-
+        view.findViewById(R.id.imageBack).setOnClickListener(this);
             return view;
     }
 

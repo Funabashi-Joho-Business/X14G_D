@@ -58,6 +58,16 @@
             android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp" />
 
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/modoru"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/imageBack"
+            android:background="@null" />
+
     </RelativeLayout>
 
 </FrameLayout>

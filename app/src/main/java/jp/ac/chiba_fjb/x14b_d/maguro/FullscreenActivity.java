@@ -55,6 +55,8 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
                     }
                 }.start();
 
+            }else if(timerOk == 0) {
+                mTextTimer.setText("");
             }else{
                 timerOk = 0;
                 cdt.cancel();
