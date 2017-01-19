@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.AppDB;
 import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeamOperation;
+import jp.ac.chiba_fjb.x14b_d.maguro.Lib.TeikeiOperation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,6 +78,7 @@ public class TitleFragment extends Fragment implements View.OnClickListener, Tea
                 break;
             case R.id.imageKaisan:
                 Snackbar.make(getView(), "チーム離脱中", Snackbar.LENGTH_SHORT).show();
+                TeikeiOperation.removeTeikei(mUserName,mUserId,mTeamName,mTeamPass);
                 TeamOperation.removeTeam(mUserId,mUserPass, new TeamOperation.OnTeamListener() {
                     @Override
                     public void onTeam(final TeamOperation.RecvData recvData) {

@@ -131,7 +131,10 @@ public class CameraFragment extends Fragment implements View.OnClickListener, Te
     @Override
     public void onTeikei(TeikeiOperation.RecvData recvData) {
         if (recvData != null && recvData.result) {
-            setText(recvData.rUserName + ":" + recvData.rChat);
+            if(recvData.rUserName  != null || recvData.rChat != null) {
+                setText(recvData.rUserName + ":" + recvData.rChat);
+            }else {
+            }
         } else
             setText("受信失敗");
     }

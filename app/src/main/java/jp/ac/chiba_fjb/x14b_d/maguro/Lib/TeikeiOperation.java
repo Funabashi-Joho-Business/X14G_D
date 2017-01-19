@@ -40,21 +40,6 @@ public class TeikeiOperation {
         public TeikeiData[] values;
     }
 
-//    public static void getTeikei(final TeikeiOperation.OnTeikeiListener listener){
-//        Thread thread = new Thread(){
-//                @Override
-//                public void run() {
-//                    //送信データの作成
-//                    TeikeiOperation.SendData sendData = new TeikeiOperation.SendData();
-//                    sendData.cmd = "USER_TEIKEI1";
-//                    TeikeiOperation.RecvData recvData = Json.send(GAS_URL,sendData,TeikeiOperation.RecvData.class);
-//                    if(listener != null)
-//                        listener.onTeikei(recvData);
-//                }
-//        };
-//            thread.start();
-//    }
-
     public static void getTeikei(final String teamName, final String teamPass, final TeikeiOperation.OnTeikeiListener listener){
         Thread thread = new Thread(){
                 @Override
@@ -94,22 +79,22 @@ public class TeikeiOperation {
         thread.start();
     }
 
-//    public static void removeTeam(final int userId,final String userPass,final TeamOperation.OnTeamListener listener){
-//        Thread thread = new Thread(){
-//                @Override
-//                public void run() {
-//                    //送信データの作成
-//                    TeamOperation.SendData sendData = new TeamOperation.SendData();
-//                    sendData.cmd = "TEAM_REMOVE";
-//                    sendData.userData = new TeamOperation.UserData();
-//                    sendData.userData.userId = userId;
-//                    sendData.userData.userPass = userPass;
-//                    TeamOperation.RecvData recvData = Json.send(GAS_URL,sendData,TeamOperation.RecvData.class);
-//                    if(listener != null)
-//                        listener.onTeam(recvData);
-//                }
-//        };
-//        thread.start();
-//    }
+    public static void removeTeikei(final String userName,final int userId,final String teamName,final String teamPass){
+        Thread thread = new Thread(){
+                @Override
+                public void run() {
+                    //送信データの作成
+                    SendData sendData = new SendData();
+                    sendData.cmd = "TEIKEI_REMOVE";
+                    sendData.userData = new UserData();
+                    sendData.userData.sUserName = userName;
+                    sendData.userData.sUserId = userId;
+                    sendData.userData.sTeamName = teamName;
+                    sendData.userData.sTeamPass = teamPass;
+                    Json.send(GAS_URL,sendData,TeamOperation.RecvData.class);
+                }
+        };
+        thread.start();
+    }
 
 }

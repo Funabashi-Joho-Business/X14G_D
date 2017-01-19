@@ -92,26 +92,45 @@ public class ChatPushFragment extends Fragment implements View.OnClickListener, 
                 ft.commitAllowingStateLoss();
                 break;
             case R.id.teikei1:
-                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
-                TeikeiOperation.setTeikei(sTeikei1,sUserName,sUserId,sTeamName,sTeamPass,this);
-                break;
+                if(sUserId != 0) {
+                    Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                    TeikeiOperation.setTeikei(sTeikei1, sUserName, sUserId, sTeamName, sTeamPass, this);
+                    break;
+                }else{
+                    Snackbar.make(getView(), "チーム参加後に送信してください", Snackbar.LENGTH_SHORT).show();
+                }
             case R.id.teikei2:
-                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
-                TeikeiOperation.setTeikei(sTeikei2,sUserName,sUserId,sTeamName,sTeamPass,this);
-                break;
+                if(sUserId != 0) {
+                    Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                    TeikeiOperation.setTeikei(sTeikei2, sUserName, sUserId, sTeamName, sTeamPass, this);
+                    break;
+                }else{
+                    Snackbar.make(getView(), "チーム参加後に送信してください", Snackbar.LENGTH_SHORT).show();
+                }
             case R.id.teikei3:
-                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
-                TeikeiOperation.setTeikei(sTeikei3,sUserName,sUserId,sTeamName,sTeamPass,this);
-                break;
+                if(sUserId != 0) {
+                    Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                    TeikeiOperation.setTeikei(sTeikei3, sUserName, sUserId, sTeamName, sTeamPass, this);
+                    break;
+                }else{
+                    Snackbar.make(getView(), "チーム参加後に送信してください", Snackbar.LENGTH_SHORT).show();
+                }
             case R.id.teikei4:
-                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
-                TeikeiOperation.setTeikei(sTeikei4,sUserName,sUserId,sTeamName,sTeamPass,this);
-                break;
+                if(sUserId != 0) {
+                    Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                    TeikeiOperation.setTeikei(sTeikei4, sUserName, sUserId, sTeamName, sTeamPass, this);
+                    break;
+                }else{
+                    Snackbar.make(getView(), "チーム参加後に送信してください", Snackbar.LENGTH_SHORT).show();
+                }
             case R.id.teikei5:
-                Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
-                TeikeiOperation.setTeikei(sTeikei5,sUserName,sUserId,sTeamName,sTeamPass,this);
-                break;
-
+                if(sUserId != 0) {
+                    Snackbar.make(getView(), "チャット送信中", Snackbar.LENGTH_SHORT).show();
+                    TeikeiOperation.setTeikei(sTeikei5, sUserName, sUserId, sTeamName, sTeamPass, this);
+                    break;
+                }else{
+                    Snackbar.make(getView(), "チーム参加後に送信してください", Snackbar.LENGTH_SHORT).show();
+                }
         }
 
     }
