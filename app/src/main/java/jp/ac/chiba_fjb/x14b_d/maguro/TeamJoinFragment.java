@@ -88,32 +88,32 @@ public class TeamJoinFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onTeam(TeamOperation.RecvData recvData) {
 
-        if(recvData != null && recvData.result){
-            AppDB db = new AppDB(getContext());
-            db.setSetting("TEAM_NAME",mTeamName);
-            db.setSetting("USER_ID",recvData.userId);
-            db.setSetting("USER_PASS",recvData.userPass);
-            db.setSetting("TEAM_PASS",mEditPass.getText().toString());
-            db.close();
+            if (recvData != null && recvData.result) {
+                AppDB db = new AppDB(getContext());
+                db.setSetting("TEAM_NAME", mTeamName);
+                db.setSetting("USER_ID", recvData.userId);
+                db.setSetting("USER_PASS", recvData.userPass);
+                db.setSetting("TEAM_PASS", mEditPass.getText().toString());
+                db.close();
 
-            Bundle bundle = new Bundle();
-            bundle.putString("teamName2",mTeamName);
-            Fragment f = new OkJoinFragment();
-            f.setArguments(bundle);
+                Bundle bundle = new Bundle();
+                bundle.putString("teamName2", mTeamName);
+                Fragment f = new OkJoinFragment();
+                f.setArguments(bundle);
 
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fullscreen_content,f);
-            ft.commitAllowingStateLoss();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fullscreen_content, f);
+                ft.commitAllowingStateLoss();
 
 
-        }else{
-            AppDB db = new AppDB(getContext());
-            Snackbar.make(getView(), "参加失敗", Snackbar.LENGTH_SHORT).show();
-            db.setSetting("TEAM_NAME","");
-            db.setSetting("USER_ID",0);
-            db.setSetting("USER_PASS","");
-            db.close();
+            } else {
+                AppDB db = new AppDB(getContext());
+                Snackbar.make(getView(), "参加失敗", Snackbar.LENGTH_SHORT).show();
+                db.setSetting("TEAM_NAME", "");
+                db.setSetting("USER_ID", 0);
+                db.setSetting("USER_PASS", "");
+                db.close();
+            }
+
         }
-
     }
-}
