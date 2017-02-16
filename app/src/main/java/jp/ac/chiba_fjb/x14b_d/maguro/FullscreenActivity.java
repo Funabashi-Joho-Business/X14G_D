@@ -138,7 +138,6 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
                         x = mLocation.getLongitude();
                         y = mLocation.getLatitude();
                     }
-
                     TeamOperation.joinTeam(teamName,teamPass,userId,userName,userPass,x,y,FullscreenActivity.this);
                 }
 
