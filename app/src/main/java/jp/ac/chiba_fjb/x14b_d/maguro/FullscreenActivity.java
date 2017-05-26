@@ -99,10 +99,12 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
                 else
                     ft.replace(R.id.fullscreen_content,new TitleFragment());
                 ft.commitAllowingStateLoss();
+                mLocationSource = new MyLocationSource(FullscreenActivity.this);
+                mLocationSource.setOnLocationListener(FullscreenActivity.this);
             }
         });
         mPermission.requestPermissions(this);
-        mLocationSource = new MyLocationSource(this);
+
     }
 
     @Override
@@ -117,7 +119,8 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
         PowerManager pm = (PowerManager)getSystemService(Context.POWER_SERVICE);
         mLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "My tag");
         mLock.acquire();
-        mLocationSource.setOnLocationListener(this);
+        if(mLocationSource != null)
+            mLocationSource.setOnLocationListener(this);
 
         mTimer = new Timer();
         mTimer.schedule(new TimerTask() {
@@ -149,7 +152,8 @@ public class FullscreenActivity extends AppCompatActivity implements MyLocationS
     @Override
     protected void onPause() {
         mTimer.cancel();
-        mLocationSource.setOnLocationListener(null);
+        if(mLocationSource != null)
+            mLocationSource.setOnLocationListener(null);
         //常時ONを戻す
         mLock.release();
         super.onPause();
